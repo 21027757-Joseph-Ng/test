@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3abc333b1ee62b12c9aeea0f091562ebb913c36c0523bfb06c05fe8721f26a56
-size 492
+using System.Collections;
+//using UnityEngine;
+
+//get App info from Android
+[System.Serializable]
+public class RKGestureEvent
+{
+    public int GesType;
+    public int handType;//0.no hand   1.right hand   2.left hand
+    public float normPosX;
+    public float normPosY;
+    public int screenPosX;
+    public int screenPosY;
+    public float refScaleZ;
+    public int gestureAction;
+    public long timeStamp;
+    public int trackState;
+    public float[][] normPos21;
+
+}

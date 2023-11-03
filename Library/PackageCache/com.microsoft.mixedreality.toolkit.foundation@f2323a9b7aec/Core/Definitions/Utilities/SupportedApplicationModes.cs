@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f274252bd622c2785c978dbda54d5a8e13fef9bd7397eceb3924ef10d1205fc
-size 781
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// The supported Application modes for specific features.
+    /// </summary>
+    /// <remarks>
+    /// This enum can be used to configure specific features to have differing behaviors when run in editor.
+    /// </remarks>
+    [Flags]
+    public enum SupportedApplicationModes
+    {
+        /// <summary>
+        /// This indicates that the feature is relevant in editor scenarios.
+        /// </summary>
+        Editor = 1 << 0,
+
+        /// <summary>
+        /// This indicates that the feature is relevant in player scenarios.
+        /// </summary>
+        Player = 1 << 1,
+    }
+}

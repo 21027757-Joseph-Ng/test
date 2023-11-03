@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3b0cb529d1caa486ad49a69f4af911d46ee1d3e439dded8b7da1ab2e8dbfae40
-size 910
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ClickedLocal : MonoBehaviour
+{
+    private bool m_Enter = false;
+
+    public void OnPointerEnter()
+    {
+        m_Enter = true;
+        VoiceCommandLogic.Instance.AddInstrucEntityZH("打开", "da kai", true, true, true, this.gameObject.name, "Open", "打开");
+    }
+
+    public void OnPointerExit()
+    {
+        m_Enter = false;
+        VoiceCommandLogic.Instance.RemoveInstructZH("打开");
+    }
+    private void Update()
+    {
+        if (!m_Enter) return;
+
+        if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Return))
+        {
+            Debug.Log("1");
+            Activate();
+        }
+    }
+    public void Activate()
+    {
+        SceneManager.LoadScene("LocalRecognition");
+    }
+}

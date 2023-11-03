@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:45f349921831d087aae889a21355eae03067e85f186c16c52cedefe93bb740e4
-size 586
+namespace UnityEngine.XR.ARSubsystems
+{
+    /// <summary>
+    /// Represents pose tracking quality.
+    /// May apply to a device or trackables it is tracking in the environment.
+    /// </summary>
+    public enum TrackingState
+    {
+        /// <summary>
+        /// Not tracking.
+        /// </summary>
+        None,
+
+        /// <summary>
+        /// Some tracking information is available, but it is limited or of poor quality.
+        /// </summary>
+        Limited,
+
+        /// <summary>
+        /// Tracking is working normally.
+        /// </summary>
+        Tracking,
+    }
+}

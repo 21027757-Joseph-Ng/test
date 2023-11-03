@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8f132a9531faac755f9eb4909618676afab75a3bc056f0d4ac980cd2c1688b6a
-size 685
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.Toolkit.Editor.Inspectors")]
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor
+{
+    /// <summary>
+    /// List of the stages of the project configurator
+    /// </summary>
+    internal enum ConfigurationStage
+    {
+        Init = 0,
+        SelectXRSDKPlugin = 100,
+        InstallOpenXR = 101,
+        InstallMSOpenXR = 102,
+        InstallBuiltinPlugin = 150,
+        ProjectConfiguration = 200,
+        ImportTMP = 300,
+        ShowExamples = 400,
+        Done = 500
+    };
+}

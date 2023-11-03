@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0f5df696fb1f1e7b13a447dba0fa64863cda4b09ac4b24f75ca446362f42e3c5
-size 837
+#if UNITY_EDITOR || UNITY_ANDROID || UNITY_IOS || UNITY_TVOS || UNITY_WSA
+namespace UnityEngine.InputSystem.OnScreen
+{
+    /// <summary>
+    /// Support for various forms of on-screen controls.
+    /// </summary>
+    /// <remarks>
+    /// On-screen input visually represents control elements either through (potentially) built-in
+    /// mechanisms like <see cref="OnScreenKeyboard"/> or through manually arranged control setups
+    /// in the form of <see cref="OnScreenControl">OnScreenControls</see>.
+    /// </remarks>
+#if UNITY_DISABLE_DEFAULT_INPUT_PLUGIN_INITIALIZATION
+    public
+#else
+    internal
+#endif
+    static class OnScreenSupport
+    {
+        public static void Initialize()
+        {
+            ////TODO: OnScreenKeyboard support
+            //InputSystem.RegisterLayout<OnScreenKeyboard>();
+        }
+    }
+}
+#endif

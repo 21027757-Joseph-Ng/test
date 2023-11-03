@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:88db803c456a41d0a355a4fd5473ab803aa5feb51f987df7ec06c61df6a8c416
-size 670
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Theme property value types used for converting theme values back and forth from serialized objects
+    /// </summary>
+    public enum ThemePropertyTypes
+    {
+        Float,
+        Int,
+        Color,
+        ShaderFloat,
+        ShaderRange,
+        Vector2,
+        Vector3,
+        Vector4,
+        Quaternion,
+        Texture,
+        Material,
+        AudioClip,
+        Animaiton,
+        GameObject,
+        String,
+        Bool,
+        AnimatorTrigger,
+        Shader,
+    }
+}

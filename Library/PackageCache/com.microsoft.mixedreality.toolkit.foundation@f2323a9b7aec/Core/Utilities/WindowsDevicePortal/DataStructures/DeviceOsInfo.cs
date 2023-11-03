@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a481081aa28ff832f89536f9f576b60559f4231599734f999b9306363af59e49
-size 401
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.WindowsDevicePortal
+{
+    [Serializable]
+    public class DeviceOsInfo
+    {
+        public string ComputerName;
+        public string OsEdition;
+        public int OsEditionId;
+        public string OsVersion;
+        public string Platform;
+    }
+}

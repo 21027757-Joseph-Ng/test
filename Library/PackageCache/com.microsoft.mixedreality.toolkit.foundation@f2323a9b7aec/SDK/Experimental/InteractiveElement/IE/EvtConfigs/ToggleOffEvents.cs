@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c6a6e8b24cd1c518861cbda2aae5d29b408822af6daf6f2c03f751c45b5b744f
-size 568
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// The event configuration for the ToggleOff InteractionState.
+    /// </summary>
+    public class ToggleOffEvents : BaseInteractionEventConfiguration
+    {
+        /// <summary>
+        /// A Unity event that is fired when the ToggleOff state is active.
+        /// </summary>
+        public UnityEvent OnToggleOff = new UnityEvent();
+    }
+}
+

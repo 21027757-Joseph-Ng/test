@@ -1,3 +1,51 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9a2d3266dec08563770ac73286ac7d42c07fc6551f8919d681d38985c2a28d29
-size 1435
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using TMPro;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Dwell
+{
+    /// <summary>
+    /// Dwell sample to work on a list of dwell targets
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Examples/ListItemDwell")]
+    public class ListItemDwell : BaseDwellSample
+    {
+        [SerializeField]
+        private TextMeshProUGUI itemName = null;
+
+        [SerializeField]
+        private TextMeshProUGUI displayLabel = null;
+
+        /// <inheritdoc/>
+        protected override void Awake()
+        {
+            DwellHandler = this.GetComponentInChildren<DwellHandler>();
+        }
+
+        private void Update()
+        {
+            if (IsDwelling || dwellVisualImage.fillAmount > 0)
+            {
+                float value = DwellHandler.DwellProgress;
+                dwellVisualImage.fillAmount = value;
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void DwellCompleted(IMixedRealityPointer pointer)
+        {
+            base.DwellCompleted(pointer);
+            dwellVisualImage.fillAmount = 0;
+            ButtonExecute();
+        }
+
+        /// <inheritdoc/>
+        public override void ButtonExecute()
+        {
+            displayLabel.text = "Selected Item: " + itemName.text;
+        }
+    }
+}

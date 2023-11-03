@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d509df1c9d8319f09eccc6c470b528bf14f7247d60320cb4a4d096d07da8bbd8
-size 537
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities.Editor;
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input.Editor
+{
+    [CustomPropertyDrawer(typeof(SpeechKeywordAttribute))]
+    public class SpeechKeywordPropertyDrawer : PropertyDrawer
+    {
+        public override void OnGUI(Rect rect, SerializedProperty property, GUIContent content) => SpeechKeywordUtility.RenderKeywords(property, rect, content);
+    }
+}

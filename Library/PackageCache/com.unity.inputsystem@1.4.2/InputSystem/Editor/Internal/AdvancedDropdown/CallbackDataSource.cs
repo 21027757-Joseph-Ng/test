@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d2ebfff2f5ee7991203a52236dd4c59eecac828ef4909e77e3ce79a5c9407b65
-size 1034
+#if UNITY_EDITOR
+using System;
+using System.Collections.Generic;
+
+namespace UnityEngine.InputSystem.Editor
+{
+    internal class CallbackDataSource : AdvancedDropdownDataSource
+    {
+        private readonly Func<AdvancedDropdownItem> m_BuildCallback;
+        private readonly Func<string, IEnumerable<AdvancedDropdownItem>, AdvancedDropdownItem>
+        m_SearchCallback;
+
+        internal CallbackDataSource(Func<AdvancedDropdownItem> buildCallback,
+                                    Func<string, IEnumerable<AdvancedDropdownItem>, AdvancedDropdownItem> searchCallback = null)
+        {
+            m_BuildCallback = buildCallback;
+            m_SearchCallback = searchCallback;
+        }
+
+        protected override AdvancedDropdownItem FetchData()
+        {
+            return m_BuildCallback();
+        }
+
+        protected override AdvancedDropdownItem PerformCustomSearch(string searchString)
+        {
+            return m_SearchCallback?.Invoke(searchString, m_SearchableElements);
+        }
+    }
+}
+
+#endif // UNITY_EDITOR

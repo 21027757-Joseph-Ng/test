@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61bb676fe2e1ecfd0b03925b247bdf0f223c928ea41a149bde67ac1316f45a33
-size 551
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// The type of primitives to render.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/mesh.primitive.schema.json
+    /// </summary>
+    public enum GltfDrawMode
+    {
+        Points = 0,
+        Lines = 1,
+        LineLoop = 2,
+        LineStrip = 3,
+        Triangles = 4,
+        TriangleStrip = 5,
+        TriangleFan = 6
+    }
+}

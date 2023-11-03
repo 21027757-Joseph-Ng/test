@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:da6ef1285556267d9ca4ff904ba9ca94e5b0a0b4a79c0d33c528520c2c0491a5
-size 1190
+﻿using System;
+using System.Collections.Generic;
+using Newtonsoft.Json;
+
+namespace Unity.Nuget.NewtonsoftJson.Tests.TestObjects
+{
+    class ListOfIds<T> : JsonConverter
+        where T : Bar, new()
+    {
+        public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+        {
+            var list = (IList<T>)value;
+
+            writer.WriteStartArray();
+            foreach (var item in list)
+            {
+                writer.WriteValue(item.Id);
+            }
+
+            writer.WriteEndArray();
+        }
+
+        public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            IList<T> list = new List<T>();
+
+            reader.Read();
+            while (reader.TokenType != JsonToken.EndArray)
+            {
+                var id = (long)reader.Value;
+
+                list.Add(new T
+                {
+                    Id = Convert.ToInt32(id)
+                });
+
+                reader.Read();
+            }
+
+            return list;
+        }
+
+        public override bool CanConvert(Type objectType) => typeof(IList<T>).IsAssignableFrom(objectType);
+    }
+}

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7f20c3eeb92afa2e749bed25108437950392d1155857578ed2f8c63619747e39
-size 622
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.Toolkit.Providers.WindowsMixedReality")]
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.Toolkit.Providers.XRSDK.WindowsMixedReality")]
+[assembly: System.Reflection.AssemblyVersion("2.8.3.0")]
+[assembly: System.Reflection.AssemblyFileVersion("2.8.3.0")]
+
+[assembly: System.Reflection.AssemblyProduct("Microsoft® Mixed Reality Toolkit Providers")]
+[assembly: System.Reflection.AssemblyCopyright("Copyright © Microsoft Corporation")]

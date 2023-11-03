@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:957740574aadb8af5a532b0af09712e62d31052c1a525da6c88d1d03549b76b4
-size 1338
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+#if UNITY_EDITOR
+using UnityEditor;
+using UnityEditor.XR.OpenXR.Features;
+#endif
+
+namespace Microsoft.MixedReality.OpenXR
+{
+#if UNITY_EDITOR
+    [OpenXRFeature(UiName = "Motion Controller Model",
+        BuildTargetGroups = new[] { BuildTargetGroup.Standalone, BuildTargetGroup.WSA },
+        Company = "Microsoft",
+        Desc = "Supports loading a glTF model for controllers.",
+        DocumentationLink = "https://aka.ms/openxr-unity",
+        CustomRuntimeLoaderBuildTargets = null,
+        OpenxrExtensionStrings = requestedExtensions,
+        Required = false,
+        Category = FeatureCategory.Feature,
+        FeatureId = featureId,
+        Version = "1.8.0")]
+#endif
+    [NativeLibToken(NativeLibToken = NativeLibToken.Controller)]
+    internal class MotionControllerFeaturePlugin : OpenXRFeaturePlugin<MotionControllerFeaturePlugin>
+    {
+        internal const string featureId = "com.microsoft.openxr.feature.controller";
+        private const string requestedExtensions = "XR_MSFT_controller_model XR_FB_render_model";
+
+        protected override IntPtr HookGetInstanceProcAddr(IntPtr func)
+        {
+            return NativeLib.HookGetInstanceProcAddr(nativeLibToken, func);
+        }
+    }
+}

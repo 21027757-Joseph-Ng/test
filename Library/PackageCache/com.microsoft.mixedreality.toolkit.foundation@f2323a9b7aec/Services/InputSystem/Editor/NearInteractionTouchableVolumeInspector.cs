@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:264e3e9cd861bb4fd2854b71e0367067ff79f574d313e044f3734a3b6713b842
-size 799
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    [CustomEditor(typeof(NearInteractionTouchableVolume))]
+    public class NearInteractionTouchableVolumeInspector : UnityEditor.Editor
+    {
+        /// <inheritdoc />
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+
+            NearInteractionTouchableVolume t = target as NearInteractionTouchableVolume;
+            Collider c = t.GetComponent<Collider>();
+            if (c == null)
+            {
+                EditorGUILayout.HelpBox("A collider is required in order to compute the touchable volume.", MessageType.Warning);
+            }
+        }
+    }
+}

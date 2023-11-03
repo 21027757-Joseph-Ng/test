@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:252747c460e1ad0cd029f91431e7504b31cdd73585a5221f6812d74ad04a783f
-size 1024
+using UnityEngine.Scripting;
+
+namespace UnityEngine.InputSystem.Processors
+{
+    /// <summary>
+    /// Normalizes a <c>Vector2</c> input value.
+    /// </summary>
+    /// <remarks>
+    /// This processor is registered (see <see cref="InputSystem.RegisterProcessor{T}"/>) under the name "normalizeVector2".
+    /// </remarks>
+    /// <seealso cref="NormalizeVector3Processor"/>
+    public class NormalizeVector2Processor : InputProcessor<Vector2>
+    {
+        /// <summary>
+        /// Normalize <paramref name="value"/>. Performs the equivalent of <c>value.normalized</c>.
+        /// </summary>
+        /// <param name="value">Input vector.</param>
+        /// <param name="control">Ignored.</param>
+        /// <returns>Normalized vector.</returns>
+        public override Vector2 Process(Vector2 value, InputControl control)
+        {
+            return value.normalized;
+        }
+
+        /// <inheritdoc/>
+        public override string ToString()
+        {
+            return "NormalizeVector2()";
+        }
+    }
+}

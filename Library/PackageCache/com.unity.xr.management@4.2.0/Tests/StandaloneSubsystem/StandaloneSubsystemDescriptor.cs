@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1bea2c6f79cdb610beb2b0dbaef93a8e766789e6b2b7f563e6442c4cf7134cfd
-size 1024
+
+namespace UnityEngine.XR.Management.Tests.Standalone
+{
+    namespace Providing
+    {
+        public class StandaloneSubsystemParams
+        {
+            public string id { get; set;}
+            public System.Type subsystemImplementationType { get; set; }
+
+            public StandaloneSubsystemParams(string id, System.Type subsystemImplType)
+            {
+                this.id = id;
+                this.subsystemImplementationType = subsystemImplType;
+            }
+        }
+    }
+
+    public class StandaloneSubsystemDescriptor : SubsystemDescriptor<StandaloneSubsystem>
+    {
+        public static void Create(Providing.StandaloneSubsystemParams parms)
+        {
+            SubsystemRegistration.CreateDescriptor(new StandaloneSubsystemDescriptor(parms.id, parms.subsystemImplementationType));
+        }
+
+        public StandaloneSubsystemDescriptor(string id, System.Type subsystemImplType)
+        {
+            this.id = id;
+            this.subsystemImplementationType = subsystemImplType;
+        }
+    }
+}

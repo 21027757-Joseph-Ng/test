@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7fdf6b4e17660a7f7fa0875aaca738285675dfa5cfe9229bcf172508b7786efc
-size 1382
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface to implement for simple generic input.
+    /// </summary>
+    public interface IMixedRealityInputHandler : IMixedRealityBaseInputHandler
+    {
+        /// <summary>
+        /// Input Up updates from Interactions, Keys, or any other simple input.
+        /// </summary>
+        void OnInputUp(InputEventData eventData);
+
+        /// <summary>
+        /// Input Down updates from Interactions, Keys, or any other simple input.
+        /// </summary>
+        void OnInputDown(InputEventData eventData);
+    }
+
+    /// <summary>
+    /// Interface to implement for more complex generic input.
+    /// </summary>
+    /// <typeparam name="T">The type of input to listen for.</typeparam>
+    public interface IMixedRealityInputHandler<T> : IEventSystemHandler
+    {
+        /// <summary>
+        /// Raised input event updates from the type of input specified in the interface handler implementation.
+        /// </summary>
+        /// <remarks>
+        /// The <see cref="Microsoft.MixedReality.Toolkit.Input.InputEventData{T}.InputData"/> is the current input data.
+        /// </remarks>
+        void OnInputChanged(InputEventData<T> eventData);
+    }
+}

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d0db87109af302ee7ca188e4623082e226145193ff1645769fb3c3b990cd47f0
-size 886
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface to receive input action events.
+    /// </summary>
+    public interface IMixedRealityInputActionHandler : IMixedRealityBaseInputHandler
+    {
+        /// <summary>
+        /// Received on action start, e.g when a button is pressed or a gesture starts.
+        /// </summary>
+        /// <param name="eventData">Input event that triggered the action</param>
+        void OnActionStarted(BaseInputEventData eventData);
+
+        /// <summary>
+        /// Received on action end, e.g when a button is released or a gesture completed.
+        /// </summary>
+        /// <param name="eventData">Input event that triggered the action</param>
+        void OnActionEnded(BaseInputEventData eventData);
+    }
+}

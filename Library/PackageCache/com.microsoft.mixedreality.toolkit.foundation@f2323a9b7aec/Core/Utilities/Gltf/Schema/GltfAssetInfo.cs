@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df4f2ed8ae7d403c1a4956608c71a20595eac08b5e26e2df8c9fc5f7ce37adeb
-size 1008
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// Metadata about the glTF asset.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/asset.schema.json
+    /// </summary>
+    [Serializable]
+    public class GltfAssetInfo : GltfProperty
+    {
+        /// <summary>
+        /// A copyright message suitable for display to credit the content creator.
+        /// </summary>
+        public string copyright;
+
+        /// <summary>
+        /// Tool that generated this glTF model. Useful for debugging.
+        /// </summary>
+        public string generator;
+
+        /// <summary>
+        /// The glTF version.
+        /// </summary>
+        public string version;
+
+        /// <summary>
+        /// The minimum glTF version that this asset targets.
+        /// </summary>
+        public string minVersion;
+    }
+}

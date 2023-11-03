@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:af78082b6bb69962806594e1eab7eebf29068ee95ffdfd598f0cee619e1bc7ee
-size 850
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Set the content around the camera height
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/SDK/HeadPositionOffset")]
+    public class HeadPositionOffset : MonoBehaviour
+    {
+        public Vector3 HeadOffset = new Vector3(0, 0, 1f);
+
+        private bool started = false;
+
+        private void Start()
+        {
+            transform.position = CameraCache.Main.transform.position + HeadOffset;
+            started = true;
+        }
+
+        private void OnEnable()
+        {
+            if (started)
+            {
+                transform.position = CameraCache.Main.transform.position + HeadOffset;
+            }
+        }
+    }
+}

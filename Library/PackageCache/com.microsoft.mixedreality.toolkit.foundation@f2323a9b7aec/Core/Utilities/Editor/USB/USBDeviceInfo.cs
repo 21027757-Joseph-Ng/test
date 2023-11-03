@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8f64aa5112e7e0be03718a6bc86c89c8b9c139dd76266e887434ff0b4ba4d949
-size 766
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor
+{
+    [Serializable]
+    public class USBDeviceInfo
+    {
+        public USBDeviceInfo(int vendorId, string udid, int productId, string name, int revision)
+        {
+            VendorId = vendorId;
+            Udid = udid;
+            ProductId = productId;
+            Name = name;
+            Revision = revision;
+        }
+
+        public int VendorId { get; private set; }
+
+        public string Udid { get; private set; }
+
+        public int ProductId { get; private set; }
+
+        public string Name { get; private set; }
+
+        public int Revision { get; private set; }
+    }
+}

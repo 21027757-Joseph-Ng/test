@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9a41222c404caf9051c37580618f5a56bbf1f5c786ff6ea6411ab8bea1b2267b
-size 1142
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    public enum RotationConstraintType
+    {
+        None,
+        XAxisOnly,
+        YAxisOnly,
+        ZAxisOnly
+    }
+
+    /// <summary>
+    /// Helper class used to convert from RotationConstraintType to AxisFlags
+    /// </summary>
+    public class RotationConstraintHelper
+    {
+        /// <summary>
+        /// Returns corresponding AxisFlags for given RotationConstraintType
+        /// </summary>
+        public static AxisFlags ConvertToAxisFlags(RotationConstraintType type)
+        {
+            switch (type)
+            {
+                case RotationConstraintType.XAxisOnly:
+                    return AxisFlags.YAxis | AxisFlags.ZAxis;
+                case RotationConstraintType.YAxisOnly:
+                    return AxisFlags.XAxis | AxisFlags.ZAxis;
+                case RotationConstraintType.ZAxisOnly:
+                    return AxisFlags.XAxis | AxisFlags.YAxis;
+                default:
+                    return 0;
+            }
+        }
+    }
+}

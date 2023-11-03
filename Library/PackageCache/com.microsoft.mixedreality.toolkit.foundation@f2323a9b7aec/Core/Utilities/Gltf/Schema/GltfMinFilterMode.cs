@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c16f49b5b40a300f16b1b06eef12aaa4a4d6ac5177564144cea850a90828b03c
-size 591
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// Minification filter mode.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/sampler.schema.json
+    /// </summary>
+    public enum GltfMinFilterMode
+    {
+        None = 0,
+        Nearest = 9728,
+        Linear = 9729,
+        NearestMipmapNearest = 9984,
+        LinearMipmapNearest = 9985,
+        NearestMipmapLinear = 9986,
+        LinearMipmapLinear = 9987
+    }
+}

@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b65d1faae5503db3eba045adaff56d8ff01ffa71d5d7078b9a8a939abadf880c
-size 845
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.UI;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    [System.Obsolete("This component is no longer supported", true)]
+    [AddComponentMenu("Scripts/MRTK/Obsolete/ToggleBoundingBox")]
+    public class ToggleBoundingBox : MonoBehaviour
+    {
+        public BoundingBox boundingBox;
+
+        private void Awake()
+        {
+            Debug.LogError(this.GetType().Name + " is deprecated");
+        }
+
+        public void ToggleBoundingBoxActiveState()
+        {
+            // Do something on specified distance for fire event
+            if (boundingBox != null)
+            {
+                boundingBox.Active = !boundingBox.Active;
+            }
+
+        }
+    }
+}

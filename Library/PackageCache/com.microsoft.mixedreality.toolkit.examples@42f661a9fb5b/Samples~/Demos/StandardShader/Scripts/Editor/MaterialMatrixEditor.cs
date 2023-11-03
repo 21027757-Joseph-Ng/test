@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3ce8ff1dbd7b3967ec26b2398017769facbd9315264d2860fcad31691039e893
-size 919
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos.StandardShader
+{
+    /// <summary>
+    /// Editor to build a matrix of spheres demonstrating a spectrum of material properties.
+    /// </summary>
+    [CustomEditor(typeof(MaterialMatrix))]
+    public class MaterialMatrixEditor : Editor
+    {
+        public override void OnInspectorGUI()
+        {
+            DrawDefaultInspector();
+
+            if (GUILayout.Button("Build"))
+            {
+                var materialMatrix = target as MaterialMatrix;
+                Debug.Assert(materialMatrix != null);
+                materialMatrix.BuildMatrix();
+
+                EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            }
+        }
+    }
+}

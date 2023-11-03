@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40796b7bba2eebb91f31e91c80eeb302dfa41893fd2ac7b7d55d2b9d72073cdb
-size 582
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.Toolkit.Tests.PlayModeTests")]
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.Toolkit.Tests.Utilities")]
+[assembly: System.Reflection.AssemblyVersion("2.8.3.0")]
+[assembly: System.Reflection.AssemblyFileVersion("2.8.3.0")]
+
+[assembly: System.Reflection.AssemblyProduct("Microsoft® Mixed Reality Toolkit")]
+[assembly: System.Reflection.AssemblyCopyright("Copyright © Microsoft Corporation")]

@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fc5dbef51c8a3074e5d72318a9b52148e41823fdde8a899292105b16f885e6b6
-size 816
+﻿
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Render style for MRTK buttons.
+    /// </summary>
+    public enum ButtonIconStyle
+    {
+        /// <summary>
+        /// Renders using a material on a quad. Icon texture is set using a MaterialPropertyBlock.
+        /// </summary>
+        Quad,
+        /// <summary>
+        /// Renders using a sprite renderer. Icon texture is set by changing the sprite.
+        /// </summary>
+        Sprite,
+        /// <summary>
+        /// Renders using TextMeshPro. Icon texture is set by changing the character.
+        /// </summary>
+        Char,
+        /// <summary>
+        /// Hides the icons.
+        /// </summary>
+        None,
+    }
+}

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5db7369098e495d1b08b57e7f7fe71ddf26a359068a45683ae1b61e4d7ec4c8e
-size 787
+namespace UnityEngine.XR.ARSubsystems
+{
+    /// <summary>
+    /// An interface for a reference image library. This is a set of reference images
+    /// to search for in the physical environment.
+    /// </summary>
+    /// <seealso cref="RuntimeReferenceImageLibrary"/>
+    /// <seealso cref="MutableRuntimeReferenceImageLibrary"/>
+    /// <seealso cref="XRReferenceImageLibrary"/>
+    /// <seealso cref="XRReferenceImage"/>
+    public interface IReferenceImageLibrary
+    {
+        /// <summary>
+        /// Get the number of reference images in the library.
+        /// </summary>
+        int count { get; }
+
+        /// <summary>
+        /// Get the <see cref="XRReferenceImage"/> image at <c>index</c>.
+        /// </summary>
+        XRReferenceImage this[int index] { get; }
+    }
+}

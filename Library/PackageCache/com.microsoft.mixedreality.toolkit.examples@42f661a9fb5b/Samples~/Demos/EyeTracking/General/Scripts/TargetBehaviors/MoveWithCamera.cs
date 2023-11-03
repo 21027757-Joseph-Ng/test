@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bbb629e2ab79d0bfaa1370c187e82c49125f19072efbe1ef7f612c9bd39aa0cc
-size 1037
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking
+{
+    /// <summary>
+    /// A game object with this script attached will follow the main camera's position. 
+    /// This is particularly useful for secondary cameras or sound sources to follow the user around.
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Examples/MoveWithCamera")]
+    public class MoveWithCamera : MonoBehaviour
+    {
+        /// <summary>
+        /// The GameObject mimics the camera's movement while keeping a given offset.
+        /// </summary>
+        [SerializeField]
+        private Vector3 offsetToCamera = Vector3.zero;
+
+        private void Update()
+        {
+            gameObject.transform.position = CameraCache.Main.transform.position + offsetToCamera;
+            gameObject.transform.rotation = CameraCache.Main.transform.rotation;
+        }
+    }
+}

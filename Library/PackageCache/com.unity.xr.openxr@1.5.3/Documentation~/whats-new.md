@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2351bbc82a7c2864a83204d62fbe782c2d4c2e5f50db9e89c5af1c1f42117aad
-size 209
+---
+uid: xr-plug-in-management-whats-new
+---
+
+# What's new in version 0.1.2
+
+This is a new package release. In future package versions, this page will display a summary of updates and changes for that version.

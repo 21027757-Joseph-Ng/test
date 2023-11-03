@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:dc65705e0b9e6c18c5e1998f39fdf303282cc2883e164eb70a9b77cc0cc506ab
-size 710
+using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
+namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
+{
+    public class ActionToAxis : ActionToControl
+    {
+        [Tooltip("Slider controlled by the action value")]
+        [SerializeField] private Slider _slider = null;
+
+        protected override void OnActionPerformed(InputAction.CallbackContext ctx) => UpdateValue(ctx);
+        protected override void OnActionStarted(InputAction.CallbackContext ctx) => UpdateValue(ctx);
+        protected override void OnActionCanceled(InputAction.CallbackContext ctx) => UpdateValue(ctx);
+
+        private void UpdateValue(InputAction.CallbackContext ctx) => _slider.value = ctx.ReadValue<float>();
+    }
+}

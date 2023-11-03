@@ -1,3 +1,68 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75ea7faab81081fea12958f76416437a6b3fa30a91d5e14eeb42281618a58fad
-size 2035
+using System;
+using System.Collections;
+using NUnit.Framework;
+using UnityEngine.XR.Management;
+using UnityEngine.TestTools;
+
+namespace UnityEngine.XR.OpenXR.Tests
+{
+    internal class NoRuntimeTests : OpenXRLoaderSetup
+    {
+        private XRManagerSettings manager => XRGeneralSettings.Instance?.Manager ?? null;
+
+        private XRLoader activeLoader => manager?.activeLoader ?? null;
+
+        public override void BeforeTest()
+        {
+            base.BeforeTest();
+            Environment.SetEnvironmentVariable("XR_RUNTIME_JSON", "asdf.json");
+            EnableMockRuntime(false);
+            Loader.DisableValidationChecksOnEnteringPlaymode = true;
+        }
+
+        public override void AfterTest()
+        {
+            if (Loader != null)
+                Loader.DisableValidationChecksOnEnteringPlaymode = false;
+            Environment.SetEnvironmentVariable("XR_RUNTIME_JSON", "");
+            base.AfterTest();
+        }
+
+        [UnityTest]
+        [Category("Loader Tests")]
+        [UnityPlatform(include = new[] {RuntimePlatform.WindowsEditor})] // we can't run these tests on player because only the mock loader is included - this needs the khronos loader
+        public IEnumerator NoInitNoCrash()
+        {
+            base.InitializeAndStart();
+
+            yield return null;
+
+            Assert.IsNull(activeLoader);
+        }
+
+        [UnityTest]
+        [Category("Loader Tests")]
+        [UnityPlatform(include = new[] {RuntimePlatform.WindowsEditor})]
+        public IEnumerator LoadRuntimeAfterNoRuntime()
+        {
+            base.InitializeAndStart();
+
+            yield return null;
+
+            Assert.IsNull(activeLoader);
+
+            #if !OPENXR_USE_KHRONOS_LOADER
+            Environment.SetEnvironmentVariable("XR_RUNTIME_JSON", "");
+            EnableMockRuntime();
+
+            base.InitializeAndStart();
+
+            yield return null;
+
+            Assert.IsNotNull(activeLoader);
+
+            Assert.AreEqual(OpenXRRuntime.name, "Unity Mock Runtime");
+            #endif
+        }
+    }
+}

@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f6703b735cb2da3bc2c9c50d51818a50827f8afa03e9c12449a6d3b389104fd6
-size 390
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.OpenXR.BasicSample
+{
+    public class TodoClose : MonoBehaviour
+    {
+        /// <summary>
+        /// To close the specific todolist
+        /// </summary>
+        public void CloseTodo(GameObject item)
+        {
+            Destroy(item);
+        }
+    }
+}

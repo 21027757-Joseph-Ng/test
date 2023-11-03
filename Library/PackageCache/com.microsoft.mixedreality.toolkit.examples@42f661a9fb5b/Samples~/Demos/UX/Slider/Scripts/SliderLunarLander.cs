@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7ccf8428bc3c3891c32189f5c06b9062be510536d754353a9a65b90fc6062a6e
-size 838
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.UI;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    [AddComponentMenu("Scripts/MRTK/Examples/SliderLunarLander")]
+    public class SliderLunarLander : MonoBehaviour
+    {
+        [SerializeField]
+        private Transform transformLandingGear = null;
+
+        public void OnSliderUpdated(SliderEventData eventData)
+        {
+            if (transformLandingGear != null)
+            {
+                // Rotate the target object using Slider's eventData.NewValue
+                transformLandingGear.localPosition = new Vector3(transformLandingGear.localPosition.x, 1.0f - eventData.NewValue, transformLandingGear.localPosition.z);
+            }
+        }
+    }
+}

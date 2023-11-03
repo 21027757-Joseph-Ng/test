@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:025e194c297a778d1b88bde7f106c93f69514656cca2bc71ff833eca7ba7c916
-size 640
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Defines how to calculate the line's rotation at any given point.
+    /// </summary>
+    public enum LineRotationMode
+    {
+        /// <summary>
+        /// Don't rotate
+        /// </summary>
+        None = 0,
+        /// <summary>
+        /// Use velocity to calculate the line's rotation
+        /// </summary>
+        Velocity,
+        /// <summary>
+        /// Rotate relative to direction from origin point
+        /// </summary>
+        RelativeToOrigin,
+    }
+}

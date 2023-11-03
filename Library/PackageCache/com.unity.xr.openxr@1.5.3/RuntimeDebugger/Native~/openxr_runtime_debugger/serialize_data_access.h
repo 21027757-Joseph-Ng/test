@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f9bb796089d62b1341250546a112200c3b293837831f515013d172601f8f35d7
-size 811
+#pragma once
+
+#include <sstream>
+
+extern "C" void UNITY_INTERFACE_EXPORT StartDataAccess()
+{
+    s_DataMutex.lock();
+}
+
+extern "C" bool UNITY_INTERFACE_EXPORT GetDataForRead(uint8_t** ptr, uint32_t* size)
+{
+    s_MainDataStore.SetOverflowMode(RingBuf::kOverflowModeWrap);
+    return s_MainDataStore.GetForReadAndClear(ptr, size);
+}
+
+extern "C" bool UNITY_INTERFACE_EXPORT GetLUTData(uint8_t** ptr, uint32_t* size, uint32_t offset)
+{
+    bool ret = s_LUTDataStore.GetForRead(ptr, size);
+    if (*size <= offset)
+    {
+        *ptr = nullptr;
+        *size = 0;
+        return false;
+    }
+    *ptr = *ptr + offset;
+    *size = *size - offset;
+    s_LUTDataStore.DropLastBlock();
+    return ret;
+}
+
+extern "C" void UNITY_INTERFACE_EXPORT EndDataAccess()
+{
+    s_MainDataStore.Reset();
+    s_DataMutex.unlock();
+}

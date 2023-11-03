@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e798c181da45ae4f39359b7af199e57000d41eb882bd01b5c1ae9452b304f98
-size 1076
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    /// <summary>
+    /// Example script to test toggling the gaze provider source from platform-specific overrides to the default camera frame center.
+    /// </summary>
+    public class ToggleGazeSource : MonoBehaviour
+    {
+        private IMixedRealityGazeProviderHeadOverride GazeProvider => gazeProvider ?? (gazeProvider = CoreServices.InputSystem?.GazeProvider as IMixedRealityGazeProviderHeadOverride);
+        private IMixedRealityGazeProviderHeadOverride gazeProvider = null;
+
+        /// <summary>
+        /// Toggles the value of IMixedRealityGazeProviderWithOverride's UseHeadGazeOverride.
+        /// </summary>
+        public void ToggleGazeOverride()
+        {
+            if (GazeProvider != null)
+            {
+                GazeProvider.UseHeadGazeOverride = !GazeProvider.UseHeadGazeOverride;
+            }
+        }
+    }
+}

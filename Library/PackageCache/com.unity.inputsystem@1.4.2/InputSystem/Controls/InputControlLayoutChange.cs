@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:46517a3c5101f1a4b9118a3855c726ab24193df1d9ce4baf0110ca3cea00a0d3
-size 279
+namespace UnityEngine.InputSystem
+{
+    /// <summary>
+    /// Enum used to identity the change type for the <see cref="InputSystem.onLayoutChange"/> event.
+    /// </summary>
+    public enum InputControlLayoutChange
+    {
+        Added,
+        Removed,
+        Replaced
+    }
+}

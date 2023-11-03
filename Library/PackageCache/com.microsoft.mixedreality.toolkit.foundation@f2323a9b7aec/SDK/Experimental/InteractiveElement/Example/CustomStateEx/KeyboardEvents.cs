@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ffe14ea6c56e279450d243b44079ab2bbdc446076f048988fe09bef98183590b
-size 442
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement.Examples
+{
+    /// <summary>
+    /// Example event configuration for the Keyboard state.
+    /// </summary>
+    public class KeyboardEvents : BaseInteractionEventConfiguration
+    {
+        public UnityEvent OnKKeyPressed = new UnityEvent();
+    }
+}

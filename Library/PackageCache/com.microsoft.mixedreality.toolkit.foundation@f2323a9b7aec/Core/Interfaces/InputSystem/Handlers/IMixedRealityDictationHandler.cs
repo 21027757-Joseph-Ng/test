@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e7ddf86d7588c0c8fcc90f55106840ed491e71dfeaaffae83bbc1170fc67c27b
-size 611
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface to implement dictation events.
+    /// </summary>
+    public interface IMixedRealityDictationHandler : IEventSystemHandler
+    {
+        void OnDictationHypothesis(DictationEventData eventData);
+
+        void OnDictationResult(DictationEventData eventData);
+
+        void OnDictationComplete(DictationEventData eventData);
+
+        void OnDictationError(DictationEventData eventData);
+    }
+}

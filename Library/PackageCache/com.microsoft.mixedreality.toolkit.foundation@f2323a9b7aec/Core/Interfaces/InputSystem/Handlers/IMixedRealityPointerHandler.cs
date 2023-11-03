@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:631ac5cc84a8875ea30fdbb7dc69de0dc9d60e5bc5f3df635a965829963ba48c
-size 1295
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface to implement to react to simple pointer input.
+    /// </summary>
+    public interface IMixedRealityPointerHandler : IEventSystemHandler
+    {
+        /// <summary>
+        /// When a pointer down event is raised, this method is used to pass along the event data to the input handler.
+        /// </summary>
+        void OnPointerDown(MixedRealityPointerEventData eventData);
+
+        /// <summary>
+        /// Called every frame a pointer is down. Can be used to implement drag-like behaviors.
+        /// </summary>
+        void OnPointerDragged(MixedRealityPointerEventData eventData);
+
+        /// <summary>
+        /// When a pointer up event is raised, this method is used to pass along the event data to the input handler.
+        /// </summary>
+        void OnPointerUp(MixedRealityPointerEventData eventData);
+
+        /// <summary>
+        /// When a pointer clicked event is raised, this method is used to pass along the event data to the input handler.
+        /// </summary>
+        void OnPointerClicked(MixedRealityPointerEventData eventData);
+    }
+}

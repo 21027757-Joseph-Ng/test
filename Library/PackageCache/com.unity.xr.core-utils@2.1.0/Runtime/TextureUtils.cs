@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a873a3fffe1a4c3409001350515a309e4dd8431f8bfea390b481cf1bad94425
-size 819
+﻿using UnityEngine;
+
+namespace Unity.XR.CoreUtils
+{
+    /// <summary>
+    /// Utilities for manipulating Textures
+    /// </summary>
+    public static class TextureUtils
+    {
+        /// <summary>
+        /// Copy a given RenderTexture to a Texture2D
+        /// This method assumes that both textures exist and are the same size
+        /// </summary>
+        /// <param name="renderTexture">The source <see cref="RenderTexture" /></param>
+        /// <param name="texture">The destination <see cref="Texture2D" /></param>
+        public static void RenderTextureToTexture2D(RenderTexture renderTexture, Texture2D texture)
+        {
+            RenderTexture.active = renderTexture;
+            texture.ReadPixels(new Rect(0, 0, texture.width, texture.height), 0, 0);
+            texture.Apply();
+        }
+    }
+}

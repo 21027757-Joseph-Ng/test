@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c4edfaeefb53d00abdd7f665206fd3b7322b30e34a8ab275835ba8a5b192bec2
-size 1511
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Extensions.Tracking
+{
+    /// <summary>
+    /// A service that detects when tracking is lost on WSA devices. 
+    /// When tracking is lost, the service displays a visual indicator and sets the main camera's culling mask to hide all other objects.
+    /// When tracking is restored, the camera mask is restored and the visual indicator is hidden.
+    /// </summary>
+    public interface ILostTrackingService : IMixedRealityExtensionService
+    {
+        /// <summary>
+        /// True if tracking is lost, false if tracking is present.
+        /// </summary>
+        bool TrackingLost { get; }
+
+        /// <summary>
+        /// Called when tracking is lost.
+        /// (When UnityEngine.VR.WSA.PositionalLocatorState is Inhibited.)
+        /// </summary>
+        Action OnTrackingLost { get; set; }
+
+        /// <summary>
+        /// Called when tracking is stored
+        /// (UnityEngine.VR.WSA.PositionalLocatorState is anything other than Inhibited.)
+        /// </summary>
+        Action OnTrackingRestored { get; set; }
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// Editor-only method to test lost tracking visual.
+        /// </summary>
+        /// <param name="trackingLost">If true, sets tracking to be lost. If false, sets tracking to be found.</param>
+        void EditorSetTrackingLost(bool trackingLost);
+#endif
+    }
+}

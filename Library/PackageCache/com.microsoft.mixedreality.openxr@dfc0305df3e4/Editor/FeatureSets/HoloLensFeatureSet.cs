@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3fef7ffb5b31b7c8a918c0c84effb4a4c79896bb5720ea404b7822d82b3d3edf
-size 1236
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEditor;
+using UnityEditor.XR.OpenXR.Features;
+
+namespace Microsoft.MixedReality.OpenXR.Editor
+{
+    [OpenXRFeatureSet(
+        FeatureSetId = featureSetId,
+        FeatureIds = new string[]
+        {
+            MixedRealityFeaturePlugin.featureId,
+            HandTrackingFeaturePlugin.featureId,
+            MotionControllerFeaturePlugin.featureId,
+        },
+        RequiredFeatureIds = new string[]
+        {
+            MixedRealityFeaturePlugin.featureId,
+        },
+        DefaultFeatureIds = new string[]
+        {
+            MixedRealityFeaturePlugin.featureId,
+            HandTrackingFeaturePlugin.featureId,
+            MotionControllerFeaturePlugin.featureId,
+        },
+        UiName = "Microsoft HoloLens",
+        // This will appear as a tooltip for the (?) icon in the loader UI.
+        Description = "Enable the full suite of features for Microsoft HoloLens 2.",
+        SupportedBuildTargets = new BuildTargetGroup[] { BuildTargetGroup.WSA }
+    )]
+    sealed class HoloLensFeatureSet
+    {
+        internal const string featureSetId = "com.microsoft.openxr.featureset.hololens";
+    }
+}

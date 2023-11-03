@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d5e2a5bbfee730ff33217ad2e33bd0c7658badb9d2c677cbbc2d3611e2b11420
-size 550
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Collections.Generic;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor.Search
+{
+    /// <summary>
+    /// Struct for pairing profiles with a set of search results
+    /// </summary>
+    public class ProfileSearchResult
+    {
+        public int ProfileMatchStrength;
+        public bool IsCustomProfile;
+        public UnityEngine.Object Profile;
+        public List<FieldSearchResult> Fields = new List<FieldSearchResult>();
+    }
+}

@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:74ae1cd0a5ccca52cac83648d6f439e70d7ddb4c5747c9ea8285d288972583a5
-size 561
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.WindowsMixedReality
+{
+    /// <summary>
+    /// Enumeration defining how holograms are stabilized during reprojection.
+    /// </summary>
+    public enum HolographicDepthReprojectionMethod
+    {
+        /// <summary>
+        /// Use the depth buffer.
+        /// </summary>
+        DepthReprojection = 0,
+
+        /// <summary>
+        /// Automatically placed plane.
+        /// </summary>
+        AutoPlanar = 1
+    }
+}

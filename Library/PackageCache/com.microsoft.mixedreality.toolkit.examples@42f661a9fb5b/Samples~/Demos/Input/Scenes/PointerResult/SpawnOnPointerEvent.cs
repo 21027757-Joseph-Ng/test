@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6ed439e76f733999abe314668413458cec11118376a9b36a81d7540dc8323166
-size 715
+﻿using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    // Example script that spawns a prefab at the pointer hit location.
+    [AddComponentMenu("Scripts/MRTK/Examples/SpawnOnPointerEvent")]
+    public class SpawnOnPointerEvent : MonoBehaviour
+    {
+        public GameObject PrefabToSpawn;
+
+        public void Spawn(MixedRealityPointerEventData eventData)
+        {
+            if (PrefabToSpawn != null)
+            {
+                var result = eventData.Pointer.Result;
+                Instantiate(PrefabToSpawn, result.Details.Point, Quaternion.LookRotation(result.Details.Normal));
+            }
+        }
+    }
+}

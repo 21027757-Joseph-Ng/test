@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1cdd5d396908e2148ee74d59178c7057a480b9ab6c88c2e452866f6b2df45787
-size 984
+using System;
+
+using UnityEditor;
+
+using UnityEngine;
+
+namespace UnityEditor.XR.OpenXR.Features
+{
+    static class CommonContent
+    {
+        public static readonly GUIContent k_Download = new GUIContent("Download");
+        public static readonly GUIContent k_WarningIcon = EditorGUIUtility.IconContent("Warning@2x");
+        public static readonly GUIContent k_ErrorIcon = EditorGUIUtility.IconContent("Error@2x");
+        public static readonly GUIContent k_HelpIcon = EditorGUIUtility.IconContent("_Help@2x");
+
+        public static readonly GUIContent k_Validation = new GUIContent("Your project has some settings that are incompatible with OpenXR. Click to open the project validator.");
+        public static readonly GUIContent k_ValidationErrorIcon = new GUIContent("", CommonContent.k_ErrorIcon.image, k_Validation.text);
+        public static readonly GUIContent k_ValidationWarningIcon = new GUIContent("", CommonContent.k_WarningIcon.image, k_Validation.text);
+    }
+
+}

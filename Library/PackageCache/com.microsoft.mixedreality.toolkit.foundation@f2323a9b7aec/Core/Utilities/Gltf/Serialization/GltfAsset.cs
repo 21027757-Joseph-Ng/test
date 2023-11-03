@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:64dc7d0f0835382233ecf43174995731daa47c4b1acd92ae0946477004322ce9
-size 687
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf
+{
+    public class GltfAsset : ScriptableObject
+    {
+        [SerializeField]
+        private GameObject model;
+
+        public GameObject Model
+        {
+            get => model;
+            internal set => model = value;
+        }
+
+        [SerializeField]
+        private GltfObject gltfObject;
+
+        public GltfObject GltfObject
+        {
+            get => gltfObject;
+            internal set => gltfObject = value;
+        }
+    }
+}

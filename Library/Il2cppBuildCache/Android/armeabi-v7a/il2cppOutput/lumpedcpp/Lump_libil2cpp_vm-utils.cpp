@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b12d705e6a029d07f5efb84c89f73753fde2b29c9fba16454c835482f7d67982
-size 874
+#include "il2cpp-config.h"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\vm-utils\BlobReader.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\vm-utils\Debugger.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\vm-utils\NativeDelegateMethodCache.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\vm-utils\NativeSymbol.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\vm-utils\VmStringUtils.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\vm-utils\icalls\mscorlib\System.Threading\Interlocked.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\vm-utils\icalls\mscorlib\System\Math.cpp"

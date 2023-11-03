@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cbac4036a97766aa8082d3f8d65940833baa3ce27bbf4ee0c68bbe1fe1d8c09f
-size 494
+﻿[
+  {
+    "Id": 1,
+    "FuncName": "CameraFunc",
+    "DeviceModels": "Rokid cyclopsX|Rokid RG-crown",
+    "MinOSVersion": "",
+    "UseCamera": 1
+  },
+  {
+    "Id": 2,
+    "FuncName": "HandTracking",
+    "DeviceModels": "Rokid cyclopsX|Rokid RG-crown",
+    "MinOSVersion": "2.7.0-20220506-401101",
+    "UseCamera": 1
+  },
+  {
+    "Id": 3,
+    "FuncName": "VoiceRecog",
+    "DeviceModels": "Rokid cyclopsX|Rokid RG-crown",
+    "MinOSVersion": "",
+    "UseCamera": 0
+  }
+]

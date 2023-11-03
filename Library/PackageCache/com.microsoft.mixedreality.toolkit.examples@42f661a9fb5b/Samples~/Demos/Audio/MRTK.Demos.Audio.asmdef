@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:df685ea76316dc20d7b0d7586d9b2003cc312d0d710233ff995014d99129832d
-size 681
+{
+    "name": "Microsoft.MixedReality.Toolkit.Demos.Audio",
+    "references": [
+        "Microsoft.MixedReality.Toolkit",
+        "Microsoft.MixedReality.Toolkit.SDK",
+        "Microsoft.MixedReality.Toolkit.MicStream"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.microsoft.mixedreality.toolkit.micstream",
+            "expression": "",
+            "define": "MICSTREAM_PRESENT"
+        }
+    ],
+    "noEngineReferences": false
+}

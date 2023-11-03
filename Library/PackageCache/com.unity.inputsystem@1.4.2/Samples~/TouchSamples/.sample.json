@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f0d1ac475e2631ca4739290177a285d22782bb7c367ea401d7ff16b573fe6a19
-size 214
+{
+  "displayName": "Touch Samples",
+  "description": "A series of sample scenes for using touch input with the Input System package. This sample is not actually part of the package, but needs to be downloaded."
+} 

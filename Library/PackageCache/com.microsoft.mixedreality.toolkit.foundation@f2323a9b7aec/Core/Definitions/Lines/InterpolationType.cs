@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:40778c55936156717cfa688e76167ed075345fa3f6cd32c36a48a49b6c1dfa38
-size 353
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Defines the type of interpolation to use when calculating a spline.
+    /// </summary>
+    public enum InterpolationType
+    {
+        Bezier = 0,
+        CatmullRom,
+        Hermite,
+    }
+}

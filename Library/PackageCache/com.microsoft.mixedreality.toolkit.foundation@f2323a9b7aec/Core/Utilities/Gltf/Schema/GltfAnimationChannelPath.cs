@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0a5ec87e573975ffad0f44edc1c8ca48fa5e1758db31419fdc0a2882af8a653c
-size 888
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// The name of the node's TRS property to modify, or the weights of the Morph Target it instantiates.
+    /// For the translation property, the values that are provided by the sampler are the translation along the x, y, and z axes.
+    /// For the rotation property, the values are a quaternion in the order (x, y, z, w), where w is the scalar.
+    /// For the scale property, the values are the scaling factors along the x, y, and z axes.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/animation.channel.target.schema.json
+    /// </summary>
+    public enum GltfAnimationChannelPath
+    {
+        translation,
+        rotation,
+        scale,
+        weights
+    }
+}

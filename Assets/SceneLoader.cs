@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:60c6b820ad12dfa9ca424fbde19313f562b38063dc51d96ab10de8d0475effa6
-size 385
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class SceneLoader : MonoBehaviour
+{
+
+    public string SceneName;
+    public void OpenScene()
+    {
+        SceneManager.LoadScene(SceneName);
+    }
+
+    public void OpenTest()
+    {
+        SceneManager.LoadScene("uxr00 - MainScene");
+    }
+}

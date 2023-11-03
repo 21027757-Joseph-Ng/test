@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e437d2055200641d2747b07092b8d2c343f6f52459a747d76948604e02247e49
-size 939
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.SpatialAwareness;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.SpatialObjectMeshObserver
+{
+    /// <summary>
+    /// Configuration profile for the spatial object mesh observer.
+    /// </summary>
+    [CreateAssetMenu(menuName = "Mixed Reality/Toolkit/Profiles/Spatial Object Mesh Observer Profile", fileName = "SpatialObjectMeshObserverProfile", order = 100)]
+    public class SpatialObjectMeshObserverProfile : MixedRealitySpatialAwarenessMeshObserverProfile
+    {
+        [SerializeField]
+        [Tooltip("The model containing the desired mesh data.")]
+        private GameObject spatialMeshObject = null;
+
+        /// <summary>
+        /// The model containing the desired mesh data.
+        /// </summary>
+        public GameObject SpatialMeshObject => spatialMeshObject;
+    }
+}

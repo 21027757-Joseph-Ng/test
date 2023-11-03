@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:808044e2b1321ba361551db9cfb6c7cdebbd3b1bed518871354009e7ba831ab1
-size 733
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Editor
+{
+    /// <summary>
+    /// Renders enum flags on fields with the attribute.
+    /// From https://answers.unity.com/questions/486694/default-editor-enum-as-flags-.html
+    /// </summary>
+    [CustomPropertyDrawer(typeof(EnumFlagsAttribute))]
+    public class EnumFlagsAttributeDrawer : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            property.intValue = EditorGUI.MaskField(position, label, property.intValue, property.enumDisplayNames);
+        }
+    }
+}

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95c080d8ee87c47757d39f3e9464270703ac16959a9231df0b94050d2cc96b5e
-size 580
+{
+    "name": "Microsoft.MixedReality.Toolkit.SDK.Editor",
+    "references": [
+        "Microsoft.MixedReality.Toolkit",
+        "Microsoft.MixedReality.Toolkit.Editor.Inspectors",
+        "Microsoft.MixedReality.Toolkit.SDK",
+        "Microsoft.MixedReality.Toolkit.Services.InputSystem"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

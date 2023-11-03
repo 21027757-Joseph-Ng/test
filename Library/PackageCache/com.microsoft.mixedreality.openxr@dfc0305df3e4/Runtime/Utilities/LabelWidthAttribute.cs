@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a3ef1e9f53de0b47c9e26f90ed425f9671804a4b76a3542c95799663857aef5a
-size 421
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.OpenXR
+{
+    [AttributeUsage(AttributeTargets.Field)]
+    internal class LabelWidthAttribute : PropertyAttribute
+    {
+        public float Width { get; }
+
+        public LabelWidthAttribute(float width)
+        {
+            Width = width;
+        }
+    }
+}

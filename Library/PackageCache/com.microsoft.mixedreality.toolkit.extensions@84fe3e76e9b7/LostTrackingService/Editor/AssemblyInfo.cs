@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b28ce8a5ab21136251290aef80c04855d286a1152c57f63ce0aae71f1466692
-size 381
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+[assembly: System.Reflection.AssemblyVersion("2.8.3.0")]
+[assembly: System.Reflection.AssemblyFileVersion("2.8.3.0")]
+
+[assembly: System.Reflection.AssemblyProduct("Microsoft® Mixed Reality Toolkit Extensions")]
+[assembly: System.Reflection.AssemblyCopyright("Copyright © Microsoft Corporation")]

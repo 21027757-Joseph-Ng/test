@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b21fcc7dc3c227013ca09551cb8b25abd47b82b48deaaa49f4abb5803576df0e
-size 1166
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License. 
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor
+{
+    /// <summary>
+    /// Similar to the scope classes in Unity (i.e VerticalScope),
+    /// This class is a helper class designed to force enable GUI.enabled over some lifetime.
+    /// Should be utilized with using{} code block.
+    /// </summary>
+    public class GUIEnabledWrapper : IDisposable
+    {
+        private readonly bool wasGUIEnabled;
+
+        /// <summary>
+        /// Captures whether the Unity editor GUI state was enabled or not. Then forces enable to true
+        /// </summary>
+        public GUIEnabledWrapper()
+        {
+            wasGUIEnabled = GUI.enabled;
+            GUI.enabled = true;
+        }
+
+        public void Dispose()
+        {
+            // Dispose of unmanaged resources.
+            Dispose(true);
+            // Suppress finalization.
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            GUI.enabled = wasGUIEnabled;
+        }
+    }
+}

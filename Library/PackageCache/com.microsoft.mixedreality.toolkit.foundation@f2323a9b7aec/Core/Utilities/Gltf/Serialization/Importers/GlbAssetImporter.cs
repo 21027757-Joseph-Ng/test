@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1f784635cd58edc3afedad17f47993af3dce4b12025686d8c99a3a826ef40e35
-size 638
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+#if UNITY_2020_2_OR_NEWER
+using UnityEditor.AssetImporters;
+#else
+using UnityEditor.Experimental.AssetImporters;
+#endif // UNITY_2020_2_OR_NEWER
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Serialization.Editor
+{
+#if !MRTK_GLTF_IMPORTER_OFF
+    [ScriptedImporter(1, "glb")]
+#endif // !MRTK_GLTF_IMPORTER_OFF
+    public class GlbAssetImporter : ScriptedImporter
+    {
+        public override void OnImportAsset(AssetImportContext context)
+        {
+            GltfEditorImporter.OnImportGltfAsset(context);
+        }
+    }
+}

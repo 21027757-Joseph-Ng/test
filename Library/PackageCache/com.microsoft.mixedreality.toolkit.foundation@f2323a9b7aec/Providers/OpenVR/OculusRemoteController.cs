@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bf45b260c09807a1916721d7c6be1b0159ec4936c9df8fd4870544b5bbf5b72b
-size 1576
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.OpenVR.Input
+{
+    [MixedRealityController(
+        SupportedControllerType.OculusRemote,
+        new[] { Handedness.None },
+        "Textures/OculusRemoteController",
+        supportedUnityXRPipelines: SupportedUnityXRPipelines.LegacyXR)]
+    public class OculusRemoteController : GenericOpenVRController
+    {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public OculusRemoteController(
+            TrackingState trackingState,
+            Handedness controllerHandedness,
+            IMixedRealityInputSource inputSource = null,
+            MixedRealityInteractionMapping[] interactions = null)
+            : base(trackingState, controllerHandedness, new OculusRemoteControllerDefinition(), inputSource, interactions)
+        { }
+
+        /// <inheritdoc />
+        protected override MixedRealityInteractionMappingLegacyInput[] LegacyInputSupport { get; } = new[]
+        {
+            new MixedRealityInteractionMappingLegacyInput(axisCodeX: ControllerMappingLibrary.AXIS_5, axisCodeY: ControllerMappingLibrary.AXIS_6), // D-Pad Position
+            new MixedRealityInteractionMappingLegacyInput(keyCode: KeyCode.JoystickButton0), // Button.One
+            new MixedRealityInteractionMappingLegacyInput(keyCode: KeyCode.JoystickButton1), // Button.Two
+        };
+    }
+}

@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:339ec46eea0134a81c978b872d707a9782e7e5bd0ab98836ef1f999f70b2f5fc
-size 1274
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.Physics
+{
+    /// <summary>
+    /// Scriptable object that wraps the <see cref="ElasticProperties"/> struct, allowing for easily reusable spring configs.
+    /// </summary>
+    [CreateAssetMenu(fileName = "ElasticConfiguration", menuName = "Mixed Reality/Toolkit/Experimental/Elastic/Elastic Configuration")]
+    public class ElasticConfiguration : ScriptableObject
+    {
+        [SerializeField]
+        [Tooltip("Physical properties of the elastic simulation system.")]
+        protected ElasticProperties elasticProperties = new ElasticProperties
+        {
+            // Reasonable default values that should work sufficiently for
+            // many simple use cases.
+            Mass = 0.02f,
+            HandK = 3.0f,
+            EndK = 4.0f,
+            SnapK = 2.0f,
+            Drag = 0.1f
+        };
+
+        // <summary>
+        // Physical properties of the elastic simulation system.
+        // </summary>
+        public ElasticProperties ElasticProperties
+        {
+            get => elasticProperties;
+            set => elasticProperties = value;
+        }
+    }
+}
+

@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cce4d74dc3cf6f5b3f1a9f95782e71a472d865f725f89d1dea340e4b479e5f77
-size 777
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.OpenXR.Editor
+{
+    [CustomPropertyDrawer(typeof(LabelWidthAttribute))]
+    internal class LabelWidthAttributeDrawer : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            LabelWidthAttribute labelWidthAttribute = attribute as LabelWidthAttribute;
+
+            float oldLabelWidth = EditorGUIUtility.labelWidth;
+            EditorGUIUtility.labelWidth = labelWidthAttribute.Width;
+            EditorGUI.PropertyField(position, property, label);
+            EditorGUIUtility.labelWidth = oldLabelWidth;
+        }
+    }
+}

@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5da27e19a0c8e1c4be4c0e9454ebcd9115ba34c15f092fef9fbd31b347c58ab7
-size 777
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Adds ability to override head gaze on a gaze provider.
+    /// </summary>
+    public interface IMixedRealityGazeProviderHeadOverride
+    {
+        /// <summary>
+        /// If true, platform-specific head gaze override is used, when available. Otherwise, the center of the camera frame is used by default.
+        /// </summary>
+        bool UseHeadGazeOverride { get; set; }
+
+        /// <summary>
+        /// Allows head gaze to be overridden, typically by platform-specific values.
+        /// </summary>
+        void OverrideHeadGaze(Vector3 position, Vector3 forward);
+    }
+}

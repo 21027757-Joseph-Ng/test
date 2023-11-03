@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:80f5958959cf790ff911305718f3284041e58bb40f87f02a7c7db7acf419afa3
-size 795
+{
+    "name": "Microsoft.MixedReality.Toolkit.SDK.Experimental.Editor.Interactive",
+    "references": [
+        "Microsoft.MixedReality.Toolkit.SDK.Editor",
+        "Microsoft.MixedReality.Toolkit.SDK.Experimental.Interactive",
+        "Microsoft.MixedReality.Toolkit",
+        "Microsoft.MixedReality.Toolkit.Services.InputSystem",
+        "Microsoft.MixedReality.Toolkit.Editor.Inspectors",
+        "Microsoft.MixedReality.Toolkit.SDK"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_2019_3_OR_NEWER"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

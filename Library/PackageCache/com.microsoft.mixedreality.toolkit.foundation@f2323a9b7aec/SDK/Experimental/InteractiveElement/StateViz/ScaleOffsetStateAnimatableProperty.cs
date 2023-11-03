@@ -1,3 +1,62 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6e2ed657c60da2b6a6f63c25c878ec10059223b1cb64462eac6b3f92e38e6e9e
-size 2506
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.StateVisualizer
+{
+    /// <summary>
+    /// The ScaleOffset animatable property adds/sets keyframes for the "localScale" property in an animation clip.
+    /// </summary>
+    public class ScaleOffsetStateAnimatableProperty : StateAnimatableProperty
+    {
+        [SerializeField]
+        [Tooltip("The scale offset added to the current scale of the target object.")]
+        private Vector3 scaleOffset;
+
+        /// <summary>
+        /// The scale offset added to the current scale of the target object.
+        /// </summary>
+        public Vector3 ScaleOffset
+        {
+            get => scaleOffset;
+            set => scaleOffset = value;
+        }
+
+        /// <summary>
+        /// Constructor for a Scale Offset Animatable Property. Sets the default AnimatablePropertyName.
+        /// </summary>
+        public ScaleOffsetStateAnimatableProperty()
+        {
+            AnimatablePropertyName = "ScaleOffset";
+        }
+
+        /// <inheritdoc/>
+        public override void SetKeyFrames(AnimationClip animationClip)
+        {
+            if (Target != null)
+            {
+                string targetPath = GetTargetPath(Target);
+
+                AnimationCurve curveX = AnimationCurve.EaseInOut(0, Target.transform.localScale.x, AnimationDuration, Target.transform.localScale.x + ScaleOffset.x);
+                AnimationCurve curveY = AnimationCurve.EaseInOut(0, Target.transform.localScale.y, AnimationDuration, Target.transform.localScale.y + ScaleOffset.y);
+                AnimationCurve curveZ = AnimationCurve.EaseInOut(0, Target.transform.localScale.z, AnimationDuration, Target.transform.localScale.z + ScaleOffset.z);
+
+                animationClip.SetCurve(targetPath, typeof(Transform), "localScale.x", curveX);
+                animationClip.SetCurve(targetPath, typeof(Transform), "localScale.y", curveY);
+                animationClip.SetCurve(targetPath, typeof(Transform), "localScale.z", curveZ);
+            }
+        }
+
+        /// <inheritdoc/>
+        public override void RemoveKeyFrames(AnimationClip animationClip)
+        {
+            if (Target != null)
+            {
+                string targetPath = GetTargetPath(Target);
+
+                animationClip.SetCurve(targetPath, typeof(Transform), "localScale", null);
+            }
+        }
+    }
+}

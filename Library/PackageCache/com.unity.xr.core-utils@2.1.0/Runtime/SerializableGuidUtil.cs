@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:45b6d19d4a67792ac85f1a86a661ceadfbd8cb95f365c1514b8f023a213acdf4
-size 807
+﻿using System;
+
+namespace Unity.XR.CoreUtils
+{
+    /// <summary>
+    /// Utility for creating a <c>Unity.XR.CoreUtils.SerializableGuid</c>.
+    /// A <c>SerializableGuid</c> can be serialized by Unity, while a <c>System.Guid</c>
+    /// cannot.
+    /// </summary>
+    public static class SerializableGuidUtil
+    {
+        /// <summary>
+        /// Creates a <c>SerializableGuid</c> from a <c>System.Guid</c>.
+        /// </summary>
+        /// <param name="guid">The <c>Guid</c> to represent as a <c>SerializableGuid</c>.</param>
+        /// <returns>A serializable version of <paramref name="guid"/>.</returns>
+        public static SerializableGuid Create(Guid guid)
+        {
+            guid.Decompose(out var low, out var high);
+            return new SerializableGuid(low, high);
+        }
+    }
+}

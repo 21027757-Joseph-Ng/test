@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2722231685a6bffce137db804aa3de8b916a4f9a304833c51a2b42139a60caa6
-size 820
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface for handling mouse pointers.
+    /// </summary>
+    public interface IMixedRealityMousePointer : IMixedRealityPointer
+    {
+        /// <summary>
+        /// Should the mouse cursor be hidden when no active input is received?
+        /// </summary>
+        bool HideCursorWhenInactive { get; }
+
+        /// <summary>
+        /// What is the movement threshold to reach before un-hiding mouse cursor?
+        /// </summary>
+        float MovementThresholdToUnHide { get; }
+
+        /// <summary>
+        /// How long should it take before the mouse cursor is hidden?
+        /// </summary>
+        float HideTimeout { get; }
+    }
+}

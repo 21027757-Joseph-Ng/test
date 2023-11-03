@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:944fa853e11e1d05be7892550b4edcdad925b79177a01a2806bc32d6f78b0ade
-size 941
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// How does the Tooltip track with its parent object
+    /// </summary>
+    [Flags]
+    public enum ConnectorFollowType
+    {
+        /// <summary>
+        /// The anchor will follow the target - pivot remains unaffected
+        /// </summary>
+        AnchorOnly = 1 << 0,
+        /// <summary>
+        /// Anchor and pivot will follow target position, but not rotation
+        /// </summary>
+        Position = 1 << 1,
+        /// <summary>
+        /// Anchor and pivot will follow target like it's parented, but only on Y axis
+        /// </summary>
+        PositionAndYRotation = 1 << 2,
+        /// <summary>
+        /// Anchor and pivot will follow target like it's parented
+        /// </summary>
+        PositionAndXYRotation = 1 << 3,
+    }
+}

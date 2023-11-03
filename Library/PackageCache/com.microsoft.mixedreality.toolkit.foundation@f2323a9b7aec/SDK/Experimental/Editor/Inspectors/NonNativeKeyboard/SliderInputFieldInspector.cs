@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c6883715ec0a197232ae8f96e5ff328a4f84903a6a2a44f3324178713062cc5f
-size 1230
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Experimental.UI;
+using TMPro.EditorUtilities;
+using UnityEditor;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.Inspectors
+{
+    [CustomEditor(typeof(SliderInputField))]
+    public class SliderInputFieldInspector : TMP_InputFieldEditor
+    {
+        private const string defaultText = "This is an experimental feature.\n" +
+                                           "Parts of the MRTK appear to have a lot of value even if the details " +
+                                           "haven’t fully been fleshed out. For these types of features, we want " +
+                                           "the community to see them and get value out of them early. Because " +
+                                           "they are early in the cycle, we label them as experimental to indicate " +
+                                           "that they are still evolving, and subject to change over time.";
+
+        public override void OnInspectorGUI()
+        {
+            EditorGUILayout.HelpBox(defaultText, MessageType.Info);
+
+            base.OnInspectorGUI();
+        }
+    }
+}

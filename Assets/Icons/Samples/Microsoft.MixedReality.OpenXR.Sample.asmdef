@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8cb0cca7a07d66918200d17e939e758eb4df072c7e7396704c58d6435b98a5bd
-size 553
+{
+    "name": "Microsoft.MixedReality.OpenXR.Sample",
+    "rootNamespace": "",
+    "references": [
+        "Microsoft.MixedReality.OpenXR",
+        "Unity.XR.OpenXR",
+        "Unity.TextMeshPro",
+        "Unity.XR.ARFoundation",
+        "Unity.XR.Management"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

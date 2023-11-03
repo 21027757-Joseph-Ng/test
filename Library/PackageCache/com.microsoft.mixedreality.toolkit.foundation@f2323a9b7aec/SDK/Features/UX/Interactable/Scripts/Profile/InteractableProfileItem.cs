@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:081d2d558f0a5b2f1e6bda9b6244e6cd3dcc2fa1da36a25c5dfc62da044ec850
-size 799
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// The foundation of profiles that exist on an Interactable
+    /// Profiles pair ThemeContainers with the objects they manipulate, based on state changes
+    /// </summary>
+    [System.Serializable]
+    public class InteractableProfileItem
+    {
+        /// <summary>
+        /// GameObject to target with associated Themes
+        /// </summary>
+        public GameObject Target;
+
+        /// <summary>
+        /// List of Theme configuration data to initialize with an Interactable
+        /// </summary>
+        public List<Theme> Themes = new List<Theme>();
+    }
+}

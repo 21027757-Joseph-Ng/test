@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5a8696c20cfad9bfcb3c8d5a4b7030d0f96d2cb3f9a0e05c603aa9fa0219b58c
-size 887
+{
+    "name": "Microsoft.MixedReality.Toolkit.Providers.XRSDK",
+    "references": [
+        "Microsoft.MixedReality.Toolkit.Async",
+        "Microsoft.MixedReality.Toolkit",
+        "Unity.XR.Management",
+        "UnityEngine.SpatialTracking"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_2019_3_OR_NEWER"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.xr.legacyinputhelpers",
+            "expression": "",
+            "define": "SPATIALTRACKING_ENABLED"
+        },
+        {
+            "name": "com.unity.xr.management",
+            "expression": "",
+            "define": "XR_MANAGEMENT_ENABLED"
+        }
+    ],
+    "noEngineReferences": false
+}

@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:64adfd2206079db914da0fc47019e33412633245eee3ea88ee901951e348bcb3
-size 615
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Attribute to mark up an int field to be drawn using the
+    /// ScenePickPropertyDrawer
+    /// This allows the UI to display a dropdown instead of a
+    /// numeric entry field.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field, AllowMultiple = false)]
+    public class ScenePickAttribute : PropertyAttribute
+    {
+        // Nothing to see Here, This only acts as a marker to help the editor.
+    }
+}

@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f5a8b486acae8008f07da83210151f4997fafa3c963b9abba4b943cda3e5057d
-size 1180
+{
+    "name": "com.microsoft.mixedreality.toolkit.extensions",
+    "displayName": "Mixed Reality Toolkit Extensions",
+    "msftFeatureCategory": "Mixed Reality Toolkit",
+    "version": "2.8.3",
+    "unity": "2019.4",
+    "description": "Extensions to the Microsoft Mixed Reality Toolkit. This package includes: Hand Physics Service, Lost Tracking Service and Scene Transition Service.",
+    "keywords": [
+        "mrtk",
+        "microsoft",
+        "mixed",
+        "reality",
+        "augmented",
+        "virtual",
+        "hololens",
+        "xr",
+        "extensions"
+    ],
+    "author": "Microsoft",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/microsoft/MixedRealityToolkit-Unity.git"
+    },
+    "bugs": {
+        "url": "https://github.com/microsoft/MixedRealityToolkit-Unity/issues"
+      },
+    "dependencies": {
+        "com.microsoft.mixedreality.toolkit.foundation": "2.8.3"
+    },
+    "samples": [
+      {
+        "displayName": "HandPhysicsService",
+        "description": "MRTK Examples: HandPhysicsService",
+        "path": "Samples~/HandPhysicsService"
+      }
+   ]
+}

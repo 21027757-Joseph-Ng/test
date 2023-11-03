@@ -1,3 +1,73 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:997a98866b871cf4a76889de3d79b7e14d1739b0db96df86fd8df20feb17aff3
-size 2457
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.UI;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    public class ProgressIndicatorDemoAnimation : MonoBehaviour, IProgressIndicatorDemoObject
+    {
+        const string animationName = "PIDemoAnimationPlay";
+
+        [SerializeField]
+        private GameObject progressIndicatorObject = null;
+        [SerializeField]
+        private Animator animator = null;
+
+        private IProgressIndicator progressIndicator;
+
+        private void Awake()
+        {
+            progressIndicator = progressIndicatorObject.GetComponent<IProgressIndicator>();
+        }
+
+        public async void StartProgressBehavior()
+        {
+            if (progressIndicator.State != ProgressIndicatorState.Closed)
+            {
+                Debug.LogWarning("Can't start progress behavior in this state.");
+                return;
+            }
+
+            progressIndicator.Message = $"Starting animation...";
+            progressIndicator.Progress = 0;
+            await progressIndicator.OpenAsync();
+
+            animator.SetTrigger("PlayAnimation");
+
+            await Task.Yield();
+
+            // Wait for animation to START playing
+            bool playingAnimation = false;
+            while (!playingAnimation)
+            {
+                var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+                playingAnimation = stateInfo.IsName(animationName);
+
+                progressIndicator.Message = $"Waiting for animation to start...";
+                await Task.Yield();
+            }
+
+            // Wait for animation to STOP playing
+            while (playingAnimation)
+            {
+                var stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+                playingAnimation = stateInfo.IsName(animationName);
+
+                if (playingAnimation)
+                {
+                    progressIndicator.Message = $"Waiting for animation to finish...";
+                    progressIndicator.Progress = stateInfo.normalizedTime;
+                }
+                await Task.Yield();
+            }
+
+            progressIndicator.Progress = 1;
+            progressIndicator.Message = $"Finished with animation...";
+
+            await progressIndicator.CloseAsync();
+        }
+    }
+}

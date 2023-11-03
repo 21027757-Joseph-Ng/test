@@ -1,3 +1,52 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2e2a6de0a0133b6f130bef4e05191fe82a2f2cdd7ebf5abf01b89f9d57124165
-size 1830
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEditor;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor
+{
+    [CustomEditor(typeof(ParabolaPhysicalLineDataProvider))]
+    public class ParabolaPhysicalLineDataProviderInspector : BaseLineDataProviderInspector
+    {
+        private SerializedProperty gravity;
+        private SerializedProperty velocity;
+        private SerializedProperty direction;
+        private SerializedProperty distanceMultiplier;
+        private SerializedProperty useCustomGravity;
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            gravity = serializedObject.FindProperty("gravity");
+            velocity = serializedObject.FindProperty("velocity");
+            direction = serializedObject.FindProperty("direction");
+            distanceMultiplier = serializedObject.FindProperty("distanceMultiplier");
+            useCustomGravity = serializedObject.FindProperty("useCustomGravity");
+        }
+
+        public override void OnInspectorGUI()
+        {
+            base.OnInspectorGUI();
+            serializedObject.Update();
+
+            EditorGUILayout.LabelField("Physical Parabola Line Settings");
+            EditorGUI.indentLevel++;
+
+            EditorGUI.BeginChangeCheck();
+
+            EditorGUILayout.PropertyField(velocity);
+            EditorGUILayout.PropertyField(direction);
+            EditorGUILayout.PropertyField(distanceMultiplier);
+            EditorGUILayout.PropertyField(useCustomGravity);
+
+            if (useCustomGravity.boolValue)
+            {
+                EditorGUILayout.PropertyField(gravity);
+            }
+
+            EditorGUI.indentLevel--;
+            serializedObject.ApplyModifiedProperties();
+        }
+    }
+}

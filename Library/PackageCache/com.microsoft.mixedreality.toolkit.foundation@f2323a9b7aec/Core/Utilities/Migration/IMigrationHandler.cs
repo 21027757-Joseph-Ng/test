@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d6782a4adb4324e6cc0229fd70bc7de72447a08f388756d14d9b14e9586527f5
-size 705
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Interface defining a migration handler, which is used to migrate assets as they
+    /// upgrade to new versions of MRTK.
+    /// </summary>
+    public interface IMigrationHandler
+    {
+        /// <summary>
+        /// Returns true if this migration handler can apply a migration to gameObject
+        /// </summary>
+        bool CanMigrate(GameObject gameObject);
+
+        /// <summary>
+        /// Applies migration to gameObject
+        /// </summary>
+        void Migrate(GameObject gameObject);
+    }
+}

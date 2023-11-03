@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:22f1db6a2ea5531c2ff76e77160cda8a869a98f9942c58fcc1f79273f8e740c5
-size 593
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.OpenXR
+{
+    /// <summary>
+    /// Choose the predicted display time of a frame in pipelined rendering.
+    /// </summary>
+    public enum FrameTime
+    {
+        /// <summary>
+        /// The time in update thread using previous frame's predicted time + duration.
+        /// </summary>
+        OnUpdate = 0,
+
+        /// <summary>
+        /// The time in render thread using current frame's predicted time.
+        /// </summary>
+        OnBeforeRender
+    }
+}

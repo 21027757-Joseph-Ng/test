@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f0cc5a83d9b1975248b5691a3c428f048d9600f840f4ae12f9a09112706a5fe
-size 766
+{
+    "name": "Unity.XR.CoreUtils.EditorTests",
+    "rootNamespace": "",
+    "references": [
+        "Unity.XR.CoreUtils.Editor",
+        "Unity.XR.CoreUtils",
+        "Unity.XR.CoreUtils.Tests",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.ugui",
+            "expression": "1.0.0",
+            "define": "INCLUDE_UGUI"
+        }
+    ],
+    "noEngineReferences": false
+}

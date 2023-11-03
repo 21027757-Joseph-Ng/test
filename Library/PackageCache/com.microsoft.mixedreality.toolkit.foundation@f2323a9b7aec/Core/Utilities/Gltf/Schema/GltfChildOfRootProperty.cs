@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:77e5eeb5cbf2e33e084eac03ca8adba6b6d4608c468ea0e4deae51be36527e64
-size 706
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/glTFChildOfRootProperty.schema.json
+    /// </summary>
+    [Serializable]
+    public class GltfChildOfRootProperty : GltfProperty
+    {
+        /// <summary>
+        /// The user-defined name of this object.
+        /// This is not necessarily unique, e.g., an accessor and a buffer could have the same name,
+        /// or two accessors could even have the same name.
+        /// </summary>
+        public string name;
+    }
+}

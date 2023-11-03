@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:147b58925d6a0e9773f376d744f06b81d4607c0781b30b91f4aa3a7ecdc509be
-size 1555
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Extensions.SceneTransitions
+{
+    /// <summary>
+    /// Basic interface for fading in / out a color on a camera.
+    /// </summary>
+    public interface ICameraFader
+    {
+        CameraFaderState State { get; }
+
+        /// <summary>
+        /// Initializes the camera fader class with a transition profile.
+        /// </summary>
+        /// <param name="profile">The scene transition service profile.</param>
+        void Initialize(SceneTransitionServiceProfile profile);
+
+        /// <summary>
+        /// Applies a fade-out effect over time.
+        /// </summary>
+        /// <param name="fadeOutTime">The duration of the fade</param>
+        /// <param name="color">The color of the fade</param>
+        /// <param name="targets">Which cameras will receive the effect</param>
+        Task FadeOutAsync(float fadeOutTime, Color color, IEnumerable<Camera> targets);
+
+        /// <summary>
+        /// Applies a fade-in effect over time. Must be called after FadeOutAsync has completed.
+        /// </summary>
+        /// <param name="fadeInTime">The duration of the fade</param>
+        Task FadeInAsync(float fadeInTime);
+
+        /// <summary>
+        /// Used to destroy any assets created.
+        /// May be called in middle of a transition.
+        /// </summary>
+        void OnDestroy();
+    }
+}

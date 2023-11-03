@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2e6c3ab0adc68983fcca91394e2ce02ef002f480fc7c4e7b7f821b867b8510e9
-size 735
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking
+{
+    [AddComponentMenu("Scripts/MRTK/Examples/ToggleGameObject")]
+    public class ToggleGameObject : MonoBehaviour
+    {
+        [SerializeField]
+        private GameObject objToShowHide = null;
+
+        public void ShowIt()
+        {
+            ShowIt(true);
+        }
+
+        public void HideIt()
+        {
+            ShowIt(false);
+        }
+
+        private void ShowIt(bool showIt)
+        {
+            if (objToShowHide != null)
+            {
+                objToShowHide.SetActive(showIt);
+            }
+        }
+    }
+}

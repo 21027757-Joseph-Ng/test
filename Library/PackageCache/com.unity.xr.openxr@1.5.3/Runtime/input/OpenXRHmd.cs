@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:84f74d90a1709cfd6d65418df8b8ea6329d206dc9676b148d80e16f7428267ba
-size 574
+﻿using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.Layouts;
+using UnityEngine.InputSystem.XR;
+using UnityEngine.Scripting;
+
+namespace UnityEngine.XR.OpenXR.Input
+{
+    [Preserve, InputControlLayout(displayName = "OpenXR HMD")]
+    internal class OpenXRHmd : XRHMD
+    {
+        [Preserve, InputControl] ButtonControl userPresence { get; set; }
+
+        /// <inheritdoc/>
+        protected override void FinishSetup()
+        {
+            base.FinishSetup();
+            userPresence = GetChildControl<ButtonControl>("UserPresence");
+        }
+    }
+}

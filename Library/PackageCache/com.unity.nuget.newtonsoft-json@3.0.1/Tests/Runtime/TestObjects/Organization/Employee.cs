@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1704eba62ff0acdbade782c293326f348373198e8319b72b2678ccd6c9c812ba
-size 477
+﻿using System;
+using UnityEngine.Scripting;
+
+namespace Unity.Nuget.NewtonsoftJson.Tests.TestObjects
+{
+    class Employee : IPerson
+    {
+        [Preserve]
+        public string FirstName { get; set; }
+
+        [Preserve]
+        public string LastName { get; set; }
+
+        [Preserve]
+        public DateTime BirthDate { get; set; }
+
+        [Preserve]
+        public string Department { get; set; }
+
+        [Preserve]
+        public string JobTitle { get; set; }
+    }
+}

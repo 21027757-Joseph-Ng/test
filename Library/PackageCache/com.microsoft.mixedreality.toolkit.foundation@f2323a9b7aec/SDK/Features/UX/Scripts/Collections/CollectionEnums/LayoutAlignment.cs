@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:37b486e4786d568c5d2b295e36b7a19c27bab40d3f0f2c0ba747d138dc9a27ee
-size 553
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Describes how the layout should be arranged horizontally
+    /// </summary>
+    public enum LayoutHorizontalAlignment
+    {
+        Left,
+        Center,
+        Right
+    };
+
+    /// <summary>
+    /// Describes how the layout should be arranged vertically
+    /// </summary>
+    public enum LayoutVerticalAlignment
+    {
+        Top,
+        Middle,
+        Bottom
+    };
+}

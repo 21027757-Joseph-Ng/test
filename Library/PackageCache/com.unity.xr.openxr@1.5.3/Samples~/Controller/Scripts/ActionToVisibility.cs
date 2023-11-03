@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ded7c900bf2477908f6cd2912c57a8a85b3a8307fc79e98c35556518ae4909fd
-size 1336
+using System.Collections;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.OpenXR.Input;
+
+namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
+{
+    public class ActionToVisibility : MonoBehaviour
+    {
+        [SerializeField] private InputActionReference _actionReference = null;
+
+        [SerializeField] private GameObject _target = null;
+
+        private void OnEnable()
+        {
+            if (null == _target)
+                _target = gameObject;
+
+            _target.SetActive(false);
+
+            if (_actionReference != null && _actionReference.action != null)
+                StartCoroutine(UpdateVisibility());
+        }
+
+        private IEnumerator UpdateVisibility ()
+        {
+            while (isActiveAndEnabled)
+            {
+                if (_actionReference.action != null &&
+                    _actionReference.action.controls.Count > 0 &&
+                    _actionReference.action.controls[0].device != null &&
+                    OpenXRInput.TryGetInputSourceName(_actionReference.action, 0, out var actionName, OpenXRInput.InputSourceNameFlags.Component, _actionReference.action.controls[0].device))
+                {
+                    _target.SetActive(true);
+                    break;
+                }
+                yield return new WaitForSeconds(1.0f);
+            }
+        }
+    }
+}

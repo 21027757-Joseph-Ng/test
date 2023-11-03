@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b760d3c0d4c0c3d0d50de0b15b0292d9ccab37728abdba6d5aee3f2a5273522c
-size 1269
+namespace Unity.XR.CoreUtils
+{
+    static class HashCodeUtil
+    {
+        public static int Combine(int hash1, int hash2)
+        {
+            unchecked
+            {
+                return hash1 * 486187739 + hash2;
+            }
+        }
+
+        public static int ReferenceHash(object obj) => obj != null ? obj.GetHashCode() : 0;
+
+        public static int Combine(int hash1, int hash2, int hash3) => Combine(Combine(hash1, hash2), hash3);
+        public static int Combine(int hash1, int hash2, int hash3, int hash4) => Combine(Combine(hash1, hash2, hash3), hash4);
+        public static int Combine(int hash1, int hash2, int hash3, int hash4, int hash5) => Combine(Combine(hash1, hash2, hash3, hash4), hash5);
+        public static int Combine(int hash1, int hash2, int hash3, int hash4, int hash5, int hash6) => Combine(Combine(hash1, hash2, hash3, hash4, hash5), hash6);
+        public static int Combine(int hash1, int hash2, int hash3, int hash4, int hash5, int hash6, int hash7) => Combine(Combine(hash1, hash2, hash3, hash4, hash5, hash6), hash7);
+        public static int Combine(int hash1, int hash2, int hash3, int hash4, int hash5, int hash6, int hash7, int hash8) => Combine(Combine(hash1, hash2, hash3, hash4, hash5, hash6, hash7), hash8);
+    }
+}

@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:cbb2612c141476a9f9c98db09ff232657ddd2148a89640416508663a01299327
-size 437
+{
+    "name": "Microsoft.MixedReality.Toolkit.Services.BoundarySystem",
+    "references": [
+        "Microsoft.MixedReality.Toolkit"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "!UNITY_2020_1_OR_NEWER"
+    ]
+}

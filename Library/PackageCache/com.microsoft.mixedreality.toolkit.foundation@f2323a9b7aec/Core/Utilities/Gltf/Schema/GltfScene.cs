@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:46c70f34d3ba8eb3ae04831182057de52f80809ef4df82519f961525baa0b600
-size 551
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// The indices of each root node.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/scene.schema.json
+    /// </summary>
+    [Serializable]
+    public class GltfScene : GltfChildOfRootProperty
+    {
+        /// <summary>
+        /// Indices of each root node.
+        /// </summary>
+        public int[] nodes;
+    }
+}

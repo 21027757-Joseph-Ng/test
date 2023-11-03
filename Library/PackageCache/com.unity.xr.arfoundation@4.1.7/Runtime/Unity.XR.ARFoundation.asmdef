@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b9e2dd629166c7d024edcd64a92b9e08734c71b5f5e125dcb74492f4baf0e24c
-size 1046
+{
+    "name": "Unity.XR.ARFoundation",
+    "references": [
+        "Unity.RenderPipelines.Core.Runtime",
+        "Unity.RenderPipelines.Lightweight.Runtime",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.XR.ARSubsystems",
+        "Unity.XR.Management",
+        "UnityEngine.SpatialTracking"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.render-pipelines.lightweight",
+            "expression": "[5.7.2,7.0.0)",
+            "define": "MODULE_LWRP_ENABLED"
+        },
+        {
+            "name": "com.unity.render-pipelines.universal",
+            "expression": "7.0.0",
+            "define": "MODULE_URP_ENABLED"
+        },
+        {
+            "name": "com.unity.xr.legacyinputhelpers",
+            "expression": "1.0.0",
+            "define": "USE_LEGACY_INPUT_HELPERS"
+        }
+    ]
+}

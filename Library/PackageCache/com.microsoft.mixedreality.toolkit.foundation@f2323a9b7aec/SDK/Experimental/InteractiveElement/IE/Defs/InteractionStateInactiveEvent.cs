@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a56844dae4c8db83d1ee4f7b317d37e667825fdfb19fe0b1c6079887bfc68b45
-size 647
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License
+
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// A Unity event with two Interaction States as event data.  The first Interaction State represents the state
+    /// that was deactivated and the second is the state that is currently active.  This event is used in the StateManager when 
+    /// a state is set to off/deactivated.
+    /// </summary>
+    [System.Serializable]
+    public class InteractionStateInactiveEvent : UnityEvent<InteractionState, InteractionState> { }
+}

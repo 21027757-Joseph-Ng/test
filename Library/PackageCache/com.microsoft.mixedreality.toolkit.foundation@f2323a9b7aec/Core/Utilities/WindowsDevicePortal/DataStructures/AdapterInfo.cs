@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f2ea587adda9ea606c1a26c5aa4e9504e7d3ac906691330ec8db3df361da1fe5
-size 510
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.WindowsDevicePortal
+{
+    [Serializable]
+    public class AdapterInfo
+    {
+        public string Description;
+        public string HardwareAddress;
+        public int Index;
+        public string Name;
+        public string Type;
+        public DHCPInfo DHCP;
+        public IpAddressInfo[] Gateways;
+        public IpAddressInfo[] IpAddresses;
+    }
+}

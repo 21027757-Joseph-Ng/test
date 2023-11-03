@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8057c0c550335744353bae0f31f3980757ac7b09a05c79fb3718d6a063a977dc
-size 452
+using System;
+
+namespace UnityEngine.InputSystem.Utilities
+{
+    internal static class ExceptionHelpers
+    {
+        public static bool IsExceptionIndicatingBugInCode(this Exception exception)
+        {
+            Debug.Assert(exception != null, "Exception is null");
+
+            return exception is NullReferenceException ||
+                exception is IndexOutOfRangeException ||
+                exception is ArgumentException;
+        }
+    }
+}

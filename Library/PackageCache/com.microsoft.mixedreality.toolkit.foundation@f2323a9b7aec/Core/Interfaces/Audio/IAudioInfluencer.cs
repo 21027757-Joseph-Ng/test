@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5e4a9e0c2e889c41e1e54b616c8373dfa78ea3b88a7e8a2736d555108c0a6619
-size 887
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Audio
+{
+    /// <summary>
+    /// Interface that should be implemented by any class that wishes to influence how an audio source sounds.
+    /// </summary>
+    public interface IAudioInfluencer
+    {
+        /// <summary>
+        /// Applies an audio effect.
+        /// </summary>
+        /// <param name="soundEmittingObject">The GameObject on which the effect is to be applied.</param>
+        void ApplyEffect(GameObject soundEmittingObject);
+
+        /// <summary>
+        /// Removes a previously applied audio effect.
+        /// </summary>
+        /// <param name="soundEmittingObject">The GameObject from which the effect is to be removed.</param>
+        void RemoveEffect(GameObject soundEmittingObject);
+    }
+}

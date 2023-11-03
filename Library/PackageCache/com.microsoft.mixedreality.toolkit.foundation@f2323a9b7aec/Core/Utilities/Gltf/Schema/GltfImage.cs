@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c5df553970765771254f6b35e2082aa9b9bde5af3dab7637bee9be3b51d62df8
-size 1472
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// Image data used to create a texture. Image can be referenced by URI or
+    /// `bufferView` index. `mimeType` is required in the latter case.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/image.schema.json
+    /// </summary>
+    [Serializable]
+    public class GltfImage : GltfChildOfRootProperty
+    {
+        #region Serialized Fields
+
+        /// <summary>
+        /// The uri of the image.  Relative paths are relative to the .gltf file.
+        /// Instead of referencing an external file, the uri can also be a data-uri.
+        /// The image format must be jpg, png, bmp, or gif.
+        /// </summary>
+        public string uri;
+
+        /// <summary>
+        /// The image's MIME type.
+        /// <minLength>1</minLength>
+        /// </summary>
+        public string mimeType;
+
+        /// <summary>
+        /// The index of the bufferView that contains the image.
+        /// Use this instead of the image's uri property.
+        /// </summary>
+        public int bufferView;
+
+        #endregion Serialized Fields
+
+        /// <summary>
+        /// Unity Texture2D wrapper for the GltfImage
+        /// </summary>
+        public Texture2D Texture { get; internal set; }
+    }
+}

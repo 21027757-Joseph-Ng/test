@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6225b83a1b9b8a872ed460a1f9792aca07c8ca8e8f1641e70899d93fb0680fdc
-size 681
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// The default event configuration for an InteractionState.
+    /// </summary>
+    public class StateEvents : BaseInteractionEventConfiguration
+    {
+        /// <summary>
+        /// Fired when a state is set to on. 
+        /// </summary>
+        public UnityEvent OnStateOn = new UnityEvent();
+
+        /// <summary>
+        /// Fired when a state is set to off.
+        /// </summary>
+        public UnityEvent OnStateOff = new UnityEvent();
+    }
+}

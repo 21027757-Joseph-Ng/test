@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f15c9a0e21bb929a97a635f67b10a51f831cccd1910015655dca302ed37f8664
-size 524
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// Specifies if the attribute is a scalar, vector, or matrix.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/accessor.schema.json
+    /// </summary>
+    public enum GltfAccessorAttributeType
+    {
+        SCALAR,
+        VEC2,
+        VEC3,
+        VEC4,
+        MAT2,
+        MAT3,
+        MAT4
+    }
+}

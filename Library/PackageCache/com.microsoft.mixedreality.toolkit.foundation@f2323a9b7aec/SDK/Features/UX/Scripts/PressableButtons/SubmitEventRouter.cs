@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8a81a2c5bb934217593a5aa8fc078c7c4afcb6fe4e0536655bcbc2efa4b0b6ca
-size 795
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// This is a helper class to allow you to call OnSubmit() on a UnityEngine.UI.Button or other control derived from UnityEngine.EventSystems.ISubmitHandler on this gameObject.
+    /// It exposes a public function that can be bound in the Editor to a Unity Event.
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/SDK/SubmitEventRouter")]
+    public class SubmitEventRouter : MonoBehaviour
+    {
+        public void Submit()
+        {
+            ExecuteEvents.Execute(this.gameObject, new BaseEventData(EventSystem.current), ExecuteEvents.submitHandler);
+        }
+    }
+}

@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d52f5ef9f364d3fe78497a0fd5132ca39a61b71f9acc8eb0544a7b4c10845b6c
-size 898
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Extensions.Tracking
+{
+    /// <summary>
+    /// Interface for a lost tracking visual. Used by the ILostTrackingService extension.
+    /// </summary>
+    public interface ILostTrackingVisual
+    {
+        /// <summary>
+        /// Completely enables or disables the visual. Should probably be linked to the root game object's active value.
+        /// </summary>
+        bool Enabled { get; set; }
+
+        /// <summary>
+        /// Sets all visual components to the layer provided.
+        /// </summary>
+        /// <param name="layer">The layer to set for the visual components.</param>
+        void SetLayer(int layer);
+
+        /// <summary>
+        /// Resets the visual state to default.
+        /// </summary>
+        void ResetVisual();
+    }
+}

@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2f370a6dffaef221981ed0f2ce0fd95b2a4854b326cef6d48dc096f9a6022922
-size 400
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface to implement to react to speech recognition.
+    /// </summary>
+    public interface IMixedRealitySpeechHandler : IMixedRealityBaseInputHandler
+    {
+        void OnSpeechKeywordRecognized(SpeechEventData eventData);
+    }
+}

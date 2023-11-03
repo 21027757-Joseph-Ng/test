@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f4f0b56a9e009324a674c66ef9fd26b776b50231b00f624b760ae238ee32a8fb
-size 624
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using System.Text;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// <see cref="System.Text.StringBuilder"/> Extensions.
+    /// </summary>
+    public static class StringBuilderExtensions
+    {
+        /// <summary>
+        /// Append new line for current Environment to this StringBuilder buffer
+        /// </summary>
+        public static StringBuilder AppendNewLine(this StringBuilder sb)
+        {
+            sb.Append(Environment.NewLine);
+            return sb;
+        }
+    }
+}

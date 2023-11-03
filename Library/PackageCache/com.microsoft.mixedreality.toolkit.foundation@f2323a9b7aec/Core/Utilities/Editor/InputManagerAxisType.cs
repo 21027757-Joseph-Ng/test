@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:526c33aee0c813f07b372984640a7cfe8c6b6354ed4755a0403f2dc53e100d61
-size 405
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor
+{
+    /// <summary>
+    /// Used to map AxisType from a useful name to the int value the InputManager wants.
+    /// </summary>
+    public enum InputManagerAxisType
+    {
+        KeyOrMouseButton = 0,
+        MouseMovement,
+        JoystickAxis
+    }
+}

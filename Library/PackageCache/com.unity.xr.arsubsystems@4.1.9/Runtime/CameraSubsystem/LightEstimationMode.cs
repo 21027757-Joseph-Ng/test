@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:01fb32351c5b90d97c93767d2ac73c5e80c7bb81bd68e84fdb5a29732aa14432
-size 748
+using System.ComponentModel;
+
+namespace UnityEngine.XR.ARSubsystems
+{
+    /// <summary>
+    /// Represents the light estimation mode. This is deprecated.
+    /// </summary>
+    public enum LightEstimationMode
+    {
+        /// <summary>
+        /// Light estimation is disabled.
+        /// </summary>
+        [Description("Disabled")]
+        Disabled = 0,
+
+        /// <summary>
+        /// Ambient lighting will be estimated as a single-value intensity.
+        /// </summary>
+        [Description("AmbientIntensity")]
+        AmbientIntensity = 1,
+
+        /// <summary>
+        /// Scene lighting will be estimated using Environmental HDR.
+        /// </summary>
+        [Description("EnvironmentalHDR")]
+        EnvironmentalHDR = 2,
+    }
+}

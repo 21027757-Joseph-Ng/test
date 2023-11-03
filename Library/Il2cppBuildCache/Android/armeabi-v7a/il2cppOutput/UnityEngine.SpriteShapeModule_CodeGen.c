@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:adf6a70186b39753353c44fa1d5b0bba4482b2a9270570f2aaa1ecaa6460ca26
-size 640
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+extern const CustomAttributesCacheGenerator g_UnityEngine_SpriteShapeModule_AttributeGenerators[];
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_SpriteShapeModule_CodeGenModule;
+const Il2CppCodeGenModule g_UnityEngine_SpriteShapeModule_CodeGenModule = 
+{
+	"UnityEngine.SpriteShapeModule.dll",
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	g_UnityEngine_SpriteShapeModule_AttributeGenerators,
+	NULL, // module initializer,
+	NULL,
+	NULL,
+	NULL,
+};

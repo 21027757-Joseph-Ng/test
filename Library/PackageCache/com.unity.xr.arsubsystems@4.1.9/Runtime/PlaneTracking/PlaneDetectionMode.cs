@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:39ea0652def53ccc2d7525906ef2f8a9919ab14c343759d44483a4c5d88f038e
-size 587
+using System;
+
+namespace UnityEngine.XR.ARSubsystems
+{
+    /// <summary>
+    /// Used to configure the types of planes to detect.
+    /// </summary>
+    [Flags]
+    public enum PlaneDetectionMode
+    {
+        /// <summary>
+        /// Plane detection is disabled.
+        /// </summary>
+        None = 0,
+
+        /// <summary>
+        /// Plane detection will only detect horizontal planes.
+        /// </summary>
+        Horizontal = 1 << 0,
+
+        /// <summary>
+        /// Plane detection will only detect vertical planes.
+        /// </summary>
+        Vertical = 1 << 1
+    }
+}

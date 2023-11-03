@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b522a4ecda5c21cd8934053d534551137f2e641870bf4fecf21eaa164de6a532
-size 1354
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.UI.BoundsControl
+{
+    /// <summary>
+    /// Configuration for <see cref="TranslationHandles"/> used in <see cref="BoundsControl"/>
+    /// This class provides all data members needed to create translation handles for <see cref="BoundsControl"/>
+    /// </summary>
+    [CreateAssetMenu(fileName = "TranslationHandlesConfiguration", menuName = "Mixed Reality/Toolkit/Bounds Control/Translation Handles Configuration")]
+    public class TranslationHandlesConfiguration : PerAxisHandlesConfiguration
+    {
+        TranslationHandlesConfiguration()
+        {
+            // translation handles are turned off by default
+            ShowHandleForX = false;
+            ShowHandleForY = false;
+            ShowHandleForZ = false;
+        }
+
+        /// <summary>
+        /// Fabricates an instance of TranslationHandles, applying
+        /// this config to it whilst creating it.
+        /// </summary>
+        /// <returns>New TranslationHandles</returns>
+        internal virtual TranslationHandles ConstructInstance()
+        {
+            // Return a new TranslationHandles, using this config as the active config.
+            return new TranslationHandles(this);
+        }
+    }
+}

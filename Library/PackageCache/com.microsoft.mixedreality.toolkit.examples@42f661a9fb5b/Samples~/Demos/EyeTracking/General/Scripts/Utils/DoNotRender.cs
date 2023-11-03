@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9a84fa86ee14c996643921537144d055ac3c19ec3c3b4dc6c863b898ded36c4d
-size 662
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking
+{
+    /// <summary>
+    /// Simple class that automatically hides a target on startup. This is, for example, useful for trigger zones and visual guides that are useful 
+    /// to show in the Editor, but not in the final application.
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Examples/DoNotRender")]
+    public class DoNotRender : MonoBehaviour
+    {
+        private void Start()
+        {
+            GetComponent<Renderer>().enabled = false;
+        }
+    }
+}

@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0c280f50a5a9b92720ea6df09bce136b3f51e2115cb091147ca44c7de8709582
-size 499
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    [AddComponentMenu("Scripts/MRTK/SDK/WindowsMixedRealityControllerVisualizer")]
+    public class WindowsMixedRealityControllerVisualizer : MixedRealityControllerVisualizer
+    {
+        protected override Quaternion RotationOffset => rotationOffset * Quaternion.Euler(0, 180.0f, 0);
+    }
+}

@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac37db4b4b814470ab9cd284f4603e9b6ff39762afef94b20ff4019a7461df89
-size 723
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking
+{
+    /// <summary>
+    /// Allows for adding custom behaviors that can be assigned in the Editor and triggered when the scene is loaded. 
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Examples/TriggerOnStartup")]
+    public class TriggerOnStartup : MonoBehaviour
+    {
+        [Tooltip("Event handler when the scene is loaded.")]
+        [SerializeField]
+        private UnityEvent OnSceneStart = null;
+
+        private void Start()
+        {
+            OnSceneStart.Invoke();
+        }
+    }
+}

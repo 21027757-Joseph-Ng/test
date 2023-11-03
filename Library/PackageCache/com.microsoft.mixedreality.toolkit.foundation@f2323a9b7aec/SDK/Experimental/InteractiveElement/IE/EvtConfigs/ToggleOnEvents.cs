@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed6787685ac013126f893a0c5fa8776b0fdda7988f6d87ed9ab24d8cad9785bb
-size 1025
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// The event configuration for the ToggleOn InteractionState.
+    /// </summary>
+    public class ToggleOnEvents : BaseInteractionEventConfiguration
+    {
+        [SerializeField]
+        [Tooltip("Whether on not the toggle is selected when the application starts.")]
+        private bool isSelectedOnStart = false;
+
+        /// <summary>
+        /// Whether on not the toggle is selected when the application starts.
+        /// </summary>
+        public bool IsSelectedOnStart
+        {
+            get => isSelectedOnStart;
+            set => isSelectedOnStart = value;
+        }
+
+        /// <summary>
+        /// A Unity event that is fired when the ToggleOff state is active.
+        /// </summary>
+        public UnityEvent OnToggleOn = new UnityEvent();
+    }
+}

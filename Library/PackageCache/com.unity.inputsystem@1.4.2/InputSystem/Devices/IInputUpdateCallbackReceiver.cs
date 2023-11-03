@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e8fc81aaeaa9d8d3112d989e5fda199c80c293699edf0c2cd7fdc740c5ce58ab
-size 668
+namespace UnityEngine.InputSystem.LowLevel
+{
+    /// <summary>
+    /// Interface to allow custom input devices to receive callbacks when the input system is updated.
+    /// </summary>
+    /// <remarks>
+    /// If an <see cref="InputDevice"/> class implements the IInputUpdateCallbackReceiver interface, any instance of the
+    /// InputDevice will have it's <see cref="OnUpdate"/> method called whenever the input system updates. This can be used
+    /// to implement custom state update logic for virtual input devices which track some state in the project.
+    /// </remarks>
+    public interface IInputUpdateCallbackReceiver
+    {
+        void OnUpdate();
+    }
+}

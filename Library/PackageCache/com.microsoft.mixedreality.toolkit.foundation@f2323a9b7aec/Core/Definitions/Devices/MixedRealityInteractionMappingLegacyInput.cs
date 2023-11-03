@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fa5e5239742c886fe1f4620d01006c9d7da775a1b7fab44493d69f5b3188f67d
-size 1619
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Represents the subset of data held by a <see cref="MixedRealityInteractionMapping"/> that represents Unity's legacy input system.
+    /// </summary>
+    public struct MixedRealityInteractionMappingLegacyInput
+    {
+        /// <summary>
+        /// Optional KeyCode value to get input from Unity's old input system.
+        /// </summary>
+        public KeyCode KeyCode { get; }
+
+        /// <summary>
+        /// Optional horizontal or single axis value to get axis data from Unity's old input system.
+        /// </summary>
+        public string AxisCodeX { get; }
+
+        /// <summary>
+        /// Optional vertical axis value to get axis data from Unity's old input system.
+        /// </summary>
+        public string AxisCodeY { get; }
+
+        /// <summary>
+        /// Should the X axis be inverted?
+        /// </summary>
+        public bool InvertXAxis { get; }
+
+        /// <summary>
+        /// Should the Y axis be inverted?
+        /// </summary>
+        public bool InvertYAxis { get; }
+
+        public MixedRealityInteractionMappingLegacyInput(KeyCode keyCode = KeyCode.None, string axisCodeX = "", string axisCodeY = "", bool invertXAxis = false, bool invertYAxis = false)
+        {
+            KeyCode = keyCode;
+            AxisCodeX = axisCodeX;
+            AxisCodeY = axisCodeY;
+            InvertXAxis = invertXAxis;
+            InvertYAxis = invertYAxis;
+        }
+    }
+}

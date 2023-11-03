@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:47cfe56b38b7615c049d8b4b23ad527d39f27406921f8320af096c9c91f984b5
-size 443
+{
+    "name": "Microsoft.MixedReality.Toolkit.Services.InputSystem",
+    "references": [
+        "Microsoft.MixedReality.Toolkit",
+        "Microsoft.MixedReality.Toolkit.Async"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

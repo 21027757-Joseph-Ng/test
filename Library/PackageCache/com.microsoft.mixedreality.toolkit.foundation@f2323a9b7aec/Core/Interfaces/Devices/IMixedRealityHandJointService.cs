@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:110c1144f0613563590faa1bb04a84e4a328cc9948986d7d11e788a066b690b4
-size 696
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Mixed Reality Toolkit device definition, used to instantiate and manage a specific device / SDK
+    /// </summary>
+    public interface IMixedRealityHandJointService : IMixedRealityInputDeviceManager
+    {
+        /// <summary>
+        /// Get a game object following the hand joint.
+        /// </summary>
+        Transform RequestJointTransform(TrackedHandJoint joint, Handedness handedness);
+
+        bool IsHandTracked(Handedness handedness);
+    }
+}

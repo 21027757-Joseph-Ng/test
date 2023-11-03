@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:117de9cb2696f060f262535a5a5c78153911b3a5b4675e0f0e3f545e5cd1fc51
-size 1944
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+using Microsoft.MixedReality.Toolkit.Editor;
+using Microsoft.MixedReality.Toolkit.Input;
+using System.Linq;
+using UnityEditor;
+
+namespace Microsoft.MixedReality.Toolkit.Inspectors
+{
+    [CustomEditor(typeof(MixedRealityEyeTrackingProfile))]
+    public class MixedRealityEyeTrackingProfileInspector : BaseMixedRealityToolkitConfigurationProfileInspector
+    {
+        private SerializedProperty smoothEyeTracking;
+
+        private const string ProfileTitle = "Eye tracking Settings";
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            smoothEyeTracking = serializedObject.FindProperty("smoothEyeTracking");
+        }
+
+        public override void OnInspectorGUI()
+        {
+            if (!RenderProfileHeader(ProfileTitle, string.Empty, target, true, BackProfileType.Input))
+            {
+                return;
+            }
+
+            using (new EditorGUI.DisabledGroupScope(IsProfileLock((BaseMixedRealityProfile)target)))
+            {
+                serializedObject.Update();
+                EditorGUILayout.PropertyField(smoothEyeTracking);
+                serializedObject.ApplyModifiedProperties();
+            }
+        }
+
+        protected override bool IsProfileInActiveInstance()
+        {
+            var profile = target as BaseMixedRealityProfile;
+            return MixedRealityToolkit.IsInitialized && profile != null &&
+                MixedRealityToolkit.Instance.HasActiveProfile &&
+                MixedRealityToolkit.Instance.ActiveProfile.InputSystemProfile != null &&
+                MixedRealityToolkit.Instance.ActiveProfile.InputSystemProfile.DataProviderConfigurations != null &&
+                MixedRealityToolkit.Instance.ActiveProfile.InputSystemProfile.DataProviderConfigurations.Any(s => profile == s.Profile);
+        }
+    }
+}

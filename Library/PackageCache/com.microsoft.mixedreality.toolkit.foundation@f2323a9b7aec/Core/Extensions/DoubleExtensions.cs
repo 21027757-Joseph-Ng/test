@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b95924937726427cda62b7342e7cd612b695918b14977c662e9644ed1fc70c96
-size 1167
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Extension methods for the .Net Double struct
+    /// </summary>
+    public static class DoubleExtensions
+    {
+        /// <summary>
+        /// Checks if two numbers are approximately equal. Similar to <see href="https://docs.unity3d.com/ScriptReference/Mathf.Approximately.html">Mathf.Approximately(float, float)</see>, but the tolerance
+        /// can be specified.
+        /// </summary>
+        /// <param name="number">One of the numbers to compare.</param>
+        /// <param name="other">The other number to compare.</param>
+        /// <param name="tolerance">The amount of tolerance to allow while still considering the numbers approximately equal.</param>
+        /// <returns>True if the difference between the numbers is less than or equal to the tolerance, false otherwise.</returns>
+        public static bool Approximately(this double number, double other, double tolerance)
+        {
+            return Math.Abs(number - other) <= tolerance;
+        }
+    }
+}

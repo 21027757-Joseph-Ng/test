@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3e0ba68cabd5070431b34166b7c9ba3c2251cb25deec027305b4350be132cf0
-size 593
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// How to apply the distortion along the line.
+    /// </summary>
+    public enum DistortionMode
+    {
+        /// <summary>
+        /// Use the normalized length of the line plus its distortion strength curve to determine distortion strength
+        /// </summary>
+        NormalizedLength = 0,
+        /// <summary>
+        /// Use a single value to determine distortion strength
+        /// </summary>
+        Uniform,
+    }
+}

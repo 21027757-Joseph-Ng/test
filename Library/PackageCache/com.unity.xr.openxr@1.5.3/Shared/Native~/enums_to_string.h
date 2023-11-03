@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:66a23b2ae779bf020ccf3cb2061a1d1ebb8356758c5b453a8c38098f3bf2e2ac
-size 941
+#pragma once
+
+#include <algorithm>
+#include <locale>
+#include <stdarg.h>
+#include <stddef.h>
+#include <string>
+
+// Macro to generate stringify functions for OpenXR enumerations based data provided in openxr_reflection.h
+// clang-format off
+#define ENUM_CASE_STR(name, val) case name: return #name;
+#define MAKE_TO_STRING_FUNC(enumType)                  \
+    inline const char* to_string(enumType e) {         \
+        switch (e) {                                   \
+            XR_LIST_ENUM_##enumType(ENUM_CASE_STR)     \
+            default: return "Unknown " #enumType;      \
+        }                                              \
+    }
+// clang-format on
+
+MAKE_TO_STRING_FUNC(XrReferenceSpaceType);
+MAKE_TO_STRING_FUNC(XrViewConfigurationType);
+MAKE_TO_STRING_FUNC(XrEnvironmentBlendMode);
+MAKE_TO_STRING_FUNC(XrSessionState);
+MAKE_TO_STRING_FUNC(XrResult);
+MAKE_TO_STRING_FUNC(XrFormFactor);
+MAKE_TO_STRING_FUNC(XrStructureType);

@@ -1,3 +1,51 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:69b2b60c5ed9704bbb7a5df169aca9abbb557a5943d6e559573ee820ad941e9c
-size 1392
+#if UNITY_EDITOR
+using System;
+using UnityEditor.IMGUI.Controls;
+
+namespace UnityEngine.InputSystem.Editor
+{
+    /// <summary>
+    /// Extension methods for working with tree views.
+    /// </summary>
+    /// <seealso cref="TreeView"/>
+    internal static class TreeViewHelpers
+    {
+        public static TItem TryFindItemInHierarchy<TItem>(this TreeViewItem item)
+            where TItem : TreeViewItem
+        {
+            while (item != null)
+            {
+                if (item is TItem result)
+                    return result;
+                item = item.parent;
+            }
+
+            return null;
+        }
+
+        public static bool IsParentOf(this TreeViewItem parent, TreeViewItem child)
+        {
+            if (parent == null)
+                throw new ArgumentNullException(nameof(parent));
+            if (child == null)
+                throw new ArgumentNullException(nameof(child));
+
+            do
+            {
+                child = child.parent;
+            }
+            while (child != null && child != parent);
+            return child != null;
+        }
+
+        public static void ExpandChildren(this TreeView treeView, TreeViewItem item)
+        {
+            if (!item.hasChildren)
+                return;
+
+            foreach (var child in item.children)
+                treeView.SetExpanded(child.id, true);
+        }
+    }
+}
+#endif // UNITY_EDITOR

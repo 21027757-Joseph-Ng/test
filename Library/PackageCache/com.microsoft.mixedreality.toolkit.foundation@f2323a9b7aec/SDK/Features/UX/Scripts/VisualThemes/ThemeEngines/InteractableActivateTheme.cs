@@ -1,3 +1,64 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ef4edd151ad53e122e5c898a17fe4f453ee87d52f9585be4d54ba1b37ed65b29
-size 2080
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Theme engine that allows control to enable/disable a GameObject based on the current state
+    /// </summary>
+    public class InteractableActivateTheme : InteractableThemeBase
+    {
+        /// <inheritdoc />
+        public override bool IsEasingSupported => false;
+
+        public InteractableActivateTheme()
+        {
+            Types = new Type[] { typeof(Transform) };
+            Name = "Activate Theme";
+        }
+
+        /// <inheritdoc />
+        public override ThemeDefinition GetDefaultThemeDefinition()
+        {
+            return new ThemeDefinition()
+            {
+                ThemeType = GetType(),
+                StateProperties = new List<ThemeStateProperty>()
+                {
+                    new ThemeStateProperty()
+                    {
+                        Name = "Activate",
+                        Type = ThemePropertyTypes.Bool,
+                        Values = new List<ThemePropertyValue>(),
+                        Default = new ThemePropertyValue() { Bool = true }
+                    },
+                },
+                CustomProperties = new List<ThemeProperty>(),
+            };
+        }
+
+        /// <inheritdoc />
+        public override ThemePropertyValue GetProperty(ThemeStateProperty property)
+        {
+            ThemePropertyValue start = new ThemePropertyValue();
+            start.Bool = Host.activeSelf;
+            return start;
+        }
+
+        /// <inheritdoc />
+        public override void SetValue(ThemeStateProperty property, int index, float percentage)
+        {
+            SetValue(property, property.Values[index]);
+        }
+
+        /// <inheritdoc />
+        protected override void SetValue(ThemeStateProperty property, ThemePropertyValue value)
+        {
+            Host.SetActive(value.Bool);
+        }
+    }
+}

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9059965cb9394cddd44d0e7104105cd928fd323b3638708f9cf80d9589ddf205
-size 329
+using UnityEngine.InputSystem.Utilities;
+
+namespace UnityEngine.InputSystem.LowLevel
+{
+    /// <summary>
+    /// Interface implemented by all input device state structs which reports the data format identifier of the state.
+    /// </summary>
+    public interface IInputStateTypeInfo
+    {
+        FourCC format { get; }
+    }
+}

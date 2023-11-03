@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:09ab27a54b043237bfadfa03635bf25817a603542d66ac74fa0b75ec9e0dfdaa
-size 850
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Values for user-friendly dimensions settings
+    /// </summary>
+    public enum SelectionModes
+    {
+        /// <summary>
+        /// Not a valid mode
+        /// </summary>
+        Invalid = -1,
+        /// <summary>
+        /// Just click, no selection
+        /// </summary>
+        Button,
+        /// <summary>
+        /// A selection with two dimensions, selected/unselection.
+        /// A two mode switch, checkbox, toggle, radial
+        /// </summary>
+        Toggle,
+        /// <summary>
+        /// A selection with more than two dimensions,
+        /// like one control for Small, Medium, and Large
+        /// </summary>
+        MultiDimension
+    };
+}

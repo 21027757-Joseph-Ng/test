@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5bdadbd46236567392a3b7a2d56d085e7bb02ca577f2cbcad0ea947789db89d1
-size 505
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// A Unity event with SpeechEventData. This event is used in the event configuration for the 
+    /// SpeechKeyword state.
+    /// </summary>
+    [System.Serializable]
+    public class SpeechInteractionEvent : UnityEvent<SpeechEventData> { }
+}

@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d091a2414ba7896ff5bbf5443d5342c16b1af6010645d81b0a70d70436cab332
-size 439
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+using System;
+using System.Collections.Generic;
+
+namespace Microsoft.MixedReality.Toolkit.Input.Editor
+{
+    /// <summary>
+    /// Used to aid in layout of Controller Input Actions.
+    /// </summary>
+    [Serializable]
+    public class ControllerInputActionOptions
+    {
+        public List<ControllerInputActionOption> Controllers;
+    }
+}

@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e8684667c977b441ab04fe0e9fe668fd563e83fdc219ef6a324f5e98c0a80dcf
-size 310
+#if UNITY_WEBGL || UNITY_EDITOR || PACKAGE_DOCS_GENERATION
+
+namespace UnityEngine.InputSystem.WebGL
+{
+    /// <summary>
+    /// A Joystick or Gamepad on WebGL that does not have any known mapping.
+    /// </summary>
+    public class WebGLJoystick : Joystick
+    {
+    }
+}
+#endif // UNITY_WEBGL || UNITY_EDITOR

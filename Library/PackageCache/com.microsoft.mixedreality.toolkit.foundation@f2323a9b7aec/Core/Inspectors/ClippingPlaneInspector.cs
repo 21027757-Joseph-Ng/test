@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:99f590664de29896a8961398f06d03d8f065a6a8bef0f658920c1aca7135f6b8
-size 926
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Editor
+{
+    /// <summary>
+    /// A custom editor for the ClippingPlaneEditor to allow for specification of the framing bounds.
+    /// </summary>
+    [CustomEditor(typeof(ClippingPlane))]
+    [CanEditMultipleObjects]
+    public class ClippingPlaneEditor : ClippingPrimitiveEditor
+    {
+        /// <inheritdoc/>
+        protected override bool HasFrameBounds()
+        {
+            return true;
+        }
+
+        /// <inheritdoc/>
+        protected override Bounds OnGetFrameBounds()
+        {
+            var primitive = target as ClippingPlane;
+            Debug.Assert(primitive != null);
+            return new Bounds(primitive.transform.position, Vector3.one);
+        }
+    }
+}

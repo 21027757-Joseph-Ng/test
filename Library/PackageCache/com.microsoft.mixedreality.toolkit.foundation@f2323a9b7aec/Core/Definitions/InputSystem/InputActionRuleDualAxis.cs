@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d227b126ded881d26795c0c5d0cfb1fa2dbc7a44515d4ccfaab040e8795590f0
-size 1779
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Generic Input Action Rule for raising actions based on specific criteria.
+    /// </summary>
+    [Serializable]
+    public struct InputActionRuleDualAxis : IInputActionRule<Vector2>
+    {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="baseAction">The Base Action that the rule will listen to.</param>
+        /// <param name="ruleAction">The Action to raise if the criteria is met.</param>
+        /// <param name="criteria">The criteria to check against for determining if the action should be raised.</param>
+        public InputActionRuleDualAxis(MixedRealityInputAction baseAction, MixedRealityInputAction ruleAction, Vector2 criteria)
+        {
+            this.baseAction = baseAction;
+            this.ruleAction = ruleAction;
+            this.criteria = criteria;
+        }
+
+        [SerializeField]
+        [Tooltip("The Base Action that the rule will listen to.")]
+        private MixedRealityInputAction baseAction;
+
+        /// <inheritdoc />
+        public MixedRealityInputAction BaseAction => baseAction;
+
+        [SerializeField]
+        [Tooltip("The Action to raise if the criteria is met.")]
+        private MixedRealityInputAction ruleAction;
+
+        /// <inheritdoc />
+        public MixedRealityInputAction RuleAction => ruleAction;
+
+        [SerializeField]
+        [Tooltip("The criteria to check against for determining if the action should be raised.")]
+        private Vector2 criteria;
+
+        /// <inheritdoc />
+        public Vector2 Criteria => criteria;
+    }
+}

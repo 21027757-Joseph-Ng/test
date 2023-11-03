@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9f13a4c28bb1fe5307819c2f6122868251fcfeffc9a00c82a2b28f0ed0a7ba25
-size 739
+﻿#if UNITY_ANDROID
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
+public class MySceneBack : MonoBehaviour
+{
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+        if (Application.platform == RuntimePlatform.Android && string.Equals(SystemInfo.deviceModel.ToString(), "Rokid RG-crown"))
+        {
+            Google.XR.Cardboard.Api.UpdateScreenParams();
+        }
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+            // Application.Quit();
+        }
+    }
+}
+#endif

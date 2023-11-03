@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6a88cd1d67652d7d756a0312510facf7d43fd3f7a35c6e5de5e85e0ba1439252
-size 363
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// The type of surface to map the collect to.
+    /// </summary>
+    public enum ObjectOrientationSurfaceType
+    {
+        Cylinder = 0,
+        Plane,
+        Sphere,
+        Radial
+    }
+}

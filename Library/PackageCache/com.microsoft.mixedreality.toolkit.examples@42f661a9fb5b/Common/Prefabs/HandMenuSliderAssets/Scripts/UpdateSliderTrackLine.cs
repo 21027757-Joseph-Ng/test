@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e9b3a82fe2e3ec94ecfcbf7f1552f7b9b245d4953f303393ee1883e48d89ddb3
-size 653
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.UI;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Experimental.HandMenu
+{
+    [AddComponentMenu("Scripts/MRTK/Examples/UpdateSliderTrackLine")]
+    public class UpdateSliderTrackLine : MonoBehaviour
+    {
+        [SerializeField]
+        private GameObject activeLine = null;
+
+        public void OnSliderUpdated(SliderEventData eventData)
+        {
+            activeLine.transform.localScale = new Vector3(transform.localScale.x, eventData.NewValue, transform.localScale.z);
+        }
+    }
+}

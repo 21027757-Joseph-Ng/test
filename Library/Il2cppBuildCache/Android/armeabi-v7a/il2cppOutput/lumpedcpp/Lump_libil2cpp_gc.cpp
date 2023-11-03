@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bd0328c5e8bb8a87f2513eb57107ffa422a3bc29ad1cf6fb89f375e8314e3b53
-size 669
+#include "il2cpp-config.h"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\gc\BoehmGC.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\gc\GCHandle.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\gc\GarbageCollector.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\gc\NullGC.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\gc\WriteBarrier.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\gc\WriteBarrierValidation.cpp"

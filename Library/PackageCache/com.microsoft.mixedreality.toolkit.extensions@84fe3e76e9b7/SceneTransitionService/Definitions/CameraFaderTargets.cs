@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d69e5c0b1806404417cca84f7c59da407e9cb86c8a14e40c724c8efff16d07f0
-size 469
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Extensions.SceneTransitions
+{
+    public enum CameraFaderTargets
+    {
+        Main,       // Only target the main camera
+        UI,         // Only target UI cameras (cameras that are used by canvases)
+        All,        // Target ALL cameras in the scene
+        Custom,     // Target a custom set of cameras provided by user
+    }
+}

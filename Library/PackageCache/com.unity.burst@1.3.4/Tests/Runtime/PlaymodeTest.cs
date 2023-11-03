@@ -1,3 +1,47 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:795c5384d1eb07294a803fe88ff2e7a4f876e67c3edb1eeeb018f6892626e691
-size 1174
+using System.Collections;
+using NUnit.Framework;
+using Unity.Burst;
+using UnityEngine;
+using Unity.Jobs.LowLevel.Unsafe;
+using UnityEngine.TestTools;
+using System;
+
+[TestFixture]
+public class PlaymodeTest
+{
+//    [UnityTest]
+    public IEnumerator CheckBurstJobEnabledDisabled()
+    {
+        BurstCompiler.Options.EnableBurstCompileSynchronously = true;
+#if UNITY_2019_3_OR_NEWER
+        foreach(var item in CheckBurstJobDisabled()) yield return item;
+#endif
+        foreach(var item in CheckBurstJobEnabled()) yield return item;
+    }
+
+    private IEnumerable CheckBurstJobEnabled()
+    {
+        BurstCompiler.Options.EnableBurstCompilation = true;
+
+        yield return null;
+
+        using (var jobTester = new BurstJobTester2())
+        {
+            var result = jobTester.Calculate();
+            Assert.AreNotEqual(0.0f, result);
+        }
+    }
+
+    private IEnumerable CheckBurstJobDisabled()
+    {
+        BurstCompiler.Options.EnableBurstCompilation = false;
+
+        yield return null;
+
+        using (var jobTester = new BurstJobTester2())
+        {
+            var result = jobTester.Calculate();
+            Assert.AreEqual(0.0f, result);
+        }
+    }
+}

@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b4fc939bc7a99580c881402b9551fdc0df25f6c9ff8145e8abf76f97f50ec2b
-size 700
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.UnityAR
+{
+    /// <summary>
+    /// Enumeration indicating the portion of the pose that will be used when tracking.
+    /// </summary>
+    public enum ArTrackingType
+    {
+        /// <summary>
+        /// The pose rotation and position will be used.
+        /// </summary>
+        RotationAndPosition = 0,
+
+        /// <summary>
+        /// The pose rotation will be used.
+        /// </summary>
+        Rotation = 1,
+
+        /// <summary>
+        /// The pose rotation will be used.
+        /// </summary>
+        Position = 2
+    }
+}

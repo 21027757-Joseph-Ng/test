@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b9a72f86c9c646ba83566a96e2473f763cc1a9944b759b3f56cbdd313ae365e8
-size 635
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ShareStart : MonoBehaviour//attach to any game object, this script will load shared subscene additively
+{
+    private string sceneName; // The name of the scene to add additively
+    private AndroidJavaObject currentActivity;
+    private const int REQUEST_CODE_SCAN_INFO = 6;
+
+    private void OnEnable()
+    {
+        sceneName = "Shared";
+        if (SceneManager.sceneCount == 1) {            
+            SceneManager.LoadScene(sceneName, LoadSceneMode.Additive);
+        }
+    }
+
+}

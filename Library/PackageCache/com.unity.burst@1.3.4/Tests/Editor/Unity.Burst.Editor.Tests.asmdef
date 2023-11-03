@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c4a2b4c4196ad64f09af2d258317862cd9aa7dc2f9fb9d470d6f6ef574de51b1
-size 611
+{
+    "name": "Unity.Burst.Editor.Tests",
+    "references": [
+        "Unity.Burst",
+        "Unity.Mathematics",
+        "Unity.Burst.Tests.UnitTests",
+        "SeparateAssembly"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

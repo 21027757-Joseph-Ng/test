@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e15a36a4e238a9252d589c00c8646d02464d3983f591c69ff2ca835146393d7c
-size 417
+{
+  "name": "Unity.XR.ARFoundation.Editor.Tests",
+    "references": [
+        "Unity.Coding.Editor"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.coding",
+            "define": "UNITY_CODING_ENABLED",
+            "expression": ""
+        }
+    ]
+}

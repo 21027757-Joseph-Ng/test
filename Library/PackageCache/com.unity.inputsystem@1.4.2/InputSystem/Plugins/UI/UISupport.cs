@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8751563b48c5d9b0404b79852e1ef06af46b20e0d5e9ecf6c7738d87afbc6a8a
-size 406
+using UnityEngine.InputSystem;
+
+////FIXME: This should be UnityEngine.InputSystem.UI
+
+#if UNITY_DISABLE_DEFAULT_INPUT_PLUGIN_INITIALIZATION
+public
+#else
+internal
+#endif
+static class UISupport
+{
+    public static void Initialize()
+    {
+        InputSystem.RegisterLayout(@"
+            {
+                ""name"" : ""VirtualMouse"",
+                ""extend"" : ""Mouse""
+            }
+        ");
+    }
+}

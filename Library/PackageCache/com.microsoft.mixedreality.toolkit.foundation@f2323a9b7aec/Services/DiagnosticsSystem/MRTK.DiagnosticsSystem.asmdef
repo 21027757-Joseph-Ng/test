@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:513e7751b7c1fa35d269a713f93f14b8e29a56ba9f219a46ebfcfd4d604575fc
-size 400
+{
+    "name": "Microsoft.MixedReality.Toolkit.Services.DiagnosticsSystem",
+    "references": [
+        "Microsoft.MixedReality.Toolkit"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

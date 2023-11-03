@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f9b9f49e781be749491879873d0e6bc1dc7e07736e7b65e23d62cc7bb74300d3
-size 1606
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Class that initializes the appearance of the features panel according to the toggled states of the associated features
+    /// </summary>
+    internal class FeaturesPanelVisuals : MonoBehaviour
+    {
+        [SerializeField]
+        private Interactable profilerButton = null;
+        [SerializeField]
+        private Interactable handRayButton = null;
+        [SerializeField]
+        private Interactable handMeshButton = null;
+        [SerializeField]
+        private Interactable handJointsButton = null;
+
+        private void Start()
+        {
+            profilerButton.IsToggled = (CoreServices.DiagnosticsSystem?.ShowProfiler).GetValueOrDefault(false);
+            handRayButton.IsToggled = PointerUtils.GetPointerBehavior<ShellHandRayPointer>(Handedness.Any, InputSourceType.Hand) != PointerBehavior.AlwaysOff;
+
+            MixedRealityHandTrackingProfile handProfile = null;
+            if (CoreServices.InputSystem?.InputSystemProfile != null)
+            {
+                handProfile = CoreServices.InputSystem.InputSystemProfile.HandTrackingProfile;
+            }
+            handMeshButton.IsToggled = handProfile != null && handProfile.EnableHandMeshVisualization;
+            handJointsButton.IsToggled = handProfile != null && handProfile.EnableHandJointVisualization;
+        }
+    }
+}

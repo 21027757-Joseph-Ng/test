@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e0742a2df3d5c7600d3cdae755c2502f5ee6d53c84b10c4aebb76d275e226a14
-size 867
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+namespace Microsoft.MixedReality.Toolkit.LeapMotion.Input
+{
+    /// <summary>
+    /// The location of the Leap Motion Controller.
+    /// </summary>
+    public enum LeapControllerOrientation
+    {
+        /// <summary>
+        /// The Leap Motion Controller is mounted on a headset and the hand positions are always calculated relative to the HMD camera.
+        /// </summary>
+        Headset = 0,
+
+        /// <summary>
+        /// The Leap Motion Controller is static and placed flat on a desk. The hand positions are calculated relative to the camera, but can also be configured to 
+        /// appear in a different position by modifying the LeapControllerOffset property. Desk hands are primarily used in editor.
+        /// </summary>
+        Desk
+    }
+}

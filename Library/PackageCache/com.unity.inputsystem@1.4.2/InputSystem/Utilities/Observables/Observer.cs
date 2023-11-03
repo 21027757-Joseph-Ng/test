@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0e86fef30bb6b7d7d12e21b29e88427128d1368f2c3a4498955241f933001ac8
-size 669
+using System;
+
+namespace UnityEngine.InputSystem.Utilities
+{
+    internal class Observer<TValue> : IObserver<TValue>
+    {
+        private Action<TValue> m_OnNext;
+        private Action m_OnCompleted;
+
+        public Observer(Action<TValue> onNext, Action onCompleted = null)
+        {
+            m_OnNext = onNext;
+            m_OnCompleted = onCompleted;
+        }
+
+        public void OnCompleted()
+        {
+            m_OnCompleted?.Invoke();
+        }
+
+        public void OnError(Exception error)
+        {
+            Debug.LogException(error);
+        }
+
+        public void OnNext(TValue evt)
+        {
+            m_OnNext?.Invoke(evt);
+        }
+    }
+}

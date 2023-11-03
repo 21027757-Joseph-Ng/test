@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ecc80798431bd1199d58b3678f7e228bf9d71435f3705b07babec7c31e3339dd
-size 913
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Diagnostics
+{
+    /// <summary>
+    /// Class that exposes methods to show/hide the visual profiler
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Services/VisualProfilerControl")]
+    public class VisualProfilerControl : MonoBehaviour
+    {
+        public void ToggleProfiler()
+        {
+            if (CoreServices.DiagnosticsSystem != null)
+            {
+                CoreServices.DiagnosticsSystem.ShowProfiler = !CoreServices.DiagnosticsSystem.ShowProfiler;
+            }
+        }
+
+        public void SetProfilerVisibility(bool isVisible)
+        {
+            if (CoreServices.DiagnosticsSystem != null)
+            {
+                CoreServices.DiagnosticsSystem.ShowProfiler = isVisible;
+            }
+        }
+    }
+}

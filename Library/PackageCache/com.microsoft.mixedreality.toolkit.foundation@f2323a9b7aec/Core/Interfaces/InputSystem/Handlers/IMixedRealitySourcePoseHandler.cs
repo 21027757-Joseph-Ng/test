@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a38c409be76b8d2b5ba8a19a85cf1f635bba057ee7a6369fdc6611bedeb98fda
-size 1325
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface to implement to react to source 
+    /// </summary>
+    public interface IMixedRealitySourcePoseHandler : IMixedRealitySourceStateHandler
+    {
+        /// <summary>
+        /// Raised when the source pose tracking state is changed.
+        /// </summary>
+        void OnSourcePoseChanged(SourcePoseEventData<TrackingState> eventData);
+
+        /// <summary>
+        /// Raised when the source position is changed.
+        /// </summary>
+        void OnSourcePoseChanged(SourcePoseEventData<Vector2> eventData);
+
+        /// <summary>
+        /// Raised when the source position is changed.
+        /// </summary>
+        void OnSourcePoseChanged(SourcePoseEventData<Vector3> eventData);
+
+        /// <summary>
+        /// Raised when the source rotation is changed.
+        /// </summary>
+        void OnSourcePoseChanged(SourcePoseEventData<Quaternion> eventData);
+
+        /// <summary>
+        /// Raised when the source pose is changed.
+        /// </summary>
+        void OnSourcePoseChanged(SourcePoseEventData<MixedRealityPose> eventData);
+    }
+}

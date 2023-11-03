@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4be3b3350abb34a54d6c51476ecea588eb98ad8c4952140d53a85f174faa25f7
-size 871
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    [Serializable]
+    public struct Vector3Smoothed
+    {
+        public Vector3 Current { get; set; }
+        public Vector3 Goal { get; set; }
+        public float SmoothTime { get; set; }
+
+        public Vector3Smoothed(Vector3 value, float smoothingTime) : this()
+        {
+            Current = value;
+            Goal = value;
+            SmoothTime = smoothingTime;
+        }
+
+        public void Update(float deltaTime)
+        {
+            Current = Vector3.Lerp(Current, Goal, (Math.Abs(SmoothTime) < Mathf.Epsilon) ? 1.0f : deltaTime / SmoothTime);
+        }
+
+        public void SetGoal(Vector3 newGoal)
+        {
+            Goal = newGoal;
+        }
+    }
+}

@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f554cb2f7b5e6e9a4e4843c3bee901698e68ed9e6089e9dfa18717f1234548bd
-size 844
+{
+    "name": "Unity.XR.OpenXR",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e40ba710768534012815d3193fa296cb",
+        "GUID:f9fe0089ec81f4079af78eb2287a6163",
+        "GUID:75469ad4d38634e559750d17036d5f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.modules.unityanalytics",
+            "expression": "1.0.0",
+            "define": "UNITY_ANALYTICS"
+        },
+        {
+            "name": "com.microsoft.mixedreality.openxr",
+            "expression": "1.0.0",
+            "define": "MICROSOFT_OPENXR_PACKAGE"
+        }
+    ],
+    "noEngineReferences": false
+}

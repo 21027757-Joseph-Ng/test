@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:51a39d1e5cd5822c194d9d0c3bc31424c452b54bec8ebbdf16f9517e00304810
-size 747
+#pragma once
+
+template <>
+void SendToCSharp<>(const char* fieldname, XrBaseOutStructure* t);
+
+template <>
+void SendToCSharp<>(const char* fieldname, XrBaseInStructure const* t);
+
+template <>
+void SendToCSharp<>(const char* fieldname, void* t)
+{
+    if (t != nullptr && strcmp(fieldname, "next") == 0)
+    {
+        SendToCSharp(fieldname, reinterpret_cast<XrBaseOutStructure*>(t));
+    }
+    else
+    {
+        SendToCSharp(fieldname, (uint64_t)t);
+    }
+}
+
+template <>
+void SendToCSharp<>(const char* fieldname, void const* t)
+{
+    if (t != nullptr && strcmp(fieldname, "next") == 0)
+    {
+        SendToCSharp(fieldname, reinterpret_cast<XrBaseInStructure const*>(t));
+    }
+    else
+    {
+        SendToCSharp(fieldname, (uint64_t)t);
+    }
+}

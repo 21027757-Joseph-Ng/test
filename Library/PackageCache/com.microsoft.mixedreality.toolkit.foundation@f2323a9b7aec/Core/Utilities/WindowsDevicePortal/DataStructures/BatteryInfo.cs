@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f81fca627619190af16c467a70ecef979cb1350fa96d29d9c021c7271b64a882
-size 1160
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.WindowsDevicePortal
+{
+    [Serializable]
+    public class BatteryInfo
+    {
+        /// <summary>
+        /// (0 | 1)
+        /// </summary>
+        public int AcOnline;
+        /// <summary>
+        /// (0 | 1)
+        /// </summary>
+        public int BatteryPresent;
+        /// <summary>
+        /// (0 | 1)
+        /// </summary>
+        public int Charging;
+        public int DefaultAlert1;
+        public int DefaultAlert2;
+        public int EstimatedTime;
+        public int MaximumCapacity;
+        public int RemainingCapacity;
+
+        public bool IsCharging => AcOnline != 0;
+
+        [NonSerialized]
+        private float percentRemaining = 0f;
+        public float PercentRemaining
+        {
+            get
+            {
+                if (percentRemaining > 0f)
+                {
+                    return percentRemaining;
+                }
+
+                return percentRemaining = RemainingCapacity / (float)MaximumCapacity;
+            }
+        }
+    }
+}

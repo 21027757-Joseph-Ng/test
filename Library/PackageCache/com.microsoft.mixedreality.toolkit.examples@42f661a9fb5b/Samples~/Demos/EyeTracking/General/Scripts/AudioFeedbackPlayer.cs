@@ -1,3 +1,63 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:495d4d5c59ffe02c7667d3dda654a3cab81415dcd0723e39cff0e3d9c50e8833
-size 2012
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking
+{
+    /// <summary>
+    /// AudioFeedbackPlayer eases playing single audio feedback. Good for audio effects.
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Examples/AudioFeedbackPlayer")]
+    public class AudioFeedbackPlayer : MonoBehaviour
+    {
+        /// <summary>
+        /// Private audio source that will play the sound.
+        /// </summary>
+        private AudioSource audioSource;
+
+        public static AudioFeedbackPlayer Instance { get; private set; }
+
+        private void Start()
+        {
+            // Initialize audio source
+            audioSource = SetupAudioSource(gameObject);
+
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+        }
+
+        /// <summary>
+        /// Ensures an audio source on the GameObject and returns it.
+        /// </summary>
+        /// <param name="targetGameObject">The GameObject to play the desired audio.</param>
+        /// <returns>The AudioSource on the GameObject.</returns>
+        public AudioSource SetupAudioSource(GameObject targetGameObject)
+        {
+            AudioSource audioSource = targetGameObject.EnsureComponent<AudioSource>();
+
+            if (audioSource != null)
+            {
+                audioSource.playOnAwake = false;
+                audioSource.enabled = true;
+            }
+
+            return audioSource;
+        }
+
+        /// <summary>
+        /// Play a sound on the most recently set up GameObject.
+        /// </summary>
+        /// <param name="audiofx">The AudioClip to play.</param>
+        public void PlaySound(AudioClip audiofx)
+        {
+            // Play audio clip
+            if ((audioSource != null) && (audiofx != null))
+            {
+                audioSource.PlayOneShot(audiofx);
+            }
+        }
+    }
+}

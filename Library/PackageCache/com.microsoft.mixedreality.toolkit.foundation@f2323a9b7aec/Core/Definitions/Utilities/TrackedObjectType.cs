@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d86b167c123a11d78b305c34263532944a6b85a45f2aa479573b4c31b176cd6c
-size 1935
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    public enum TrackedObjectType
+    {
+        /// <summary>
+        /// Calculates position and orientation from the main camera.
+        /// </summary>
+        Head = 0,
+
+        /// <summary>
+        /// (Obsolete) Calculates position and orientation from the left motion-tracked controller.
+        /// </summary>
+        [Obsolete("Use TrackedObjectType.ControllerRay and TrackedHandedness instead")]
+        MotionControllerLeft = 1,
+        /// <summary>
+        /// (Obsolete) Calculates position and orientation from the right motion-tracked controller.
+        /// </summary>
+        [Obsolete("Use TrackedObjectType.ControllerRay and TrackedHandedness instead")]
+        MotionControllerRight = 2,
+        /// <summary>
+        /// (Obsolete) Calculates position and orientation from a tracked hand joint on the left hand.
+        /// </summary>
+        [Obsolete("Use TrackedObjectType.HandJoint and TrackedHandedness instead")]
+        HandJointLeft = 3,
+        /// <summary>
+        /// (Obsolete) Calculates position and orientation from a tracked hand joint on the right hand.
+        /// </summary>
+        [Obsolete("Use TrackedObjectType.HandJoint and TrackedHandedness instead")]
+        HandJointRight = 4,
+
+        /// <summary>
+        /// Calculates position and orientation from the system-calculated ray of available controller (i.e motion controllers, hands, etc.)
+        /// </summary>
+        ControllerRay = 5,
+        /// <summary>
+        /// Calculates position and orientation from a tracked hand joint
+        /// </summary>
+        HandJoint = 6,
+        /// <summary>
+        /// Calculates position and orientation from a tracked hand joint
+        /// </summary>
+        CustomOverride = 7,
+    }
+}

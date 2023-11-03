@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ac9cefe5529a6f699d6bdddcd690f9c78c739d868e812f5b14035cb4a5b26389
-size 1283
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Profile container for theme and for loading theme settings
+    /// </summary>
+    [Serializable]
+    public class VisualProfile
+    {
+        /// <summary>
+        /// GameObject to Target
+        /// </summary>
+        public GameObject Target;
+
+        /// <summary>
+        /// Theme definition to build
+        /// </summary>
+        public Theme Theme;
+
+        /// <summary>
+        /// Create and initialize Theme Engines with the associated Target and Theme property
+        /// </summary>
+        /// <returns>List of Theme Engine instances</returns>
+        public List<InteractableThemeBase> CreateThemeEngines()
+        {
+            List<InteractableThemeBase> results = new List<InteractableThemeBase>();
+
+            if (Theme != null)
+            {
+                foreach (var definition in Theme.Definitions)
+                {
+                    results.Add(InteractableThemeBase.CreateAndInitTheme(definition, Target));
+                }
+            }
+
+            return results;
+        }
+    }
+}

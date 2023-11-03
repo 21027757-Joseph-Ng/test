@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:761352dfcead67632f360a738660968fe89bec80cbc241e83ed3d0bd21f50df8
-size 398
+{
+    "name": "Microsoft.MixedReality.Toolkit.MSBuild",
+    "references": [],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "!UNITY_2023_1_OR_NEWER"
+    ]
+}

@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e7c39c9954242c637296c22abbe9cfad00bb1c60c4f6be008292bb4fc7546571
-size 1201
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Hardware;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor
+{
+    [InitializeOnLoad]
+    public class USBDeviceListener
+    {
+        public static USBDeviceInfo[] USBDevices;
+
+        public delegate void OnUsbDevicesChanged(UsbDevice[] usbDevices);
+
+        public static event OnUsbDevicesChanged UsbDevicesChanged;
+
+        private static readonly List<USBDeviceInfo> USBDevicesList = new List<USBDeviceInfo>(0);
+
+        static USBDeviceListener()
+        {
+            UnityEditor.Hardware.Usb.DevicesChanged += NotifyUsbDevicesChanged;
+        }
+
+        private static void NotifyUsbDevicesChanged(UsbDevice[] devices)
+        {
+            UsbDevicesChanged?.Invoke(devices);
+
+            USBDevicesList.Clear();
+
+            foreach (UsbDevice device in devices)
+            {
+                USBDevicesList.Add(new USBDeviceInfo(device.vendorId, device.udid, device.productId, device.name, device.revision));
+            }
+
+            USBDevices = USBDevicesList.ToArray();
+        }
+    }
+}

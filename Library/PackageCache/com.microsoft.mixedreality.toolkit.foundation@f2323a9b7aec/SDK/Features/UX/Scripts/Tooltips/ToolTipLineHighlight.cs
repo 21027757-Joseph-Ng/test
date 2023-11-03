@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6704aa5ab90a6f8eb52450e982339c119d5e3ba17ec739ebb45d09af18ca0b5
-size 696
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Renders an outline around tooltip background
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/SDK/ToolTipLineHighlight")]
+    public class ToolTipLineHighlight : MonoBehaviour, IToolTipHighlight
+    {
+        public bool ShowHighlight
+        {
+            set
+            {
+                lineRenderer.enabled = value;
+            }
+        }
+
+        [SerializeField]
+        private BaseMixedRealityLineRenderer lineRenderer = null;
+    }
+}

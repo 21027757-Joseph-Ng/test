@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0eee0c5fe2bdb35581371009428077484cc5b0ff44f71b8d6c623bd7c82a4554
-size 947
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    [Serializable]
+    public class GltfMaterialCommonConstant : GltfProperty
+    {
+        // Note: GltfMaterialCommonConstants aren't currently used but exist for deserializing jsons.
+        // These values would influence properties in Unity -> Window -> Rendering -> Light Settings if used.
+
+        /// <summary>
+        /// Used to scale the ambient light contributions to this material
+        /// </summary>
+        public float[] ambientFactor;
+
+        /// <summary>
+        /// Texture used to store pre-computed direct lighting
+        /// </summary>
+        public GltfNormalTextureInfo lightmapTexture;
+
+        /// <summary>
+        /// Scale factor for the lightmap texture
+        /// </summary>
+        public float[] lightmapFactor;
+    }
+}

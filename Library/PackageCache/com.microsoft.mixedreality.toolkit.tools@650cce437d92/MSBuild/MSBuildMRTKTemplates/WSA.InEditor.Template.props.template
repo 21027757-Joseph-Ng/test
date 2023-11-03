@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:55e197f4d58ad7ae65f9f0885d971d1b97355b2e0e7eefcab7a8ec05fd6e0b43
-size 979
+<Project>
+  <PropertyGroup>
+    <TargetFramework><!--TARGET_FRAMEWORK_TOKEN--></TargetFramework>
+    <DefineConstants>$(DefineConstants);DOTNETWINRT_PRESENT;<!--PLATFORM_COMMON_DEFINE_CONSTANTS--></DefineConstants>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(IsEditorOnlyTarget)' == 'false' OR '$(IsEditorOnlyTarget)' == ''">
+    <AssemblySearchPaths>$(AssemblySearchPaths);<!--PLATFORM_COMMON_ASSEMBLY_SEARCH_PATHS_TOKEN--></AssemblySearchPaths>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsEditorOnlyTarget)' == 'false' OR '$(IsEditorOnlyTarget)' == ''">
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="##REFERENCE_TOKEN##">
+      <Private>false</Private>
+      <HintPath><!--HINT_PATH_TOKEN--></HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.MixedReality.DotNetWinRT" Version="0.5.*" />
+  </ItemGroup>
+</Project>

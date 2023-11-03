@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4a57abc4709840d424929246f045c6962c5f2d43a27d128901b89df4770a79be
-size 879
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Attach to a class implementing IMixedRealityServiceInspector to generate a facade inspector.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Class, AllowMultiple = false)]
+    public class MixedRealityServiceInspectorAttribute : Attribute
+    {
+        public MixedRealityServiceInspectorAttribute(Type serviceType)
+        {
+            if (!typeof(IMixedRealityService).IsAssignableFrom(serviceType))
+                throw new Exception("Can't use this attribute with type " + serviceType + " - service must implement " + typeof(IMixedRealityService) + " interface.");
+
+            ServiceType = serviceType;
+        }
+
+        public Type ServiceType { get; private set; }
+    }
+}

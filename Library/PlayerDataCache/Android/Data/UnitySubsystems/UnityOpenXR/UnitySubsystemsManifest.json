@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ffacc7fc66ccd3b34140c0de53103d7531cf2700137aac2c63e3d217c126d9b5
-size 348
+{
+        "name": "OpenXR XR Plugin",
+        "version": "1.5.3",
+        "libraryName": "UnityOpenXR",
+        "displays": [
+                {
+                        "id": "OpenXR Display"
+                }
+        ],
+        "inputs": [
+                {
+                        "id": "OpenXR Input"
+                }
+        ]
+}

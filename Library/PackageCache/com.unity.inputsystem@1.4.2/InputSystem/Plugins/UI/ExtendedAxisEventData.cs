@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3d83d07f1c92b7e0192a2d33122a0c22db346605baaadbc385a04316f70a162e
-size 557
+#if PACKAGE_DOCS_GENERATION || UNITY_INPUT_SYSTEM_ENABLE_UI
+using UnityEngine.EventSystems;
+
+namespace UnityEngine.InputSystem.UI
+{
+    // AxisEventData has no ToString. But that's the only thing we add so keeping
+    // it internal.
+    internal class ExtendedAxisEventData : AxisEventData
+    {
+        public ExtendedAxisEventData(EventSystem eventSystem)
+            : base(eventSystem)
+        {
+        }
+
+        public override string ToString()
+        {
+            return $"MoveDir: {moveDir}\nMoveVector: {moveVector}";
+        }
+    }
+}
+#endif

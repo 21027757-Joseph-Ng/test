@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a49056ba6e23ab1c6308a16ed8dce6de43bcb5a5c98a628f810f0fe73dddd468
-size 655
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Extension methods for Unity's Ray struct
+    /// </summary>
+    public static class RayExtensions
+    {
+        /// <summary>
+        /// Determines whether or not a ray is valid.
+        /// </summary>
+        /// <param name="ray">The ray being tested.</param>
+        /// <returns>True if the ray is valid, false otherwise.</returns>
+        public static bool IsValid(this Ray ray)
+        {
+            return ray.direction != Vector3.zero;
+        }
+    }
+}

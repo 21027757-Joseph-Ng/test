@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a5cdb61021fd72126746ebac28b42699836ed78aa8e332f1dca69de4695ccab0
-size 680
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Collection layout type enum
+    /// </summary>
+    public enum LayoutOrder
+    {
+        /// <summary>
+        /// Sort by column, then by row
+        /// </summary>
+        ColumnThenRow = 0,
+        /// <summary>
+        /// Sort by row, then by column
+        /// </summary>
+        RowThenColumn,
+        /// <summary>
+        /// Sort horizontally
+        /// </summary>
+        Horizontal,
+        /// <summary>
+        /// Sort vertically
+        /// </summary>
+        Vertical
+    }
+}

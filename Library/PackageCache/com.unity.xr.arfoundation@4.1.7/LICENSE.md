@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:384eeb8954005ec4804c05b132e7a1a0dbb3cb417c6592b2037f0bb7c6dd3fc9
-size 457
+AR Foundation © 2018 Unity Technologies
+
+Licensed under the Unity Companion License for Unity-dependent projects (see [Unity Companion License](https://unity3d.com/legal/licenses/unity_companion_license)).
+
+Unless expressly provided otherwise, the Software under this license is made available strictly on an “AS IS” BASIS WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Please review the license for details on these and other terms and conditions.

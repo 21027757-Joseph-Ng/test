@@ -1,3 +1,49 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:260cdc979d65c21dd8cee3b0bc456d3486cd0e4dc83add81f57b664046b3562f
-size 1457
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Describes where parent should be located
+    /// relative to child layout elements. 
+    /// </summary>
+    public enum LayoutAnchor
+    {
+        /// <summary>
+        /// Parent will be in upper left corner of collection
+        /// </summary>
+        UpperLeft,
+        /// <summary>
+        /// Parent will be in upper center of collection
+        /// </summary>
+        UpperCenter,
+        /// <summary>
+        /// Parent will be in upper right of collection
+        /// </summary>
+        UpperRight,
+        /// <summary>
+        /// Parent will be in middle left of collection
+        /// </summary>
+        MiddleLeft,
+        /// <summary>
+        /// Parent will be in middle center of collection
+        /// </summary>
+        MiddleCenter,
+        /// <summary>
+        /// Parent will be in middle right of collection
+        /// </summary>
+        MiddleRight,
+        /// <summary>
+        /// Parent will be in bottom left of collection
+        /// </summary>
+        BottomLeft,
+        /// <summary>
+        /// Parent will be in bottom center of collection
+        /// </summary>
+        BottomCenter,
+        /// <summary>
+        /// Parent will be in bottom right of collection
+        /// </summary>
+        BottomRight
+    };
+}

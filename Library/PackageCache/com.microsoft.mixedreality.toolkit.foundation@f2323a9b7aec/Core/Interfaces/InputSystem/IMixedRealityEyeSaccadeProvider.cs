@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:17052db80cf4cfdcd436247259b647ea31582459a04439c4eb312f0a0f143b46
-size 1009
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Provides eye tracking saccade events.
+    /// </summary>
+    public interface IMixedRealityEyeSaccadeProvider
+    {
+        /// <summary>
+        /// Triggered when user is saccading across the view (jumping quickly with their eye gaze above a certain threshold in visual angles).
+        /// </summary>
+        event Action OnSaccade;
+
+        /// <summary>
+        /// Triggered when user is saccading horizontally across the view (jumping quickly with their eye gaze above a certain threshold in visual angles).
+        /// </summary>
+        event Action OnSaccadeX;
+
+        /// <summary>
+        /// Triggered when user is saccading vertically across the view (jumping quickly with their eye gaze above a certain threshold in visual angles).
+        /// </summary>
+        event Action OnSaccadeY;
+    }
+}

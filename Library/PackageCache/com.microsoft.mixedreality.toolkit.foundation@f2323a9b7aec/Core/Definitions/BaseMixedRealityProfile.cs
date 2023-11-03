@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:06718ff3b1dd5d76627352e9734e1b74e819c355822e1ad9c5df9ad2e9233365
-size 642
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Base abstract class for all Mixed Reality profile configurations. 
+    /// Extends ScriptableObject and used as a property container to initialize MRTK services.
+    /// </summary>
+    [Serializable]
+    public abstract class BaseMixedRealityProfile : ScriptableObject
+    {
+        [SerializeField]
+        [HideInInspector]
+        private bool isCustomProfile = true;
+
+        internal bool IsCustomProfile => isCustomProfile;
+    }
+}

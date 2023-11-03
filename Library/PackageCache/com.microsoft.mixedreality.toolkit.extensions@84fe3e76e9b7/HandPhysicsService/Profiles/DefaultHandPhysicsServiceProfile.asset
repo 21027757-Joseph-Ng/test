@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0aad3eb9d38523cb183533e72fa9ba9fb59f39f688f5a000cb55efeb4fe3c206
-size 664
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6a7cd77bc44d654182d0fde9d267aee, type: 3}
+  m_Name: DefaultHandPhysicsServiceProfile
+  m_EditorClassIdentifier: 
+  isCustomProfile: 0
+  handPhysicsLayer: 0
+  fingerTipKinematicBodyPrefab: {fileID: 6269093343897851288, guid: f3b3591b938890745b0e96406eca7a80,
+    type: 3}
+  usePalmKinematicBody: 0
+  palmKinematicBodyPrefab: {fileID: 0}

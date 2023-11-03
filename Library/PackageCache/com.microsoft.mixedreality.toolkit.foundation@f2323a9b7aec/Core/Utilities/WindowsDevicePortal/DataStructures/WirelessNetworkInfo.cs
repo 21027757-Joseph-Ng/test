@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:de089591fe79beb8b4cabd63c8626e1f75839d48483f0b014d3a66e72d986520
-size 852
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.WindowsDevicePortal
+{
+    [Serializable]
+    public class WirelessNetworkInfo
+    {
+        public bool AlreadyConnected;
+        public string AuthenticationAlgorithm;
+        public int Channel;
+        public string CipherAlgorithm;
+        /// <summary>
+        /// (0 | 1)
+        /// </summary>
+        public int Connectable;
+        public string InfrastructureType;
+        public bool ProfileAvailable;
+        public string ProfileName;
+        public string SSID;
+        /// <summary>
+        /// (0 | 1)
+        /// </summary>
+        public int SecurityEnabled;
+        public int SignalQuality;
+        public int[] BSSID;
+        public string[] PhysicalTypes;
+    }
+}

@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:826f76fbb060fd81f76e7c6a21c973f299c0d1740de0d4c7cbab33ab1a9f2916
-size 863
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Collation order type used for sorting
+    /// </summary>
+    public enum CollationOrder
+    {
+        /// <summary>
+        /// Don't sort, just display in order received
+        /// </summary>
+        None = 0,
+        /// <summary>
+        /// Sort by child order of parent
+        /// </summary>
+        ChildOrder,
+        /// <summary>
+        /// Sort by transform name
+        /// </summary>
+        Alphabetical,
+        /// <summary>
+        /// Sort by child order of parent, reversed
+        /// </summary>
+        ChildOrderReversed,
+        /// <summary>
+        /// Sort by transform name, reversed
+        /// </summary>
+        AlphabeticalReversed
+    }
+}

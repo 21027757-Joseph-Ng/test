@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95b9065941e718ffb78d5ed2d88eac486a4fe65a10d8f142765a1f978b7c6446
-size 933
+using System;
+
+namespace UnityEngine.XR.Management.Tests.Standalone
+{
+    public class StandaloneSubsystem : Subsystem
+    {
+        private bool isRunning = false;
+        public override bool running
+        {
+            get
+            {
+                return isRunning;
+            }
+        }
+
+        public event Action startCalled;
+        public event Action stopCalled;
+        public event Action destroyCalled;
+
+
+        public override void Start()
+        {
+            isRunning = true;
+            if (startCalled != null)
+                startCalled.Invoke();
+        }
+
+        public override void Stop()
+        {
+            isRunning = false;
+            if (stopCalled != null)
+                stopCalled.Invoke();
+        }
+
+        protected override void OnDestroy()
+        {
+            isRunning = false;
+            if (destroyCalled != null)
+                destroyCalled.Invoke();
+        }
+    }
+}

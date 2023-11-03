@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:75834a510fb444bd56d1793dddac85ae51836b0700def2d9c70ee7f132f08c37
-size 446
+#if UNITY_EDITOR
+using UnityEditor;
+
+namespace UnityEngine.InputSystem.Editor
+{
+    // We want an empty editor in the inspector. Editing happens in a dedicated window.
+    [CustomEditor(typeof(InputActionAsset))]
+    internal class InputActionAssetEditor : UnityEditor.Editor
+    {
+        protected override void OnHeaderGUI()
+        {
+        }
+
+        public override void OnInspectorGUI()
+        {
+        }
+    }
+}
+#endif // UNITY_EDITOR

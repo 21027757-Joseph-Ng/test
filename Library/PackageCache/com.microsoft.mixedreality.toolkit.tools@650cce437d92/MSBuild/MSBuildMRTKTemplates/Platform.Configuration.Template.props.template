@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3a7ffcd0d2901500dd437c68af859f2debac3764964b707263d92e10dc8b543c
-size 831
+<Project>
+  <PropertyGroup>
+    <TargetFramework><!--TARGET_FRAMEWORK_TOKEN--></TargetFramework>
+    <DefineConstants>$(DefineConstants);<!--PLATFORM_COMMON_DEFINE_CONSTANTS--></DefineConstants>
+  </PropertyGroup>
+  
+  <PropertyGroup Condition="'$(IsEditorOnlyTarget)' == 'false' OR '$(IsEditorOnlyTarget)' == ''">
+    <AssemblySearchPaths>$(AssemblySearchPaths);<!--PLATFORM_COMMON_ASSEMBLY_SEARCH_PATHS_TOKEN--></AssemblySearchPaths>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IsEditorOnlyTarget)' == 'false' OR '$(IsEditorOnlyTarget)' == ''">
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_START-->
+    <Reference Include="##REFERENCE_TOKEN##">
+      <Private>false</Private>
+      <HintPath><!--HINT_PATH_TOKEN--></HintPath>
+    </Reference>
+<!--PLATFORM_COMMON_REFERENCE_TEMPLATE_END-->
+  </ItemGroup>
+</Project>

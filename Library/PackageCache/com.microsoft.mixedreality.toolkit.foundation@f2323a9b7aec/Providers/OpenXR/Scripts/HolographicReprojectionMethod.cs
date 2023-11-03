@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fc3dbcfb865e1a80641af0cd6ab9d40bfabafb079f1fdbbb2ad94bb2167f51d1
-size 942
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.XRSDK.OpenXR
+{
+    /// <summary>
+    /// Enumeration defining how holograms are stabilized during reprojection.
+    /// </summary>
+    public enum HolographicReprojectionMethod
+    {
+        /// <summary>
+        /// Turns any reprojection off.
+        /// </summary>
+        NoReprojection = -1,
+
+        /// <summary>
+        /// Use the depth buffer.
+        /// </summary>
+        Depth = 0,
+
+        /// <summary>
+        /// Automatically-placed plane based on the depth buffer.
+        /// </summary>
+        PlanarFromDepth = 1,
+
+        /// <summary>
+        /// Manually-placed plane.
+        /// </summary>
+        PlanarManual = 2,
+
+        /// <summary>
+        /// Reprojection for an orientation-only experience.
+        /// </summary>
+        OrientationOnly = 3,
+    }
+}

@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7fc56937d7b415de27bbe090025fc108e664b5c257bc0de8e7fcb2ca1af529b7
-size 676
+using System;
+using NUnit.Framework;
+using NUnit.Framework.Interfaces;
+using NUnit.Framework.Internal;
+
+namespace Burst.Compiler.IL.Tests
+{
+    [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
+#if BURST_INTERNAL
+    public
+#else
+    internal
+#endif
+    class MonoOnlyAttribute : IgnoreAttribute, IApplyToTest
+    {
+#pragma warning disable CS0414
+        public MonoOnlyAttribute(string reason) : base(reason)
+        {
+        }
+#pragma warning restore CS0414
+
+        void IApplyToTest.ApplyToTest(Test test)
+        {
+            if (Type.GetType("Mono.Runtime") == null)
+            {
+                base.ApplyToTest(test);
+            }
+        }
+    }
+}

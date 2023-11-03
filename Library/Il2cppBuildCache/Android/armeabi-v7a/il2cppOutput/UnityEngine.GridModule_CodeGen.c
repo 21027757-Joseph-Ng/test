@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95da7ddccf8b5937b4abc1215358cc7faf24d8600b358bd8235d0d7c64804ed3
-size 605
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+extern const CustomAttributesCacheGenerator g_UnityEngine_GridModule_AttributeGenerators[];
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_GridModule_CodeGenModule;
+const Il2CppCodeGenModule g_UnityEngine_GridModule_CodeGenModule = 
+{
+	"UnityEngine.GridModule.dll",
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	g_UnityEngine_GridModule_AttributeGenerators,
+	NULL, // module initializer,
+	NULL,
+	NULL,
+	NULL,
+};

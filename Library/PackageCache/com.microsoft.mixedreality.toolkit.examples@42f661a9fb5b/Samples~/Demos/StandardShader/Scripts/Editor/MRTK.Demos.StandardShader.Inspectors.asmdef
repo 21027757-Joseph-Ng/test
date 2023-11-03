@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:03443fd74cdd93540dd6028ceb832cf9df7b73d44cff9e39d8c114f3e9945124
-size 438
+{
+    "name": "Microsoft.MixedReality.Toolkit.Demos.StandardShader.Inspectors",
+    "references": [
+        "Microsoft.MixedReality.Toolkit.Examples"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3e647821f4bea96337cc70d7557a5987f9508fb6006e40b13cb8ec73886bff0a
-size 1120
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Flags used to represent a combination of different types of transformation
+    /// </summary>
+    [System.Flags]
+    public enum TransformFlags
+    {
+        Move = 1 << 0,
+        Rotate = 1 << 1,
+        Scale = 1 << 2
+    }
+
+    /// <summary>
+    /// Extension methods specific to the <see cref="TransformFlags"/> enum.
+    /// </summary>
+    public static class TransformFlagsExtensions
+    {
+        /// <summary>
+        /// Checks to determine if all bits in a provided mask are set.
+        /// </summary>
+        /// <param name="a"><see cref="TransformFlags"/> value.</param>
+        /// <param name="b"><see cref="TransformFlags"/> mask.</param>
+        /// <returns>
+        /// True if all of the bits in the specified mask are set in the current value.
+        /// </returns>
+        public static bool IsMaskSet(this TransformFlags a, TransformFlags b)
+        {
+            return (a & b) == b;
+        }
+    }
+}

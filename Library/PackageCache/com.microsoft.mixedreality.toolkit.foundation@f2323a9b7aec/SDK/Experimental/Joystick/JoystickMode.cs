@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:abc06d1c350a2c35997b4966fa0f6851dd54fb1b7dcb5cf9ab3f7bbf45e14891
-size 344
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.Joystick
+{
+    /// <summary>
+    /// Describes the current state of a joystick control.
+    /// </summary>
+    public enum JoystickMode
+    {
+        Move = 0,
+        Scale,
+        Rotate
+    }
+}

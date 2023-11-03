@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:23a59d4aa5749a5cf098e2c18922c34c15604bb735bb0763c1536e61f72778e8
-size 895
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// A texture and its sampler.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/texture.schema.json
+    /// </summary>
+    [Serializable]
+    public class GltfTexture : GltfChildOfRootProperty
+    {
+        /// <summary>
+        /// The index of the sampler used by this texture.
+        /// </summary>
+        public int sampler = -1;
+
+        /// <summary>
+        /// The index of the image used by this texture.
+        /// </summary>
+        public int source = -1;
+
+        /// <summary>
+        /// Unity Texture2D wrapper for GltfTexture
+        /// </summary>
+        public Texture2D Texture { get; internal set; }
+    }
+}

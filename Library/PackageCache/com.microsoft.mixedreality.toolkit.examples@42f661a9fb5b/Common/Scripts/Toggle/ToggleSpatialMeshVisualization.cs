@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:aa44ad8aba355d3ad89238a7f1608739a4d3c3ca67420934057ab4d003eced74
-size 1243
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.SpatialAwareness;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    /// <summary>
+    /// This class controls the visualization of the spatial mesh.
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Examples/ToggleSpatialMeshVisualization")]
+    public class ToggleSpatialMeshVisualization : MonoBehaviour
+    {
+        /// <summary>
+        /// Toggles the state of the mesh display option.
+        /// </summary>
+        public void ToggleSpatialMeshVisual(bool mode)
+        {
+            // Get the first Mesh Observer available, generally we have only one registered
+            var observer = CoreServices.GetSpatialAwarenessSystemDataProvider<IMixedRealitySpatialAwarenessMeshObserver>();
+
+            if (mode == true)
+            {
+                // Set to visible
+                observer.DisplayOption = SpatialAwarenessMeshDisplayOptions.Visible;
+            }
+            else
+            {
+                // Set to not visible
+                observer.DisplayOption = SpatialAwarenessMeshDisplayOptions.None;
+            }
+        }
+    }
+}

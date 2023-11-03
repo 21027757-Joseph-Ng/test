@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2eabc520bc36ec5057d3966c2a4f8f07c059ab43ef843cb748affdc02cc1bb16
-size 876
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/material.occlusionTextureInfo.schema.json
+    /// </summary>
+    [Serializable]
+    public class GltfOcclusionTextureInfo : GltfTextureInfo
+    {
+        /// <summary>
+        /// A scalar multiplier controlling the amount of occlusion applied.
+        /// A value of 0.0 means no occlusion.
+        /// A value of 1.0 means full occlusion.
+        /// This value is ignored if the corresponding texture is not specified.
+        /// This value is linear.
+        /// <minimum>0.0</minimum>
+        /// <maximum>1.0</maximum>
+        /// </summary>
+        public double strength = 1d;
+    }
+}

@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6b04f8b12ae0338a4ef0520d1525ec22432e4b5b4d2a9ad89ea08f6c46da5f9d
-size 704
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Enum describing the display mode of a ToolTip.
+    /// </summary>
+    public enum DisplayMode
+    {
+        /// <summary>
+        /// No state to have from Manager
+        /// </summary>
+        None = 0,
+        /// <summary>
+        /// Tips are always on
+        /// </summary>
+        On,
+        /// <summary>
+        /// Looking at Object Activates tip (Object must be interactive)
+        /// </summary>
+        OnFocus,
+        /// <summary>
+        /// Tips are always off
+        /// </summary>
+        Off
+    }
+}

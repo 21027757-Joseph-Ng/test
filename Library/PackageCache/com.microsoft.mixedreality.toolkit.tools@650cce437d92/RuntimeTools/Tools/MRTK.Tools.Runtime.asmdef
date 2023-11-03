@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:39e1ca8252521e9e17dc1f4385e8aa46f275b6e8eff497792a9794b65acbac3f
-size 434
+{
+    "name": "Microsoft.MixedReality.Toolkit.Tools.Runtime",
+    "references": [
+        "Microsoft.MixedReality.Toolkit",
+        "Microsoft.MixedReality.Toolkit.SDK"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

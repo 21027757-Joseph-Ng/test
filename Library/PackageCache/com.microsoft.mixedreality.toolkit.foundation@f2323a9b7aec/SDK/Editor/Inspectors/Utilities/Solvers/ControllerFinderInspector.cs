@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e66605d2cd16952be0b42d66c16d3608fe4416945d3fc396e096d57b35b87961
-size 1097
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities.Solvers;
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor.Solvers
+{
+    [CustomEditor(typeof(ControllerFinder))]
+    public abstract class ControllerFinderInspector : UnityEditor.Editor
+    {
+        private SerializedProperty handednessProperty;
+
+        protected virtual void OnEnable()
+        {
+            handednessProperty = serializedObject.FindProperty("handedness");
+        }
+
+        public override void OnInspectorGUI()
+        {
+            serializedObject.Update();
+
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Controller Options", new GUIStyle("Label") { fontStyle = FontStyle.Bold });
+            EditorGUILayout.Space();
+            EditorGUI.indentLevel++;
+
+            EditorGUILayout.PropertyField(handednessProperty);
+
+            EditorGUI.indentLevel--;
+            serializedObject.ApplyModifiedProperties();
+        }
+    }
+}

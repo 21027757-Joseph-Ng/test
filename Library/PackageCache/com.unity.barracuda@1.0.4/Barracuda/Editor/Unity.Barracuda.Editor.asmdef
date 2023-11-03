@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:331533435ea644dd942e95855303f6cac6f204d1a07ecd1d16dc448c42fec8da
-size 158
+{
+    "name": "Unity.Barracuda.Editor",
+    "references": ["Unity.Barracuda"],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": []
+}

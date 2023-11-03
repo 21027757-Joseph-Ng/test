@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c473da4994db3c3f9ec04771c1303997952191da3a953943fcbcce963321e47a
-size 659
+﻿#if UNITY_EDITOR
+using UnityEditor;
+using UnityEngine;
+
+namespace Unity.XR.CoreUtils.GUI
+{
+    /// <summary>
+    /// Helpers for handling screen DPI in GUI.
+    /// </summary>
+    public static class ScreenGUIUtils
+    {
+        /// <summary>
+        /// Gets the width of the screen, in points (pixels at 100% DPI)
+        /// </summary>
+        public static float PointWidth => Screen.width / EditorGUIUtility.pixelsPerPoint;
+
+        /// <summary>
+        /// Gets the height of the screen, in points (pixels at 100% DPI)
+        /// </summary>
+        public static float PointHeight => Screen.height / EditorGUIUtility.pixelsPerPoint;
+    }
+}
+#endif

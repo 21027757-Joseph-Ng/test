@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:34ff789cb3f1ff0c5b1307e650c6da140ec1480f3802d946b6f86680f977c689
-size 582
+# Changelog
+
+## 2.5.1
+
+[MRTK 2.5.1 changes](https://github.com/microsoft/MixedRealityToolkit-Unity/milestone/15?closed=1)
+
+## 2.5.0
+
+[MRTK 2.5.0 changes](https://github.com/microsoft/MixedRealityToolkit-Unity/milestone/12?closed=1)
+
+## 2.4.0
+
+[MRTK 2.4.0 changes](https://github.com/microsoft/MixedRealityToolkit-Unity/milestone/11?closed=1)
+
+## 2.3.0
+
+[MRTK 2.3.0 changes](https://github.com/microsoft/MixedRealityToolkit-Unity/milestone/10?closed=1)
+
+## 2.2.0
+
+[MRTK 2.2.0 changes](https://github.com/microsoft/MixedRealityToolkit-Unity/milestone/9?closed=1)

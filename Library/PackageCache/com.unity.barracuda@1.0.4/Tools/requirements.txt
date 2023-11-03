@@ -1,3 +1,6 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8810f72ed5438e7c68c1b6a8d243e91a4973aaebe8550b6fb94a5761f741377c
-size 72
+numpy===1.16.4
+tensorflow==1.14.0
+onnx==1.2.2
+h5py==2.8.0
+Keras==2.1.6
+

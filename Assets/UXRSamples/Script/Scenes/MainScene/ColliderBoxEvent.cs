@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f494c4a4de36febe98c6ec8391e5f84e4faa78f4ed00660ae7e12799255a0ef3
-size 1069
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class ColliderBoxEvent : MonoBehaviour
+{
+    //public int Sceneindex;
+    public string SceneName;
+
+    private bool m_Enter = false;
+
+    public void OnPointerEnter()
+    {
+        m_Enter = true;
+        VoiceCommandLogic.Instance.AddInstrucEntityZH("打开", "da kai", true, true, true, this.gameObject.name, "Open", "打开");
+    }
+
+    public void OnPointerExit()
+    {
+        m_Enter = false;
+        VoiceCommandLogic.Instance.RemoveInstructZH("打开");
+    }
+
+    private void Update()
+    {
+        if (!m_Enter) return;
+        //if (Application.platform == RuntimePlatform.Android)
+        //{
+            if (Input.GetMouseButtonDown(0) || Input.GetButtonDown("Fire1") || Input.GetKeyDown(KeyCode.Return))
+            {
+                SceneManager.LoadScene(SceneName);
+            }
+        //}
+    }
+
+    private void Open()
+    {
+        SceneManager.LoadScene(SceneName); 
+        VoiceCommandLogic.Instance.RemoveInstructZH("打开");
+    }
+}

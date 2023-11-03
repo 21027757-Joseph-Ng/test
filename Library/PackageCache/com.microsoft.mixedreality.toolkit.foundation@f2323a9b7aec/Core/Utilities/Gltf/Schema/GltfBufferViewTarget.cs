@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2414454857ada47af94c1f7846fc945944cea92d30ab675e22d1e17c3dd5c4ed
-size 493
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// The target that the GPU buffer should be bound to.
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/bufferView.schema.json
+    /// </summary>
+    public enum GltfBufferViewTarget
+    {
+        None = 0,
+        ArrayBuffer = 34962,
+        ElementArrayBuffer = 34963,
+    }
+}

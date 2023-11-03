@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0d167eb7e758fcd04f316d9a17f40c333948f5bbb7458b1c5b3ee7d505599952
-size 621
+﻿using System;
+using UnityEditor;
+using UnityEngine;
+
+namespace Unity.XR.CoreUtils.GUI.Editor
+{
+    [CustomPropertyDrawer(typeof(EnumDisplayAttribute))]
+    sealed class EnumDisplayPropertyDrawer : PropertyDrawer
+    {
+        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
+        {
+            var enumDisplayAttribute = (EnumDisplayAttribute)attribute;
+            var currentEnumValue = property.intValue;
+            property.intValue = EditorGUI.IntPopup(position, label.text, currentEnumValue, enumDisplayAttribute.Names, enumDisplayAttribute.Values);
+        }
+    }
+}

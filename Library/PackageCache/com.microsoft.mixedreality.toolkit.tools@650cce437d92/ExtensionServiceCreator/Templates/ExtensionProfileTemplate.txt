@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed187c9f229da5bdf46062a8267307a8e62ebe5a36f8d9dd5a458d73adad68e8
-size 389
+using System;
+using UnityEngine;
+using Microsoft.MixedReality.Toolkit;
+
+namespace #NAMESPACE#
+{
+	[MixedRealityServiceProfile(typeof(#INTERFACE_NAME#))]
+	[CreateAssetMenu(fileName = "#PROFILE_NAME#", menuName = "MixedRealityToolkit/#SERVICE_NAME# Configuration Profile")]
+	public class #PROFILE_NAME# : BaseMixedRealityProfile
+	{
+		// Store config data in serialized fields
+	}
+}

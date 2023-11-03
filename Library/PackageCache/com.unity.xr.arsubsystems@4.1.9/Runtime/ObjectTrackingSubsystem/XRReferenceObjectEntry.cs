@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d52ed4c170f1d6b8b34d237c2f3fc04e1d8594bbdc4ab6866b8a0a3eb1130fe4
-size 968
+namespace UnityEngine.XR.ARSubsystems
+{
+    /// <summary>
+    /// A provider-specific reference object.
+    /// </summary>
+    /// <remarks>
+    /// <para>
+    /// A reference object represents a 3D scan of a real object that can
+    /// be recognized in the environment. Each <see cref="XRReferenceObject"/>
+    /// contains a list of provider-specific <see cref="XRReferenceObjectEntry"/>.
+    /// Each provider (implementation of <see cref="XRObjectTrackingSubsystem"/>)
+    /// should derive a new type from this type.
+    /// </para><para>
+    /// Each <see cref="XRReferenceObjectEntry"/> is generally an asset on disk
+    /// in a format specific to that provider.
+    /// </para>
+    /// </remarks>
+    /// <seealso cref="XRReferenceObject"/>
+    /// <seealso cref="XRReferenceObjectLibrary"/>
+    [HelpURL(HelpUrls.Api + "UnityEngine.XR.ARSubsystems.XRReferenceObjectEntry.html")]
+    public abstract class XRReferenceObjectEntry : ScriptableObject
+    { }
+}

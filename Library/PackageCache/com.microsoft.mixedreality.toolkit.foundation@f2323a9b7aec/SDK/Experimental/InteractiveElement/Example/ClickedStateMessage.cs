@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f9f727fa17916f6b432902aeb1c41fa1535a3ef8375d98f9b5de80775b52b78e
-size 1046
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement.Examples
+{
+    /// <summary>
+    /// The clicked state for Interactive Element does not light up in the inspector, this script
+    /// logs a message as a visual confirmation that the clicked event was fired.
+    /// </summary>
+    public class ClickedStateMessage : MonoBehaviour
+    {
+        public BaseInteractiveElement InteractiveElement;
+
+        private InteractionState clickedState;
+
+        void Start()
+        {
+            clickedState = InteractiveElement.GetState("Clicked");
+
+            if (clickedState != null)
+            {
+                ClickedEvents clickedEvents = InteractiveElement.GetStateEvents<ClickedEvents>("Clicked");
+
+                clickedEvents.OnClicked.AddListener(() =>
+                {
+                    Debug.Log($"{gameObject.name} Clicked");
+                });
+            }
+        }
+    }
+}

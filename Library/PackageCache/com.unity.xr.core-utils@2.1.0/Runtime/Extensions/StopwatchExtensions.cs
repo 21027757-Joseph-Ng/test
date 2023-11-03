@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9d284dc5473a736a42d1e37b03e7e58dd58db1139a7964c3ec64d39432f11055
-size 591
+﻿#if !NET_4_6
+using System.Diagnostics;
+
+namespace Unity.XR.CoreUtils
+{
+    /// <summary>
+    /// Extension methods for Stopwatch objects
+    /// </summary>
+    public static class StopwatchExtensions
+    {
+        /// <summary>
+        /// Restarts the stopwatch by stopping, resetting, and then starting it
+        /// </summary>
+        /// <param name="stopwatch">The stopwatch to restart</param>
+        public static void Restart(this Stopwatch stopwatch)
+        {
+            stopwatch.Stop();
+            stopwatch.Reset();
+            stopwatch.Start();
+        }
+    }
+}
+#endif

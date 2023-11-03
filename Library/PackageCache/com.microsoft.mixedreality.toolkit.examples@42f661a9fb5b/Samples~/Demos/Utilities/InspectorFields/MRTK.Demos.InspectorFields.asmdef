@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:30b3a712bb14395090d0fed5cc5a7baaa33299a895fb7ad9fb1c07bcb815affc
-size 395
+{
+    "name": "Microsoft.MixedReality.Toolkit.Demos.InspectorFields",
+    "references": [
+        "Microsoft.MixedReality.Toolkit"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

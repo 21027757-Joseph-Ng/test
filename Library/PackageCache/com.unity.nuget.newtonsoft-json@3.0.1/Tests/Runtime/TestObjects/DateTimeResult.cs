@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f535fe356550ff03ea45dfdd755c1e355ca0bc1a27f75b2c6cd502007e970407
-size 504
+﻿namespace Unity.Nuget.NewtonsoftJson.Tests.TestObjects
+{
+    class DateTimeResult
+    {
+        public string IsoDateRoundtrip { get; set; }
+        public string IsoDateLocal { get; set; }
+        public string IsoDateUnspecified { get; set; }
+        public string IsoDateUtc { get; set; }
+
+        public string MsDateRoundtrip { get; set; }
+        public string MsDateLocal { get; set; }
+        public string MsDateUnspecified { get; set; }
+        public string MsDateUtc { get; set; }
+    }
+}

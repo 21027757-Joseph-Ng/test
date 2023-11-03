@@ -1,3 +1,4 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:748f2a564c145203ff6c72ec944bdcfd1711ba7d1c9717d755d0dcf8d31e0cf3
-size 193
+{
+  "displayName": "UI vs. Game Input",
+  "description": "An example that shows how to deal with ambiguities that may arrise when overlaying interactive UI elements on top of a game scene."
+} 

@@ -1,3 +1,9 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7dee7369c2f931284684d23812a0cd462529e5e514440527743d3ee8accb663d
-size 222
+{
+    "ErrorExceptions": [
+        {
+            "ValidationTest": "API Validation",
+            "ExceptionMessage": "Breaking changes require a new major version.",
+            "PackageVersion": "2.1.0"
+        }
+    ]
+}

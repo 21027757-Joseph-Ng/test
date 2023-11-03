@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ba714d6d11030147f658a599419f5316ea8b447c1a28de2b8aa55729761a92bb
-size 1065
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// The event configuration for the Touch InteractionState.
+    /// </summary>
+    public class TouchEvents : BaseInteractionEventConfiguration
+    {
+        /// <summary>
+        /// A Unity event with HandTrackingInputEventData. This event is fired when Touch enters an object.
+        /// </summary>
+        public TouchInteractionEvent OnTouchStarted = new TouchInteractionEvent();
+
+        /// <summary>
+        /// A Unity event with HandTrackingInputEventData. This event is fired when Touch exits an object.
+        /// </summary>
+        public TouchInteractionEvent OnTouchCompleted = new TouchInteractionEvent();
+
+        /// <summary>
+        /// A Unity event with HandTrackingInputEventData. This event is fired when Touch is updated.
+        /// </summary>
+        public TouchInteractionEvent OnTouchUpdated = new TouchInteractionEvent();
+    }
+}

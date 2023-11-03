@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f63c0056099196c7f254344e112dee12995f23c308a86a1f6ead627d2f880e5
-size 733
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using System.Collections.Generic;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    public interface IMixedRealityInputSourceDefinition
+    {
+        /// <summary>
+        /// Provides the default interactions for this source type with a specific handedness.
+        /// </summary>
+        /// <param name="handedness">The handedness the mappings should be provided for.</param>
+        /// <returns>The default interactions for this source with a specific handedness.</returns>
+        IReadOnlyList<MixedRealityInputActionMapping> GetDefaultMappings(Handedness handedness);
+    }
+}

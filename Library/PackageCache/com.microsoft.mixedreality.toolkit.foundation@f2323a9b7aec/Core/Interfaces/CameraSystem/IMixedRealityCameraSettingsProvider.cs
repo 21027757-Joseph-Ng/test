@@ -1,3 +1,21 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1bea6684c1795d4e8392ebfce22f2fa44e67c221698ef8f0bd0cec6eed53dd8b
-size 658
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.CameraSystem
+{
+    /// <summary>
+    /// Interface defining the a camera system settings provider.
+    /// </summary>
+    public interface IMixedRealityCameraSettingsProvider : IMixedRealityDataProvider
+    {
+        /// <summary>
+        /// Returns whether or not the current display rendering mode is opaque.
+        /// </summary>
+        bool IsOpaque { get; }
+
+        /// <summary>
+        /// Applies provider specific configuration settings.
+        /// </summary>
+        void ApplyConfiguration();
+    }
+}

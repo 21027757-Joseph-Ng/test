@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:636fe60ccfe194f7046bbc31299fa64f3c0ced62358995c50227bdfde10ae198
-size 450
+using NUnit.Framework;
+
+namespace UnityEngine.XR.ARFoundation
+{
+    [TestFixture]
+    public class PoseExtensionsTestFixture
+    {
+        [Test]
+        public void InverseTransformPositionTest()
+        {
+            Pose pose = default(Pose);
+            Vector3 vec = new Vector3(1,2,3);
+
+            Assert.That(vec == pose.InverseTransformPosition(vec), "Inverse transform position not the same as input for a default pose.");
+        }
+    }
+}

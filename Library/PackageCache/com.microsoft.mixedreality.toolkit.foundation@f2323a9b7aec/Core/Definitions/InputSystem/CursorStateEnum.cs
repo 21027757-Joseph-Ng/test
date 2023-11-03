@@ -1,3 +1,46 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c9562ec04af87e7100a2ae38ae80c848aaea7391c392680b64e77fe56b7c979d
-size 1465
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Enum for current cursor state
+    /// </summary>
+    public enum CursorStateEnum
+    {
+        /// <summary>
+        /// Useful for releasing external override.
+        /// See <c>CursorStateEnum.Contextual</c>
+        /// </summary>
+        None = -1,
+        /// <summary>
+        /// Not IsHandDetected OR HasTeleportIntent
+        /// </summary>
+        Observe,
+        /// <summary>
+        /// Not IsHandDetected AND not IsPointerDown AND TargetedObject exists OR HasTeleportIntent AND Teleport Surface IsValid
+        /// </summary>
+        ObserveHover,
+        /// <summary>
+        /// IsHandDetected AND not IsPointerDown AND TargetedObject is NULL
+        /// </summary>
+        Interact,
+        /// <summary>
+        /// IsHandDetected AND not IsPointerDown AND TargetedObject exists
+        /// </summary>
+        InteractHover,
+        /// <summary>
+        /// IsHandDetected AND IsPointerDown
+        /// </summary>
+        Select,
+        /// <summary>
+        /// Available for use by classes that extend Cursor.
+        /// No logic for setting Release state exists in the base Cursor class.
+        /// </summary>
+        Release,
+        /// <summary>
+        /// Allows for external override
+        /// </summary>
+        Contextual
+    }
+}

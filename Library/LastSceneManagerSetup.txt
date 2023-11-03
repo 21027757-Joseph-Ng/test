@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7bb249701da7c905e66c47f1733e132bed9ceffe8d5f28a075d762d377329ec5
-size 124
+sceneSetups:
+- path: Assets/From Intern/LocalRecognition/LocalRecognition.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0

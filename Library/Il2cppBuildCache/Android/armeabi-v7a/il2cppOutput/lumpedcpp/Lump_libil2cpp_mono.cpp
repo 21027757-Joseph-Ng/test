@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fea2d84fbe064e11ae766e4dbc1f104635b2e2de222e4c0250ea44cf63b90882
-size 775
+#include "il2cpp-config.h"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\mono\MonoPosixHelper.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\mono\ThreadPool\ThreadPoolMonitorThread.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\mono\ThreadPool\ThreadPoolWorkerThread.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\mono\ThreadPool\threadpool-ms-io-poll.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\mono\ThreadPool\threadpool-ms-io.cpp"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\mono\ThreadPool\threadpool-ms.cpp"

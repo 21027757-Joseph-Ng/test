@@ -1,3 +1,56 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:65889b7d2a8f7556a991842b297c7e1f2714a4eed158d9980b53c040f7aa03d1
-size 1271
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Mixed reality platform capabilities.
+    /// </summary>
+    public enum MixedRealityCapability
+    {
+        /// <summary>
+        /// Articulated hand input
+        /// </summary>
+        ArticulatedHand = 0,
+
+        /// <summary>
+        /// Gaze-Gesture-Voice hand input
+        /// </summary>
+        GGVHand,
+
+        /// <summary>
+        /// Motion controller input
+        /// </summary>
+        MotionController,
+
+        /// <summary>
+        /// Eye gaze targeting
+        /// </summary>
+        EyeTracking,
+
+        /// <summary>
+        /// Voice commands using app defined keywords
+        /// </summary>
+        VoiceCommand,
+
+        /// <summary>
+        /// Voice to text dictation
+        /// </summary>
+        VoiceDictation,
+
+        /// <summary>
+        /// Spatial meshes
+        /// </summary>
+        SpatialAwarenessMesh,
+
+        /// <summary>
+        /// Spatial planes
+        /// </summary>
+        SpatialAwarenessPlane,
+
+        /// <summary>
+        /// Spatial points
+        /// </summary>
+        SpatialAwarenessPoint
+    }
+}

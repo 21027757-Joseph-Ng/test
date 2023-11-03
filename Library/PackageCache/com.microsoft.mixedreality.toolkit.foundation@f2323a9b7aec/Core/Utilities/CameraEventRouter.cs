@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a34c7952d140933380cde2af7efdbe687085540b44bc69da248b3ec579af61e9
-size 773
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// A helper class to provide hooks into the Unity camera exclusive Lifecycle events
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Core/CameraEventRouter")]
+    public class CameraEventRouter : MonoBehaviour
+    {
+        /// <summary>
+        /// A callback to act upon MonoBehaviour.OnPreRender() without a script needing to exist on a Camera component
+        /// </summary>
+        public event Action<CameraEventRouter> OnCameraPreRender;
+
+        private void OnPreRender()
+        {
+            OnCameraPreRender?.Invoke(this);
+        }
+    }
+}

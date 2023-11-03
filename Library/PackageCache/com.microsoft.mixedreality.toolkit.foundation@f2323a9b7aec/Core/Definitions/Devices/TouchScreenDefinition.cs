@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce096deddddae6139ffde6871693d8ab595e1f9c870283aa0efd30a20e083188
-size 967
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    public class TouchScreenDefinition : BaseInputSourceDefinition
+    {
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        public TouchScreenDefinition() : base(Handedness.None)
+        { }
+
+        /// <inheritdoc />
+        protected override MixedRealityInputActionMapping[] DefaultMappings => new[]
+        {
+            new MixedRealityInputActionMapping("Touch Pointer Delta", AxisType.DualAxis, DeviceInputType.PointerPosition),
+            new MixedRealityInputActionMapping("Touch Pointer Position", AxisType.SixDof, DeviceInputType.SpatialPointer),
+            new MixedRealityInputActionMapping("Touch Press", AxisType.Digital, DeviceInputType.PointerClick),
+        };
+    }
+}

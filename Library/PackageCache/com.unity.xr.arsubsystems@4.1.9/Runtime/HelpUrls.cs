@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d8d506ad952734faae34be15299906d03989be609760943b67b8188ca84cac68
-size 488
+namespace UnityEngine.XR.ARSubsystems
+{
+    /// <summary>
+    /// Helper for compile-time constant strings for the [HelpURL](xref:UnityEngine.HelpURLAttribute) attribute.
+    /// </summary>
+    static class HelpUrls
+    {
+        const string Version = "4.1";
+
+        const string BaseUrl = "https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@" + Version;
+
+        public const string Manual = BaseUrl + "/manual/";
+
+        public const string Api = BaseUrl + "/api/";
+    }
+}

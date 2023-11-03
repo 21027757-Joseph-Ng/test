@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e6aac272419e5e98ad6061ada6d29dc5fa6194d39853e7356033fd6056f404f1
-size 947
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    [CreateAssetMenu(menuName = "Mixed Reality/Toolkit/Profiles/Mixed Reality Eye Tracking Profile", fileName = "MixedRealityEyeTrackingProfile", order = (int)CreateProfileMenuItemIndices.EyeTracking)]
+    [MixedRealityServiceProfile(requiredTypes: new Type[] { typeof(IMixedRealityEyeGazeDataProvider), typeof(IMixedRealityEyeSaccadeProvider) })]
+    public class MixedRealityEyeTrackingProfile : BaseMixedRealityProfile
+    {
+        [SerializeField]
+        [Tooltip("Use smoothed eye tracking signal.")]
+        private bool smoothEyeTracking = false;
+
+        /// <summary>
+        /// Use smoothed eye tracking signal.
+        /// </summary>
+        public bool SmoothEyeTracking => smoothEyeTracking;
+    }
+}

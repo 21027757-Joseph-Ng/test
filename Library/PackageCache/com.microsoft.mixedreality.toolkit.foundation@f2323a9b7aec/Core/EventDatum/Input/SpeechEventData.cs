@@ -1,3 +1,50 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d653485a1d40c9543053988f5f5634be53d8ce73cafb63290edfbadcae326738
-size 1728
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using System;
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Describes an input event that involves keyword recognition.
+    /// </summary>
+    public class SpeechEventData : BaseInputEventData
+    {
+        /// <summary>
+        /// The time it took for the phrase to be uttered.
+        /// </summary>
+        public TimeSpan PhraseDuration { get; private set; }
+
+        /// <summary>
+        /// The moment in UTC time when uttering of the phrase began.
+        /// </summary>
+        public DateTime PhraseStartTime { get; private set; }
+
+        /// <summary>
+        /// The text that was recognized.
+        /// </summary>
+        public SpeechCommands Command { get; private set; }
+
+        /// <summary>
+        /// A measure of correct recognition certainty.
+        /// </summary>
+        public RecognitionConfidenceLevel Confidence { get; private set; }
+
+        /// <inheritdoc />
+        public SpeechEventData(EventSystem eventSystem) : base(eventSystem) { }
+
+        /// <summary>
+        /// Populates the event with data.
+        /// </summary>
+        public void Initialize(IMixedRealityInputSource inputSource, RecognitionConfidenceLevel confidence, TimeSpan phraseDuration, DateTime phraseStartTime, SpeechCommands command)
+        {
+            BaseInitialize(inputSource, command.Action);
+            Confidence = confidence;
+            PhraseDuration = phraseDuration;
+            PhraseStartTime = phraseStartTime;
+            Command = command;
+        }
+    }
+}

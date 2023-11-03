@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7e6d093ec548a5f44d687684aa0796f15ccc517d4959a7c6cb3f2fdeb8a5c2c0
-size 569
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a794cc45c30a79b4da55bfd426876503, type: 3}
+  m_Name: DefaultWindowsMixedRealityCameraSettingsProfile
+  m_EditorClassIdentifier: 
+  isCustomProfile: 0
+  renderFromPVCameraForMixedRealityCapture: 0
+  reprojectionMethod: 0
+  readingModeEnabled: 0

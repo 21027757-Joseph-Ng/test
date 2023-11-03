@@ -1,3 +1,36 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2eed03de3e37bc4efc8329b1d84ce2409769909cae1c74a1c41f31397503a6e9
-size 999
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Defines the display order of the Assets > Create > Mixed Reality Toolkit > Profiles menu items.
+    /// </summary>
+    public enum CreateProfileMenuItemIndices
+    {
+        Configuration = 0,
+        Camera,
+        Input,
+        Pointer,
+        ControllerMapping,
+        InputActions,
+        InputActionRules,
+        Speech,
+        BoundaryVisualization,
+        ControllerVisualization,
+        SpatialAwareness,   // todo: remove
+        SpatialAwarenessMeshObserver,
+        SpatialAwarenessSurfaceObserver,
+        Gestures,
+        Diagnostics,
+        RegisteredServiceProviders,
+        InputSimulation,
+        HandTracking,
+        EyeTracking,
+        MouseInput,
+        SceneSystem,
+        SceneUnderstandingObserver,
+
+        Assembly = 99, // This should stay at the end
+    }
+}

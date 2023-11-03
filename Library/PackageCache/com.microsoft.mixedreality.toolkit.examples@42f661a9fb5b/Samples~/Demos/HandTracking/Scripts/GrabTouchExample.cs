@@ -1,3 +1,66 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a69f02d9e3dd2f6cd1b179b3ac3bdf6adaec976e7a9edbafc966c3b720885604
-size 2457
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples
+{
+    [System.Obsolete("This component is no longer supported", true)]
+    [AddComponentMenu("Scripts/MRTK/Obsolete/GrabTouchExample")]
+    public class GrabTouchExample : MonoBehaviour, IMixedRealityTouchHandler, IMixedRealityInputHandler
+    {
+        [SerializeField]
+        private MixedRealityInputAction grabAction = MixedRealityInputAction.None;
+
+        private void Awake()
+        {
+            Debug.LogError(this.GetType().Name + " is deprecated");
+        }
+
+        public void OnInputDown(InputEventData eventData)
+        {
+            if (eventData.MixedRealityInputAction == grabAction)
+            {
+                GetComponent<Renderer>().material.color = new Color(0.0f, 1.0f, 0.0f);
+            }
+        }
+
+        public void OnInputUp(InputEventData eventData)
+        {
+            if (eventData.MixedRealityInputAction == grabAction)
+            {
+                GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f);
+            }
+        }
+
+        public void OnInputPressed(InputEventData<float> eventData) { }
+
+        public void OnPositionInputChanged(InputEventData<Vector2> eventData) { }
+
+        /// <summary>
+        /// This Handler is called by a HandTrackingInputSource when a Touch action for that hand starts.
+        /// </summary>
+        /// <remarks>    
+        /// <para>A Touch action requires a target. a Touch action must occur inside the bounds of a gameObject.
+        /// The eventData argument contains.</para>
+        /// </remarks>
+        /// <param name="eventData">
+        /// The argument passed contains information about the InputSource, the point in space where
+        /// the Touch action occurred and the status of the Touch action.
+        /// </param>
+        public void OnTouchCompleted(HandTrackingInputEventData eventData)
+        {
+            GetComponent<Renderer>().material.color = new Color(1.0f, 1.0f, 1.0f);
+        }
+
+        public void OnTouchStarted(HandTrackingInputEventData eventData)
+        {
+            GetComponent<Renderer>().material.color = new Color(0.0f, 1.0f, 0.0f);
+        }
+
+        public void OnTouchUpdated(HandTrackingInputEventData eventData)
+        {
+        }
+    }
+}

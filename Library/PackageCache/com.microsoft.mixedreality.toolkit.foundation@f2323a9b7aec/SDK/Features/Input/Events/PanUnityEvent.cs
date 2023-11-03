@@ -1,3 +1,13 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b3a032b365c77bca2336750dfde338b04c8983c0852279e9c3e8b85a8e4f0c4c
-size 370
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Unity event for a pan / zoom event. Contains the hand pan event data
+    /// </summary>
+    [System.Serializable]
+    public class PanUnityEvent : UnityEvent<HandPanEventData> { }
+}

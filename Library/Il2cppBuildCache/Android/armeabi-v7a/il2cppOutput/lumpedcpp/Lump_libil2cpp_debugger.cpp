@@ -1,3 +1,2 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:27aa2bb3e01d7af54653571704dd3695429484273eb9f83b8f45fdcdd142f98a
-size 141
+#include "il2cpp-config.h"
+#include "C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Data\il2cpp\libil2cpp\debugger\il2cpp-stubs.cpp"

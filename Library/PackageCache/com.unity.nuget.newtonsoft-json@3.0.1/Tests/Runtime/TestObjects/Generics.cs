@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bf19b7099e69c0a8b7e3626220a7945065eee47a110c61e6ff6fecae3dfa2a9c
-size 438
+﻿using UnityEngine.Scripting;
+
+namespace Unity.Nuget.NewtonsoftJson.Tests.TestObjects
+{
+    class GenericBaseClass<T1, T2>
+    {
+        [Preserve]
+        public virtual T2 Data { get; set; }
+    }
+
+    class GenericIntermediateClass<T1> : GenericBaseClass<T1, string>
+    {
+        [Preserve]
+        public override string Data { get; set; }
+    }
+
+    [Preserve]
+    class NonGenericChildClass : GenericIntermediateClass<int> { }
+}

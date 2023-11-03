@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9593b22994d835f9b6130cc46b30aebabcec4c21ef7dbf7787cbf103811534d0
-size 586
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// A simplified centralized entry point to the MRTK input system. Contains state management methods, event management and the state setting logic for 
+    /// some Core Interaction States.
+    /// </summary>
+    public class InteractiveElement : BaseInteractiveElement
+    {
+        // This class is currently a temporary naming placeholder class for the behavior in BaseInteractiveElement
+    }
+}

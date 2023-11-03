@@ -1,3 +1,40 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4a886a9fa3b9623043a9c7ff7e7f27a44086523fded449b4f659da2b2fc48af3
-size 1395
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit.Teleport
+{
+    /// <summary>
+    /// Describes a Teleportation Event.
+    /// </summary>
+    public class TeleportEventData : GenericBaseEventData
+    {
+        /// <summary>
+        /// The pointer that raised the event.
+        /// </summary>
+        public IMixedRealityPointer Pointer { get; private set; }
+
+        /// <summary>
+        /// The teleport hot spot.
+        /// </summary>
+        public IMixedRealityTeleportHotspot Hotspot { get; private set; }
+
+        /// <summary>
+        /// Constructor.
+        /// </summary>
+        /// <param name="eventSystem">Typically will be <see href="https://docs.unity3d.com/ScriptReference/EventSystems.EventSystem-current.html">EventSystem.current</see></param>
+        public TeleportEventData(EventSystem eventSystem) : base(eventSystem) { }
+
+        /// <summary>
+        /// Used to initialize/reset the event and populate the data.
+        /// </summary>
+        public void Initialize(IMixedRealityPointer pointer, IMixedRealityTeleportHotspot target)
+        {
+            BaseInitialize(pointer.InputSourceParent);
+            Pointer = pointer;
+            Hotspot = target;
+        }
+    }
+}

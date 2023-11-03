@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:be4ae5147cbf55956805aff66c18b82987a01f1e21d7f20544f36b8a3ccfbcb0
-size 934
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Describes placement of objects events.
+    /// </summary>
+    public class PlacementEventData : GenericBaseEventData
+    {
+        /// <summary>
+        /// The game object that is being placed.
+        /// </summary>
+        public GameObject ObjectBeingPlaced { get; private set; }
+
+        /// <inheritdoc />
+        public PlacementEventData(EventSystem eventSystem) : base(eventSystem) { }
+
+        /// <summary>
+        /// Populates the event with data.
+        /// </summary>
+        public void Initialize(IMixedRealityEventSource eventSource, GameObject objectBeingPlaced)
+        {
+            BaseInitialize(eventSource);
+            ObjectBeingPlaced = objectBeingPlaced;
+        }
+    }
+}

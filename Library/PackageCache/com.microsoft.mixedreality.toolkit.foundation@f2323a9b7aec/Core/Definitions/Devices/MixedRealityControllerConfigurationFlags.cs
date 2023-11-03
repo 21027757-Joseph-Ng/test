@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:024b5016d70aadf608b72d67dff9e0d6c715f0d318f73e93dfc28ca9dfd45c92
-size 600
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Flags used by MixedRealityControllerAttribute.
+    /// </summary>
+    [System.Flags]
+    public enum MixedRealityControllerConfigurationFlags : byte
+    {
+        /// <summary>
+        /// Controllers with custom interaction mappings can have their mappings be added / removed to the
+        /// controller mapping profile in the property inspector.
+        /// </summary>
+        UseCustomInteractionMappings = 1 << 0,
+    }
+}

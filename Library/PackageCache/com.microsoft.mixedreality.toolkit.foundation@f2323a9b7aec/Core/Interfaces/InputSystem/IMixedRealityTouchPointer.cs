@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ce215f59141def7eae8380cffe73435e0895c91a6738e6be09934bf3bafaa4cd
-size 573
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface for handling touch pointers.
+    /// </summary>
+    public interface IMixedRealityTouchPointer : IMixedRealityPointer
+    {
+        /// <summary>
+        /// Current finger id of the touch.
+        /// </summary>
+        int FingerId { get; set; }
+
+        /// <summary>
+        /// Current touch ray.
+        /// </summary>
+        Ray TouchRay { get; set; }
+    }
+}

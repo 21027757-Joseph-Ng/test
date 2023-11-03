@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ad9b5347f3d536d360da9f04c085e152b8ab63d4d7287c656da990b5a8e3e74a
-size 753
+#if USE_MOCK_FEATURE_SET
+
+using System;
+
+#if UNITY_EDITOR
+
+using UnityEditor;
+using UnityEditor.XR.OpenXR.Features;
+
+namespace UnityEngine.XR.OpenXR.Features.Mock
+{
+    [OpenXRFeatureSet(
+        FeatureIds = new string[] {
+            MockRuntime.featureId,
+            Interactions.KHRSimpleControllerProfile.featureId,
+            },
+        UiName = "Mock Runtime",
+        Description = "Mock Runtime Feature set support. Enabling this will override any current OpenXR runtime selection.",
+        FeatureSetId = "com.unity.openxr.featureset.mockruntime",
+        SupportedBuildTargets = new BuildTargetGroup[]{ BuildTargetGroup.Standalone }
+    )]
+    sealed class MockRuntimeFeatureSets {}
+}
+
+#endif //UNITY_EDITOR
+
+#endif //USE_MOCK_FEATURE_SET

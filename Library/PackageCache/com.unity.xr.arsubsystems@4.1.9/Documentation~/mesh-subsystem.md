@@ -1,3 +1,8 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d343c866c2b4e4a07b951937f4d649cb7c03de27ec01b15ea4b69fa7e798df51
-size 545
+---
+uid: arsubsystems-mesh-subsystem
+---
+# XR mesh subsystem
+
+Provider packages for platforms that support 3D reconstruction of physical surroundings may implement the [XRMeshSubsystem](https://docs.unity3d.com/ScriptReference/XR.XRMeshSubsystem.html). The purpose of this subsystem is the efficient generation of meshes inside of Unity based on the geometry data provided by an XR device.
+
+In addition to creating meshes, the subsystem can be used to get information about generated meshes and to limit the volumes in which meshes are created.

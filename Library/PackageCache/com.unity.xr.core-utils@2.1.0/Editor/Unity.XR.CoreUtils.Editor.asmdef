@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b13e1b763673980772757bbd06343045796bc1093cd0a15fd087b69996acc24d
-size 788
+{
+    "name": "Unity.XR.CoreUtils.Editor",
+    "references": [
+        "Unity.XR.CoreUtils",
+        "Unity.InputSystem"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "versionDefines": [
+        {      
+            "name": "com.unity.inputsystem",
+            "expression": "1.0.0",
+            "define": "INCLUDE_INPUT_SYSTEM"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "1.1.0-pre.6",
+            "define": "INPUT_SYSTEM_1_1_OR_NEWER"
+        },
+        {
+            "name": "com.unity.inputsystem",
+            "expression": "[1.1.0-preview.1,1.1.0-preview.3]",
+            "define": "INPUT_SYSTEM_1_1_PREVIEW"
+        }
+    ]
+}

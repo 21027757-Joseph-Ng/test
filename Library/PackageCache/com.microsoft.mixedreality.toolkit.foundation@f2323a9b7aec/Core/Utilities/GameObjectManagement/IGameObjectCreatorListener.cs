@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ef79e0c3b288219d9a1e612721c79302bb6665a1abc77af899de255d392f37ea
-size 974
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.GameObjectManagement
+{
+    /// <summary>
+    /// Optional interface that GameObjects (instantiated and recycled by a
+    /// GameObjectPool) can implement in order to handle preparation for
+    /// recycling and reuse.
+    /// </summary>
+    public interface IGameObjectCreatorListener
+    {
+        /// <summary>
+        /// Called when the GameObject is about to be recycled by the GameObjectPool. This allows you to potentially free
+        /// up any resources before it is deactivated by the GameObjectPool.
+        /// </summary>
+        void PrepareForRecycle();
+
+        /// <summary>
+        /// Called before the GameObject's position and rotation are set (as well as its active state) by the GameObjectPool
+        /// when GetGameObject is called.
+        /// </summary>
+        void PrepareForUse();
+    }
+}

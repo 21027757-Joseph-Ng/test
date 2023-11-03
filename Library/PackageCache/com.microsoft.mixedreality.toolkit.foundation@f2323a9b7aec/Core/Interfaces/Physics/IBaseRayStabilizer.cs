@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a6b3e8e4f243382cf86f8aa3ec849cd0e83d2998b4bedaf1ec7c4b4a61ee536a
-size 468
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Physics
+{
+    public interface IBaseRayStabilizer
+    {
+        Vector3 StablePosition { get; }
+        Quaternion StableRotation { get; }
+        Ray StableRay { get; }
+        void UpdateStability(Vector3 position, Quaternion rotation);
+        void UpdateStability(Vector3 position, Vector3 direction);
+    }
+}

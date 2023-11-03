@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f36c82e6333be5dbea5e271ccbdc3a857eef5994b72259eec73cae66a45385cb
-size 616
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+using UnityEditor;
+
+namespace Microsoft.MixedReality.Toolkit.Editor
+{
+    public class BaseMixedRealityServiceInspector : IMixedRealityServiceInspector
+    {
+        public virtual bool DrawProfileField { get { return true; } }
+
+        public virtual bool AlwaysDrawSceneGUI { get { return false; } }
+
+        public virtual void DrawGizmos(object target) { }
+
+        public virtual void DrawInspectorGUI(object target) { }
+
+        public virtual void DrawSceneGUI(object target, SceneView sceneView) { }
+    }
+}

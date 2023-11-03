@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:35f3d55f42e43320df8f932b865be8a8c2884630a05fbb5a87064b6e2938cad7
-size 928
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Editor
+{
+    /// <summary>
+    /// A custom editor for the ClippingSphere to allow for specification of the framing bounds.
+    /// </summary>
+    [CustomEditor(typeof(ClippingSphere))]
+    [CanEditMultipleObjects]
+    public class ClippingSphereEditor : ClippingPrimitiveEditor
+    {
+        /// <inheritdoc/>
+        protected override bool HasFrameBounds()
+        {
+            return true;
+        }
+
+        /// <inheritdoc/>
+        protected override Bounds OnGetFrameBounds()
+        {
+            var primitive = target as ClippingSphere;
+            Debug.Assert(primitive != null);
+            return new Bounds(primitive.transform.position, primitive.Radii);
+        }
+    }
+}

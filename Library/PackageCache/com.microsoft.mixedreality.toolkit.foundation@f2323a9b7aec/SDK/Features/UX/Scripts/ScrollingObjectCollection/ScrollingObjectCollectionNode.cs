@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7b770ac20f6d7f0807273ffe0078ad2331cf7617ce5eaa51ad6326187168e44a
-size 911
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// A <see cref=" Microsoft.MixedReality.Toolkit.Utilities.ObjectCollectionNode"/> specific for <see cref="ScrollingObjectCollection"/>.
+    /// </summary>
+    [Serializable]
+    public class ScrollingObjectCollectionNode : ObjectCollectionNode
+    {
+        public bool isClipped;
+
+        public ScrollingObjectCollectionNode() { }
+
+        public ScrollingObjectCollectionNode(ObjectCollectionNode baseCollection)
+        {
+            Name = baseCollection.Name;
+            Offset = baseCollection.Offset;
+            Radius = baseCollection.Radius;
+            Transform = baseCollection.Transform;
+            Colliders = baseCollection.Colliders;
+        }
+    }
+}

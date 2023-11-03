@@ -1,3 +1,34 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2c44bed0bee643443375f0cec53258be5907c899baa8e55ae76de7b7d2200d1a
-size 957
+using UnityEngine;
+
+namespace Unity.XR.CoreUtils.Tests
+{
+    [AddComponentMenu("")]
+    class CustomApproximatePerformanceTest : PerformanceComparisonTest
+    {
+        Vector2[] m_Cases;
+
+        protected override void SetupData()
+        {
+            m_MethodLabel = "MathUtility.Approximately()";
+            m_MethodBLabel = "Mathf.Approximately()";
+            Random.InitState(0);
+            m_Cases = TestData.RandomVector2Array(m_CallCount);
+        }
+
+        protected override void RunTestFrame()
+        {
+            foreach (var c in m_Cases)
+            {
+                m_Timer.Restart();
+                MathUtility.Approximately(c.x, c.y);
+                m_Timer.Stop();
+                m_ElapsedTicks += m_Timer.ElapsedTicks;
+
+                m_TimerB.Restart();
+                Mathf.Approximately(c.x, c.y);
+                m_TimerB.Stop();
+                m_ElapsedTicksB += m_TimerB.ElapsedTicks;
+            }
+        }
+    }
+}

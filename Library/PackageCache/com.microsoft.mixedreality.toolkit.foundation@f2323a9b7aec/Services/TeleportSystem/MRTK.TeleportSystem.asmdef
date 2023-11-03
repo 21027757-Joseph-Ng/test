@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4b3bb4b0494746f0e982bbc69d0d24aae9cb027864c6c346d154cfc719912fc3
-size 397
+{
+    "name": "Microsoft.MixedReality.Toolkit.Services.TeleportSystem",
+    "references": [
+        "Microsoft.MixedReality.Toolkit"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

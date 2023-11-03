@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:49b00e2e8adb0d319d49c79aeb88f29269f6a158e79d887673547b3cc34311d9
-size 522
+using UnityEngine.InputSystem;
+
+namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
+{
+    public class ActionAssetEnabler : MonoBehaviour
+    {
+        [SerializeField]
+        InputActionAsset m_ActionAsset;
+        public InputActionAsset actionAsset
+        {
+            get => m_ActionAsset;
+            set => m_ActionAsset = value;
+        }
+
+        private void OnEnable()
+        {
+            if(m_ActionAsset != null)
+            {
+                m_ActionAsset.Enable();
+            }
+        }
+
+    }
+}

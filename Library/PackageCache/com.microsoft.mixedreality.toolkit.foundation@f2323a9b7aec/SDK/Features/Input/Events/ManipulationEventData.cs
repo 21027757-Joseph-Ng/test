@@ -1,3 +1,44 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:189c20139f70f702619bed2e512880b8d8d51d333eb88e9cc4ada632a76559c9
-size 1385
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Information associated with a particular manipulation event.
+    /// </summary>
+    public class ManipulationEventData
+    {
+        /// <summary>
+        /// The object being manipulated
+        /// </summary>
+        public GameObject ManipulationSource { get; set; }
+
+        /// <summary>
+        /// The pointer manipulating the object or hovering over the object. Will be null for OnManipulationEnded.
+        /// </summary>
+        public IMixedRealityPointer Pointer { get; set; }
+
+        /// <summary>
+        /// Whether the Manipulation is a NearInteration or not.
+        /// </summary>
+        public bool IsNearInteraction { get; set; }
+
+        /// <summary>
+        /// Center of the <see cref="ObjectManipulator"/>'s Pointer in world space
+        /// </summary>
+        public Vector3 PointerCentroid { get; set; }
+
+        /// <summary>
+        /// Pointer's Velocity.
+        /// </summary>
+        public Vector3 PointerVelocity { get; set; }
+
+        /// <summary>
+        /// Pointer's Angular Velocity in Eulers.
+        /// </summary>
+        public Vector3 PointerAngularVelocity { get; set; }
+    }
+}

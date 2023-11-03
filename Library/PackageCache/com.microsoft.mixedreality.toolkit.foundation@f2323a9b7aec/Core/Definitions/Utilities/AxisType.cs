@@ -1,3 +1,45 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d9c03a7ad4dbb7f6c71ce3f8b630ae2acec3f7278d1fe2e98d07af6cb5527838
-size 1329
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// The AxisType identifies the type of button or input being sent to the framework from a controller.
+    /// This is mainly information only or for advanced users to understand the input coming directly from the controller.
+    /// </summary>
+    public enum AxisType
+    {
+        /// <summary>
+        /// No Specified type.
+        /// </summary>
+        None = 0,
+        /// <summary>
+        /// Raw stream from input (proxy only).
+        /// </summary>
+        Raw,
+        /// <summary>
+        /// Digital On/Off input.
+        /// </summary>
+        Digital,
+        /// <summary>
+        /// Single Axis analogue input.
+        /// </summary>
+        SingleAxis,
+        /// <summary>
+        /// Dual Axis analogue input.
+        /// </summary>
+        DualAxis,
+        /// <summary>
+        /// Position only Axis analogue input.
+        /// </summary>
+        ThreeDofPosition,
+        /// <summary>
+        /// Rotation only Axis analogue input.
+        /// </summary>
+        ThreeDofRotation,
+        /// <summary>
+        /// Position AND Rotation analogue input.
+        /// </summary>
+        SixDof
+    }
+}

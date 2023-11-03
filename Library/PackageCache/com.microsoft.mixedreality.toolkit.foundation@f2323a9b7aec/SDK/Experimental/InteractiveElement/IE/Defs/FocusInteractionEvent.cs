@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a338b6f28b5437e05e85be2d7a005fb3255455dbaf0f5e184c85a8aaf26edf40
-size 494
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine.Events;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// A Unity event with FocusEventData. This event is used in the event configuration for the 
+    /// Focus state.
+    /// </summary>
+    [System.Serializable]
+    public class FocusInteractionEvent : UnityEvent<FocusEventData> { }
+}

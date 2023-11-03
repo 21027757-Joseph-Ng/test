@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ea2215ffeaacb9d689d9f069f019dc879fcd2c92b26b7d82e249f52047d5de27
-size 653
+* [About Barracuda](index.md)
+    * [Getting started with Barracuda](GettingStarted.md)
+    * [Installing Barracuda](Installing.md)
+    * [FAQ](FAQ.md)
+* [Advanced topics](AdvancedTopics.md)
+    * [Supported operators](SupportedOperators.md)
+    * [Supported platforms](SupportedPlatforms.md)
+    * [Supported architectures](SupportedArchitectures.md)
+    * [Exporting model to ONNX](Exporting.md)
+    * [Loading model](Loading.md)
+    * [Using IWorker interface](Worker.md)
+    * [Model execution](ModelExecution.md)
+    * [Model outputs](ModelOutput.md)
+    * [Tensors: handling data](TensorHandling.md)
+    * [Memory management](MemoryManagement.md)

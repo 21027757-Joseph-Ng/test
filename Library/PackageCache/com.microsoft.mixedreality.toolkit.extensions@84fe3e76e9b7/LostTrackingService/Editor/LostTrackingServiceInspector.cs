@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:52befe7340c2094094a714aab796241a4c9b38444878cf4bfacbb4821b75a0a3
-size 1379
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Editor;
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Extensions.Tracking.Editor
+{
+    /// <summary>
+    /// The custom inspector for an <see cref="ILostTrackingService"/>.
+    /// </summary>
+    [MixedRealityServiceInspector(typeof(ILostTrackingService))]
+    public class LostTrackingServiceInspector : BaseMixedRealityServiceInspector
+    {
+        public override void DrawInspectorGUI(object target)
+        {
+            LostTrackingService service = (LostTrackingService)target;
+
+            EditorGUI.BeginDisabledGroup(!Application.isPlaying);
+            EditorGUILayout.Toggle("Tracking Lost", service.TrackingLost);
+
+            EditorGUILayout.LabelField("Editor Testing", EditorStyles.boldLabel);
+            if (service.TrackingLost)
+            {
+                if (GUILayout.Button("Set Tracking Restored"))
+                {
+                    service.EditorSetTrackingLost(false);
+                }
+            }
+            else
+            {
+                if (GUILayout.Button("Set Tracking Lost"))
+                {
+                    service.EditorSetTrackingLost(true);
+                }
+            }
+            EditorGUI.EndDisabledGroup();
+        }
+    }
+}

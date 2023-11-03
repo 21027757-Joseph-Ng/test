@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b59add0a0fb7682cf4ec77a966aafadde199d9240d00028303015472d1585254
-size 404
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Attribute used to ensure that a GameObject inspector slot only accepts prefabs.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field)]
+    public sealed class PrefabAttribute : PropertyAttribute { }
+}

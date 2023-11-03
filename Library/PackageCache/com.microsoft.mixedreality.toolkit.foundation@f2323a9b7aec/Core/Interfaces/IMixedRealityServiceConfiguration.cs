@@ -1,3 +1,39 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:61a84d0dc0836ac9ad22f60d67d0e14022010132f85f6823a90b38edc5ef7f99
-size 1294
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Defines configuration data for to be registered for a <see cref="IMixedRealityService"/> on startup. 
+    /// Generally, used for configuring the extended interface, <see cref="IMixedRealityDataProvider"/>
+    /// </summary>
+    public interface IMixedRealityServiceConfiguration
+    {
+        /// <summary>
+        /// The concrete type for the system, feature or manager.
+        /// </summary>
+        SystemType ComponentType { get; }
+
+        /// <summary>
+        /// The name of the system, feature or manager.
+        /// </summary>
+        string ComponentName { get; }
+
+        /// <summary>
+        /// The priority this system, feature or manager will be initialized in.
+        /// </summary>
+        uint Priority { get; }
+
+        /// <summary>
+        /// The runtime platform(s) to run this service.
+        /// </summary>
+        SupportedPlatforms RuntimePlatform { get; }
+
+        /// <summary>
+        /// Profile configuration associated with the service
+        /// </summary>
+        BaseMixedRealityProfile Profile { get; }
+    }
+}

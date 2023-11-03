@@ -1,3 +1,5 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4766ff6534fabd7bf3f455eb54428ad1202f132cc793590906d557879a997f86
-size 457
+AR Subsystems © 2019 Unity Technologies
+
+Licensed under the Unity Companion License for Unity-dependent projects (see [Unity Companion License](https://unity3d.com/legal/licenses/unity_companion_license)).
+
+Unless expressly provided otherwise, the Software under this license is made available strictly on an “AS IS” BASIS WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. Please review the license for details on these and other terms and conditions.

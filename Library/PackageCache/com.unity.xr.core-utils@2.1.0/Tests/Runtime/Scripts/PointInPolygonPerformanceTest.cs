@@ -1,3 +1,35 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ed5533ee8e2bd77de22f08a1a9fddb6831650d74bbb104d674b508a6761424df
-size 1061
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Unity.XR.CoreUtils.Tests
+{
+    [AddComponentMenu("")]
+    class PointInPolygonPerformanceTest : PerformanceTest
+    {
+        static readonly List<Vector3> k_TestHexagon = new List<Vector3>
+        {
+            new Vector3(4f, 0f, 4f), new Vector3(3f, 0f, 4f), new Vector3(2f, 0f, 5f),
+            new Vector3(3f, 0f, 6f), new Vector3(4f, 0f, 6f), new Vector3(5f, 0f, 5f)
+        };
+
+        Vector3[] m_TestPoints;
+
+        protected override void SetupData()
+        {
+            Random.InitState(2000);
+            m_TestPoints = TestData.RandomXZVector3Array(m_CallCount);
+            m_MethodLabel = "GeometryUtils.PointInPolygon(p, vertices)";
+        }
+
+        protected override void RunTestFrame()
+        {
+            foreach (var p in m_TestPoints)
+            {
+                m_Timer.Restart();
+                GeometryUtils.PointInPolygon(p, k_TestHexagon);
+                m_Timer.Stop();
+                m_ElapsedTicks += m_Timer.ElapsedTicks;
+            }
+        }
+    }
+}

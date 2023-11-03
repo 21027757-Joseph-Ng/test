@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:41a8b9bc153e11afbf37878cbccbfac32051f6fc993ab0c915c4d15191456b6d
-size 413
+{
+  "name": "Unity.Subsystem.Registration.Runtime.Tests",
+    "references": [
+        "Unity.Subsystem.Registration"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95620ef1ce71cbb2ae22aba3113b184e828badbce4f4bb987fa9a2e5498ff5db
-size 711
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Which direction to orient the radial view object.
+    /// </summary>
+    public enum RadialViewReferenceDirection
+    {
+        /// <summary>
+        /// Orient towards the target including roll, pitch and yaw
+        /// </summary>
+        ObjectOriented,
+        /// <summary>
+        /// Orient toward the target but ignore roll
+        /// </summary>
+        FacingWorldUp,
+        /// <summary>
+        /// Orient towards the target but remain vertical or gravity aligned
+        /// </summary>
+        GravityAligned
+    }
+}

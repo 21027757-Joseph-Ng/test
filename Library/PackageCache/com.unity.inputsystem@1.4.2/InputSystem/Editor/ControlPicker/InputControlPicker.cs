@@ -1,3 +1,41 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fbed70d6e0703697056f89e50e31fbd01bb59dc497750835e7799d61d380110
-size 1066
+#if UNITY_EDITOR || PACKAGE_DOCS_GENERATION
+using System;
+
+////REVIEW: should this be a PopupWindowContent?
+
+namespace UnityEngine.InputSystem.Editor
+{
+    /// <summary>
+    /// A popup that allows picking input controls graphically.
+    /// </summary>
+    public sealed class InputControlPicker : IDisposable
+    {
+        public InputControlPicker(Mode mode, Action<string> onPick, InputControlPickerState state)
+        {
+            m_State = state ?? new InputControlPickerState();
+            m_Dropdown = new InputControlPickerDropdown(state, onPick, mode: mode);
+        }
+
+        public void Show(Rect rect)
+        {
+            m_Dropdown.Show(rect);
+        }
+
+        public void Dispose()
+        {
+            m_Dropdown?.Dispose();
+        }
+
+        public InputControlPickerState state => m_State;
+
+        private readonly InputControlPickerDropdown m_Dropdown;
+        private readonly InputControlPickerState m_State;
+
+        public enum Mode
+        {
+            PickControl,
+            PickDevice,
+        }
+    }
+}
+#endif // UNITY_EDITOR

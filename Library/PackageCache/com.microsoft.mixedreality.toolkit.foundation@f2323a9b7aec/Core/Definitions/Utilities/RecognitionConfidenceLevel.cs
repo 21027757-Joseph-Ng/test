@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:13c92ec88cff9f424fb59ad547a71ee797e30940c1466e0214329f41c81365da
-size 367
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Indicates the confidence level of a recognized event.
+    /// </summary>
+    public enum RecognitionConfidenceLevel
+    {
+        High = 0,
+        Medium,
+        Low,
+        Unknown
+    }
+}

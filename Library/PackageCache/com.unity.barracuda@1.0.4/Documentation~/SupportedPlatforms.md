@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:73b2aa1344d2c63a7da9737705e8a9a790b22486d3005e5d4ea0519d58a59cd6
-size 305
+# Supported platforms
+
+Barracuda supports the following platforms: 
+
+- CPU inference: all Unity platforms are supported.
+
+- GPU inference: all Unity platforms are supported except: 
+  - `OpenGL ES` on `Android/iOS`: use Vulkan/Metal.
+  - `OpenGL Core` on `Mac`: use Metal.
+  - `WebGL`: use CPU inference.

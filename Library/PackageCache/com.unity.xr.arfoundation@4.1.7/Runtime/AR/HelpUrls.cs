@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:809286bf29debe43501a2ad1be6d049bf5c8f23641380c7984981133a15c3922
-size 583
+namespace UnityEngine.XR.ARFoundation
+{
+    /// <summary>
+    /// Helper for compile-time constant strings for the [HelpURL](xref:UnityEngine.HelpURLAttribute) attribute.
+    /// </summary>
+    static class HelpUrls
+    {
+        const string Version = "4.1";
+
+        const string BaseUrl = "https://docs.unity3d.com/Packages/com.unity.xr.arfoundation@" + Version;
+
+        public const string Manual = BaseUrl + "/manual/";
+
+        public const string Api = BaseUrl + "/api/";
+
+        public const string ApiWithNamespace = BaseUrl + "/api/UnityEngine.XR.ARFoundation.";
+    }
+}

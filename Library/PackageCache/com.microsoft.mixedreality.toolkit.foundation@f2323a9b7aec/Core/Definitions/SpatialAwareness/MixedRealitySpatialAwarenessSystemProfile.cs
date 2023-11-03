@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:510b4828f8bf4e838c10ae93eaa877db638f54d581985ce6cbc473c491ed3665
-size 1277
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.SpatialAwareness
+{
+    /// <summary>
+    /// Configuration profile settings for spatial awareness mesh observers.
+    /// </summary>
+    [CreateAssetMenu(menuName = "Mixed Reality/Toolkit/Profiles/Mixed Reality Spatial Awareness System Profile", fileName = "MixedRealitySpatialAwarenessSystemProfile", order = (int)CreateProfileMenuItemIndices.SpatialAwareness)]
+    [MixedRealityServiceProfile(typeof(IMixedRealitySpatialAwarenessSystem))]
+    [HelpURL("https://docs.microsoft.com/windows/mixed-reality/mrtk-unity/features/spatial-awareness/spatial-awareness-getting-started")]
+    public class MixedRealitySpatialAwarenessSystemProfile : BaseMixedRealityProfile
+    {
+        [SerializeField]
+        private MixedRealitySpatialObserverConfiguration[] observerConfigurations = System.Array.Empty<MixedRealitySpatialObserverConfiguration>();
+
+        public MixedRealitySpatialObserverConfiguration[] ObserverConfigurations
+        {
+            get { return observerConfigurations; }
+            internal set { observerConfigurations = value; }
+        }
+    }
+}

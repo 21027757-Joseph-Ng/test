@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:39d31fb4acb251a5d5ce9ce7594f54a95dce1a3e2f367e5b62a52090d720de43
-size 1189
+using System;
+using UnityEngine.XR.ARSubsystems;
+
+namespace UnityEngine.XR.ARFoundation
+{
+    /// <summary>
+    /// Represents a tracked object in the physical environment.
+    /// </summary>
+    [DefaultExecutionOrder(ARUpdateOrder.k_TrackedObject)]
+    [DisallowMultipleComponent]
+    [HelpURL(HelpUrls.ApiWithNamespace + nameof(ARTrackedObject) + ".html")]
+    public class ARTrackedObject : ARTrackable<XRTrackedObject, ARTrackedObject>
+    {
+        /// <summary>
+        /// Get a native pointer associated with this tracked object.
+        /// </summary>
+        /// <remarks>
+        /// The data pointed to by this member is implementation defined.
+        /// The lifetime of the pointed to object is also
+        /// implementation defined, but should be valid at least until the next
+        /// <see cref="ARSession"/> update.
+        /// </remarks>
+        public IntPtr nativePtr
+        {
+            get { return sessionRelativeData.nativePtr; }
+        }
+
+        /// <summary>
+        /// The reference object which was used to detect this object in the environment.
+        /// </summary>
+        public XRReferenceObject referenceObject { get; internal set; }
+    }
+}

@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4930fdfb7f25ff9f8441a8851dfb75b00e06294dd66093c133e34a18609921fc
-size 386
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// The InputSourceType defines the types of input sources.
+    /// </summary>
+    public enum InputSourceType
+    {
+        Other = 0,
+        Hand,
+        Controller,
+        Voice,
+        Head,
+        Eyes
+    }
+}

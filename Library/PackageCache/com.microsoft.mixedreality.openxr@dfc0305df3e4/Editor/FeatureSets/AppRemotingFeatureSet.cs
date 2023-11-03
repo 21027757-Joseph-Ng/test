@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:06f3bee10b30de8f293e5b1517cd1407110d9aca39b2d94d1364e252f3f221e5
-size 1342
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.OpenXR.Remoting;
+using UnityEditor;
+using UnityEditor.XR.OpenXR.Features;
+
+namespace Microsoft.MixedReality.OpenXR.Editor
+{
+    [OpenXRFeatureSet(
+        FeatureSetId = featureSetId,
+        FeatureIds = new string[]
+        {
+            AppRemotingPlugin.featureId,
+            MixedRealityFeaturePlugin.featureId,
+            HandTrackingFeaturePlugin.featureId,
+        },
+        RequiredFeatureIds = new string[]
+        {
+            AppRemotingPlugin.featureId,
+            MixedRealityFeaturePlugin.featureId,
+        },
+        DefaultFeatureIds = new string[]
+        {
+            AppRemotingPlugin.featureId,
+            MixedRealityFeaturePlugin.featureId,
+            HandTrackingFeaturePlugin.featureId,
+        },
+        UiName = "Holographic Remoting remote app",
+        // This will appear as a tooltip for the (?) icon in the loader UI.
+        Description = "Enable the Holographic Remoting remote app features.",
+        SupportedBuildTargets = new BuildTargetGroup[] { BuildTargetGroup.Standalone, BuildTargetGroup.WSA }
+    )]
+    sealed class AppRemotingFeatureSet
+    {
+        internal const string featureSetId = "com.microsoft.openxr.featureset.appremoting";
+    }
+}

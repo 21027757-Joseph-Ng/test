@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5d6ba654c2532ebff0bb3a53c55350d4d92315aec39fe1f3aa0b1ffbf8c0ecbc
-size 485
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    // Silly script that applies a rotation about the up axis on demand.
+    [AddComponentMenu("Scripts/MRTK/Examples/Rotator")]
+    public class Rotator : MonoBehaviour
+    {
+        public float angle = 45f;
+
+        public void Rotate()
+        {
+            transform.Rotate(0, angle, 0);
+        }
+    }
+}

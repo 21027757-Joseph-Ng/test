@@ -1,3 +1,69 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c6f9c3670a3b5dff286719c1aed294a923e6221c4bcf989f8395c57b713129b7
-size 2111
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Component to animate and visualize a plane that can be used with 
+    /// per pixel based clipping.
+    /// </summary>
+    [ExecuteInEditMode]
+    [AddComponentMenu("Scripts/MRTK/Core/ClippingPlane")]
+    public class ClippingPlane : ClippingPrimitive
+    {
+        /// <summary>
+        /// The property name of the clip plane data within the shader.
+        /// </summary>
+        protected int clipPlaneID;
+        private Vector4 clipPlane;
+
+        /// <inheritdoc />
+        protected override string Keyword
+        {
+            get { return "_CLIPPING_PLANE"; }
+        }
+
+        /// <inheritdoc />
+        protected override string ClippingSideProperty
+        {
+            get { return "_ClipPlaneSide"; }
+        }
+
+        /// <summary>
+        /// Renders a visual representation of the clipping primitive when selected.
+        /// </summary>
+        protected void OnDrawGizmosSelected()
+        {
+            if (enabled)
+            {
+                Gizmos.matrix = transform.localToWorldMatrix;
+                Gizmos.DrawWireCube(Vector3.zero, new Vector3(1.0f, 0.0f, 1.0f));
+                Gizmos.DrawLine(Vector3.zero, Vector3.up * -0.5f);
+            }
+        }
+
+        /// <inheritdoc />
+        protected override void Initialize()
+        {
+            base.Initialize();
+
+            clipPlaneID = Shader.PropertyToID("_ClipPlane");
+        }
+
+        protected override void BeginUpdateShaderProperties()
+        {
+            Vector3 up = transform.up;
+            clipPlane = new Vector4(up.x, up.y, up.z, Vector3.Dot(up, transform.position));
+
+            base.BeginUpdateShaderProperties();
+        }
+
+        /// <inheritdoc />
+        protected override void UpdateShaderProperties(MaterialPropertyBlock materialPropertyBlock)
+        {
+            materialPropertyBlock.SetVector(clipPlaneID, clipPlane);
+        }
+    }
+}

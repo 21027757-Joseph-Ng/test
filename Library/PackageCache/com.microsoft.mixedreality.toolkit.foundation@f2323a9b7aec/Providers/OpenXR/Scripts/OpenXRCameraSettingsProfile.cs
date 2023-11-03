@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4770aa5b03c64419d1dcde19202d222f97180eb89a7b8178cf7b51c6e2d539f0
-size 947
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.CameraSystem;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.XRSDK.OpenXR
+{
+    [CreateAssetMenu(menuName = "Mixed Reality/Toolkit/Providers/OpenXR/OpenXR Camera Settings Profile", fileName = "OpenXRCameraSettingsProfile", order = 100)]
+    [MixedRealityServiceProfile(typeof(OpenXRCameraSettings))]
+    public class OpenXRCameraSettingsProfile : BaseCameraSettingsProfile
+    {
+        [SerializeField]
+        [Tooltip("Specifies the default reprojection method for HoloLens 2.")]
+        private HolographicReprojectionMethod reprojectionMethod = HolographicReprojectionMethod.Depth;
+
+        /// <summary>
+        /// Specifies the default reprojection method for HoloLens 2.
+        /// </summary>
+        public HolographicReprojectionMethod ReprojectionMethod => reprojectionMethod;
+    }
+}

@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:596ddc383dbca9b18ae596f6a5d41816cd1f7aa57d9f3aaaf707a4040994057a
-size 788
+{
+    "name": "Unity.XR.OpenXR.Tests",
+    "rootNamespace": "",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "Unity.XR.OpenXR",
+        "Unity.XR.Management",
+        "Unity.XR.Management.Editor",
+        "Unity.XR.OpenXR.Editor",
+        "Unity.InputSystem",
+        "Unity.XR.OpenXR.Features.MockRuntime",
+        "Unity.XR.OpenXR.Features.ConformanceAutomation"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

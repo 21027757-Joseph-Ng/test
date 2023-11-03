@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0792ce9ed98fb9b1038526b184701dbe6b57ee6e6f2273500776e6622aae703c
-size 812
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.SpatialAwareness
+{
+    public interface IMixedRealitySpatialAwarenessObject
+    {
+        /// <summary>
+        /// A unique ID identifying this spatial object.
+        /// </summary>
+        int Id { get; set; }
+
+        /// <summary>
+        /// The GameObject representing this spatial object in the scene.
+        /// </summary>
+        GameObject GameObject { get; set; }
+
+        /// <summary>
+        /// The MeshRenderer of this spatial object.
+        /// </summary>
+        MeshRenderer Renderer { get; set; }
+
+        ///<summary>
+        /// Cleans up this spatial object.
+        /// </summary>
+        void CleanObject();
+    }
+}

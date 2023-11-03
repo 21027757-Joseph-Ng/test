@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:e2df33898911a8027e761128628bee5406ccb5a6ff94b84c81f07643e71650b9
-size 512
+using System.ComponentModel;
+
+namespace UnityEngine.XR.ARSubsystems
+{
+    /// <summary>
+    /// Represents the focus mode of the camera. This is deprecated.
+    /// </summary>
+    public enum CameraFocusMode
+    {
+        /// <summary>
+        /// The focus is fixed and does not change.
+        /// </summary>
+        [Description("Fixed")]
+        Fixed = 0,
+
+        /// <summary>
+        /// The focus will change automatically.
+        /// </summary>
+        [Description("Auto")]
+        Auto = 1,
+    }
+}

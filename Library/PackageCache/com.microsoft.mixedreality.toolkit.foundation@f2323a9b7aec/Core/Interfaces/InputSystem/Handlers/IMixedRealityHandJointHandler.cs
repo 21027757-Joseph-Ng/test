@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:a4ac9574fba937f042f26507a15229c5d392df9733a4878140ea48be6751387d
-size 550
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Utilities;
+using System.Collections.Generic;
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface to implement for hand joint information.
+    /// </summary>
+    public interface IMixedRealityHandJointHandler : IEventSystemHandler
+    {
+        void OnHandJointsUpdated(InputEventData<IDictionary<TrackedHandJoint, MixedRealityPose>> eventData);
+    }
+}

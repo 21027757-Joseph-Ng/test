@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bbb67eedf85ab318874838a6a2b3f4aaf4d11eacead39e8d1c5fb60d69e6a509
-size 662
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Boundary
+{
+    /// <summary>
+    /// Defines different types of boundaries that can be requested.
+    /// </summary>
+    public enum BoundaryType
+    {
+        /// <summary>
+        /// A rectangular area calculated as the largest rectangle within the tracked area, good for placing content near the user.
+        /// </summary>
+        PlayArea,
+        /// <summary>
+        /// The full tracked boundary, typically manually drawn by a user while setting up their device.
+        /// </summary>
+        TrackedArea
+    }
+}

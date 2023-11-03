@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1760a016226413fc33a023afb2b98f6e5c03295c8aad7892be136bb23b106802
-size 718
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    public interface IInteractableHandler
+    {
+        void OnStateChange(InteractableStates state, Interactable source);
+
+        /// <summary>
+        /// A voice command was called
+        /// </summary>
+        void OnVoiceCommand(InteractableStates state, Interactable source, string command, int index = 0, int length = 1);
+
+        /// <summary>
+        /// A click event happened
+        /// </summary>
+        void OnClick(InteractableStates state, Interactable source, IMixedRealityPointer pointer = null);
+    }
+}

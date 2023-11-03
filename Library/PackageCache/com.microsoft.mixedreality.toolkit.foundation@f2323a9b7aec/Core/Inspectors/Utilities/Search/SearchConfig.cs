@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f76daf9c858974f0d350b7069bafa9ac1c9af1259d508d9bdb37cd7aa1881b1b
-size 519
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Collections.Generic;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Editor.Search
+{
+    /// <summary>
+    /// Struct for configuring a search.
+    /// </summary>
+    public struct SearchConfig
+    {
+        public string SearchFieldString;
+        public bool RequireAllKeywords;
+        public bool SearchTooltips;
+        public bool SearchFieldContent;
+        public HashSet<string> Keywords;
+    }
+}

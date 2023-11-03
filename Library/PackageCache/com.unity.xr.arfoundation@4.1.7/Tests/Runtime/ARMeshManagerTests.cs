@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:639d60c2be26eee8ac771f2a901930b8f37b3d2e3c484039bc8eeb544cccd11a
-size 1302
+using System.Collections.Generic;
+using NUnit.Framework;
+using UnityEngine.TestTools;
+using UnityEngine.XR.ARSubsystems;
+using UnityEngine.XR.Management;
+
+namespace UnityEngine.XR.ARFoundation
+{
+    [TestFixture]
+    class ARMeshManagerTests
+    {
+        ARSessionOrigin m_SessionOrigin;
+        ARMeshManager m_MeshManager;
+        Transform m_Content;
+
+        [Test]
+        public void CanGetARSessionOriginAfterMakeContentAppearAt()
+        {
+            m_SessionOrigin.MakeContentAppearAt(m_Content, new Vector3(1, 2, 3));
+            Assert.NotNull(m_MeshManager.GetSessionOrigin(), $"The {nameof(ARSessionOrigin)} was null after a call to {nameof(ARSessionOrigin.MakeContentAppearAt)}");
+        }
+
+        [OneTimeSetUp]
+        public void Setup()
+        {
+            var sessionOriginGO = new GameObject("Session Origin");
+            m_SessionOrigin = sessionOriginGO.AddComponent<ARSessionOrigin>();
+
+            var meshManagerGO = new GameObject("Meshing");
+            meshManagerGO.transform.parent = sessionOriginGO.transform;
+            m_MeshManager = meshManagerGO.AddComponent<ARMeshManager>();
+
+            var contentGO = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            contentGO.name = "Content";
+            m_Content = contentGO.transform;
+        }
+    }
+}

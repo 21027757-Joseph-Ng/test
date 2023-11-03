@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:486e8729afb503a0bb3634f76b3126486afa94647f25a6115bce8c0ce8b575ff
-size 590
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Collections;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Interface to implement an event source.
+    /// </summary>
+    public interface IMixedRealityEventSource : IEqualityComparer
+    {
+        /// <summary>
+        /// The unique source id of this event source.
+        /// </summary>
+        uint SourceId { get; }
+
+        /// <summary>
+        /// The name of this event source.
+        /// </summary>
+        string SourceName { get; }
+    }
+}

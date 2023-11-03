@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1928a2121b541dd3386dcadf609f630b43507270264180e91458a577d5a81b88
-size 620
+﻿#include "pch-c.h"
+#ifndef _MSC_VER
+# include <alloca.h>
+#else
+# include <malloc.h>
+#endif
+
+
+#include "codegen/il2cpp-codegen-metadata.h"
+
+
+
+
+
+extern const CustomAttributesCacheGenerator g_UnityEngine_TilemapModule_AttributeGenerators[];
+IL2CPP_EXTERN_C const Il2CppCodeGenModule g_UnityEngine_TilemapModule_CodeGenModule;
+const Il2CppCodeGenModule g_UnityEngine_TilemapModule_CodeGenModule = 
+{
+	"UnityEngine.TilemapModule.dll",
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	0,
+	NULL,
+	NULL,
+	g_UnityEngine_TilemapModule_AttributeGenerators,
+	NULL, // module initializer,
+	NULL,
+	NULL,
+	NULL,
+};

@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:95f2db3ba30876e1ff22488b82dbe432b1bcc8166dafa939f4d757f6106fa7fa
-size 488
+{
+  "name": "Unity.XR.ARFoundation.CodeSamples.Tests",
+    "references": [
+        "Unity.XR.ARFoundation",
+        "Unity.XR.ARSubsystems",
+        "Unity.XR.Management"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ]
+}

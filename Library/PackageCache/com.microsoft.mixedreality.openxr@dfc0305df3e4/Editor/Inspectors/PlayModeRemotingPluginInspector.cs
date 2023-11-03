@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:fded980d52d54dac1076155e68ac2591d98ac51b712782e66650fbf67a213546
-size 1032
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.OpenXR.Remoting;
+using UnityEditor;
+
+namespace Microsoft.MixedReality.OpenXR.Editor
+{
+    [CustomEditor(typeof(PlayModeRemotingPlugin))]
+    internal class PlayModeRemotingPluginInspector : UnityEditor.Editor
+    {
+        private PlayModeRemotingPlugin m_playModeRemotingPlugin;
+        private UnityEditor.Editor m_remotingSettingsEditor;
+
+        private void OnEnable()
+        {
+            m_playModeRemotingPlugin = target as PlayModeRemotingPlugin;
+        }
+
+        public override void OnInspectorGUI()
+        {
+            CreateCachedEditor(m_playModeRemotingPlugin.GetOrLoadRemotingSettings(), null, ref m_remotingSettingsEditor);
+
+            if (m_remotingSettingsEditor == null)
+            {
+                return;
+            }
+
+            EditorGUI.BeginDisabledGroup(EditorApplication.isPlaying);
+            m_remotingSettingsEditor.OnInspectorGUI();
+        }
+    }
+}

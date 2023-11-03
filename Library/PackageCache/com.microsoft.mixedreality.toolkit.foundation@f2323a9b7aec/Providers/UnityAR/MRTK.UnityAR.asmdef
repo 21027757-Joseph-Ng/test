@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:711a6f7aa224be5f7f64fc6630e15c10a54c5180bb23bb70fcf24c083785d047
-size 599
+{
+    "name": "Microsoft.MixedReality.Toolkit.Providers.UnityAR",
+    "references": [
+        "Microsoft.MixedReality.Toolkit",
+        "Microsoft.MixedReality.Toolkit.Async",
+        "Unity.XR.ARFoundation",
+        "UnityEngine.SpatialTracking"
+    ],
+    "includePlatforms": [
+        "Android",
+        "Editor",
+        "iOS"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

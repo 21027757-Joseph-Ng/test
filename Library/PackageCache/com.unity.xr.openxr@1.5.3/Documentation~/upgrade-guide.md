@@ -1,3 +1,7 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:938552372828ba699ecb62747f01d1114dbd9cffb110fb1cb2fd94cef335a082
-size 237
+---
+uid: xr-plug-in-management-upgrade-guide
+---
+
+# Upgrade Guide to 0.1.2
+
+This is a new package release. In future package versions, this page will display a list of the actions you need to take to upgrade your project to that version.

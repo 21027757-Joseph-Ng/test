@@ -1,3 +1,61 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:bd2916e000d76dc7946d6017db5fa41b759bae10c199f2c5fc4df398bf302316
-size 1789
+{
+    "name": "Unity.InputSystem",
+    "references": [
+        "Unity.ugui"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": true,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [     
+         {
+            "name": "com.unity.xr.oculus",
+            "expression": "1.0.3",
+            "define": "DISABLE_BUILTIN_INPUT_SYSTEM_OCULUS"
+        },
+        {
+            "name": "com.unity.xr.googlevr",
+            "expression": "1.0.0",
+            "define": "DISABLE_BUILTIN_INPUT_SYSTEM_GOOGLEVR"
+        },
+        {
+            "name": "com.unity.xr.openvr",
+            "expression": "1.0.0",
+            "define": "DISABLE_BUILTIN_INPUT_SYSTEM_OPENVR"
+        },
+        {
+            "name": "com.unity.xr.windowsmr",
+            "expression": "2.0.3",
+            "define": "DISABLE_BUILTIN_INPUT_SYSTEM_WINDOWSMR"
+        },
+        {
+            "name": "com.unity.modules.vr",
+            "expression": "1.0.0",
+            "define": "UNITY_INPUT_SYSTEM_ENABLE_VR"
+        },
+        {
+            "name": "com.unity.modules.xr",
+            "expression": "1.0.0",
+            "define": "UNITY_INPUT_SYSTEM_ENABLE_XR"
+        },
+        {
+            "name": "com.unity.modules.physics",
+            "expression": "1.0.0",
+            "define": "UNITY_INPUT_SYSTEM_ENABLE_PHYSICS"
+        },
+        {
+            "name": "com.unity.modules.physics2d",
+            "expression": "1.0.0",
+            "define": "UNITY_INPUT_SYSTEM_ENABLE_PHYSICS2D"
+        },
+        {
+            "name": "com.unity.ugui",
+            "expression": "1.0.0",
+            "define": "UNITY_INPUT_SYSTEM_ENABLE_UI"
+        }
+    ],
+    "noEngineReferences": false
+}

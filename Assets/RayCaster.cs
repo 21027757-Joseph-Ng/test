@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:993f5676053484135c110db62f7a57c285a76b80b766cfbb175a5f5db3f9cbb7
-size 636
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class RayCaster : MonoBehaviour
+{
+    public static GameObject lastHit;
+    public GameObject testobject;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out RaycastHit hitinfo, 20f))
+        {
+            lastHit = hitinfo.transform.gameObject;
+
+            if (lastHit == testobject)
+            {
+                Debug.Log("Correct object");
+            }
+        }
+
+    }
+}

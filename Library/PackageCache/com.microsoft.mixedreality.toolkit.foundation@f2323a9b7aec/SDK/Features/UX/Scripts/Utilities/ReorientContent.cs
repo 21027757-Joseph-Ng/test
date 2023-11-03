@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9ed847dcc33abb8a62818fcf959d7dbcd50690d118bbf0e043eb29b5cdcf9ed2
-size 626
+﻿using Microsoft.MixedReality.Toolkit;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Helper script to help recenter and rocient scene content in front of the user
+    /// </summary>
+    public class ReorientContent : MonoBehaviour
+    {
+        public void AdjustContentOrientation()
+        {
+            MixedRealitySceneContent sceneContent = GameObject.Find("MixedRealitySceneContent").GetComponent<MixedRealitySceneContent>();
+            sceneContent.ReorientContent();
+        }
+    }
+}

@@ -1,3 +1,37 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5c29ea1b9498187fc2e527c4735e31e0df78505c4f094eb26f4124f95e29efde
-size 1261
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Describes an Input Event with voice dictation.
+    /// </summary>
+    public class DictationEventData : BaseInputEventData
+    {
+        /// <summary>
+        /// String result of the current dictation.
+        /// </summary>
+        public string DictationResult { get; private set; }
+
+        /// <summary>
+        /// Audio Clip of the last Dictation recording Session.
+        /// </summary>
+        public AudioClip DictationAudioClip { get; private set; }
+
+        /// <inheritdoc />
+        public DictationEventData(EventSystem eventSystem) : base(eventSystem) { }
+
+        /// <summary>
+        /// Used to initialize/reset the event and populate the data.
+        /// </summary>
+        public void Initialize(IMixedRealityInputSource inputSource, string dictationResult, AudioClip dictationAudioClip = null)
+        {
+            BaseInitialize(inputSource, MixedRealityInputAction.None);
+            DictationResult = dictationResult;
+            DictationAudioClip = dictationAudioClip;
+        }
+    }
+}

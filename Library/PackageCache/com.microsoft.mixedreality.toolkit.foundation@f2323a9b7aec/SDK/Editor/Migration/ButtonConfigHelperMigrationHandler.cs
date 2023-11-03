@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:9ae54ffc5f97080f017403b217c3c36d83f7b4b699004458b87b1c95afb15905
-size 914
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.UI;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    /// <summary>
+    /// Migration handler for migrating buttons with custom icons to the button config helper.
+    /// </summary>
+    public class ButtonConfigHelperMigrationHandler : IMigrationHandler
+    {
+        /// <inheritdoc />
+        public bool CanMigrate(GameObject gameObject)
+        {
+            ButtonConfigHelper bch = gameObject.GetComponent<ButtonConfigHelper>();
+            return bch != null && bch.EditorCheckForCustomIcon();
+        }
+
+        /// <inheritdoc />
+        public void Migrate(GameObject gameObject)
+        {
+            ButtonConfigHelper bch = gameObject.GetComponent<ButtonConfigHelper>();
+            bch.EditorUpgradeCustomIcon();
+        }
+    }
+}

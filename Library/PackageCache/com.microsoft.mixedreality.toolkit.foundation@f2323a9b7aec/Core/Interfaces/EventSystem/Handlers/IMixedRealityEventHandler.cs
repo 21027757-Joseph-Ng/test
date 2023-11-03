@@ -1,3 +1,15 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2fb2d3caf4077743bbdc3635314f51df07ba1eb12ecb1033e7875aabdfe5118f
-size 395
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit
+{
+    /// <summary>
+    /// Interface to implement generic events.
+    /// </summary>
+    public interface IMixedRealityEventHandler : IEventSystemHandler
+    {
+        void OnEventRaised(GenericBaseEventData eventData);
+    }
+}

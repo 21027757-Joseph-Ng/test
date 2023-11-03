@@ -1,3 +1,32 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2ac5e49344a70ff3f4dfdd79c25502a3da1cf89ab0f81dc9b4c8608e44e878d1
-size 1005
+﻿using NUnit.Framework;
+using UnityEngine;
+
+namespace Unity.XR.CoreUtils.EditorTests
+{
+    class QuaternionExtensionsTests
+    {
+        [Test]
+        public void ConstrainYawRotation()
+        {
+            var rotation = new Quaternion(4, 3, 2, 1);
+            var newRotation = rotation.ConstrainYaw();
+            Assert.AreEqual(new Quaternion(0, rotation.y, 0, rotation.w), newRotation);
+        }
+
+        [Test]
+        public void ConstrainYawRotationNormalized()
+        {
+            var rotation = Quaternion.Euler(4, 3, 2);
+            var newRotation = rotation.ConstrainYawNormalized();
+            Assert.IsTrue(Quaternion.Euler(0, rotation.eulerAngles.y, 0) == newRotation);
+        }
+
+        [Test]
+        public void ConstrainYawPitchRotationNormalized()
+        {
+            var rotation = Quaternion.Euler(15, 30, 60);
+            var newRotation = rotation.ConstrainYawPitchNormalized();
+            Assert.IsTrue(Quaternion.Euler(15, 30, 0) == newRotation);
+        }
+    }
+}

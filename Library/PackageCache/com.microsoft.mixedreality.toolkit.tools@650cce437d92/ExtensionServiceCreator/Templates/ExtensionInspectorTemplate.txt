@@ -1,3 +1,22 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1b482c7f70e90aa73ac8cc5f84daebb9161ee51199fd7da7480e46b28397179e
-size 490
+#if UNITY_EDITOR
+using System;
+using Microsoft.MixedReality.Toolkit.Editor;
+using Microsoft.MixedReality.Toolkit;
+using UnityEngine;
+using UnityEditor;
+
+namespace #NAMESPACE#.Editor
+{	
+	[MixedRealityServiceInspector(typeof(#INTERFACE_NAME#))]
+	public class #INSPECTOR_NAME# : BaseMixedRealityServiceInspector
+	{
+		public override void DrawInspectorGUI(object target)
+		{
+			#SERVICE_NAME# service = (#SERVICE_NAME#)target;
+			
+			// Draw inspector here
+		}
+	}
+}
+
+#endif

@@ -1,3 +1,38 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f2931e5dec41137ee0488fe8554b7e8ae3f948a8e9c9ba69672c2a34c651f7c2
-size 928
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.using System.Collections;
+
+namespace Microsoft.MixedReality.Toolkit.UI
+{
+    /// <summary>
+    /// Used to find a pivot point that is closest to the 
+    /// anchor. This ensures a natural-looking attachment where the connector line
+    /// meets the label.
+    /// </summary>
+    /// <remarks>
+    /// These double as array positions.
+    /// </remarks>
+    public enum ToolTipAttachPoint
+    {
+        #region Specific options
+
+        BottomMiddle = 0,
+        TopMiddle,
+        RightMiddle,
+        LeftMiddle,
+        BottomRightCorner,
+        BottomLeftCorner,
+        TopRightCorner,
+        TopLeftCorner,
+
+        #endregion Specific options
+
+        #region Automatic options
+
+        Center,
+        Closest,
+        ClosestMiddle,
+        ClosestCorner
+
+        #endregion Automatic options
+    }
+}

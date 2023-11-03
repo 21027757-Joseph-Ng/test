@@ -1,3 +1,12 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6233128ca3ea5e62abaeaf73ad095f8e37c179458adb534596b3744bf78cef11
-size 485
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Reflection;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.OpenXR.Editor")]
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.OpenXR.Tests")]
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.OpenXR.Internal")]
+[assembly: InternalsVisibleTo("Microsoft.MixedReality.OpenXR.Internal.Editor")]
+
+[assembly: AssemblyVersion("1.8.0")]

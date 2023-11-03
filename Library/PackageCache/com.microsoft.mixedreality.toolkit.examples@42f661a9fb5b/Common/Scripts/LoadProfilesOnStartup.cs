@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:0b3c5f248314b1884f91be887b416e38ee0a67d01aa17f0d47baa940cb840091
-size 1040
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos.EyeTracking
+{
+    /// <summary>
+    /// Automatically loads a given Mixed Reality Toolkit configuration profile when loading up the scene. 
+    /// </summary>
+    [AddComponentMenu("Scripts/MRTK/Examples/LoadProfilesOnStartup")]
+    public class LoadProfilesOnStartup : MonoBehaviour
+    {
+        [Tooltip("Mixed Reality Toolkit profile to load when starting up this scene.")]
+        [SerializeField]
+        private MixedRealityToolkitConfigurationProfile configProfile = null;
+
+        private void Update()
+        {
+            if ((configProfile != null) && (MixedRealityToolkit.Instance != null))
+            {
+                MixedRealityToolkit.Instance.ActiveProfile = configProfile;
+                Debug.Log($"Loading new MRTK configuration profile: {configProfile.name}");
+                configProfile = null;
+            }
+        }
+    }
+}

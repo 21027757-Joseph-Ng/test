@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:ba90c3e0a520252a4c61c748064b9d96dc7b4a9e041e43f946211264f5e3e9a4
-size 432
+namespace UnityEngine.XR.ARFoundation
+{
+    /// <summary>
+    /// An attribute that can be placed on <c>MonoBehaviour</c> fields to
+    /// generate the correct UI for the
+    /// [`PlaneDetectionMode`](https://docs.unity3d.com/Packages/com.unity.xr.arsubsystems@4.1/api/UnityEngine.XR.ARSubsystems.PlaneDetectionMode.html)
+    /// enum.
+    /// </summary>
+    public class PlaneDetectionModeMaskAttribute : PropertyAttribute { }
+}

@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3e6e8c5242b44a6598fce1bcc80ff8ade941464f88fe316c87ef792769555345
-size 929
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.Input;
+using UnityEngine;
+using UnityEngine.Serialization;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    [AddComponentMenu("Scripts/MRTK/Examples/HandInteractionTouchRotate")]
+    public class HandInteractionTouchRotate : HandInteractionTouch, IMixedRealityTouchHandler
+    {
+        [SerializeField]
+        [FormerlySerializedAs("TargetObjectTransform")]
+        private Transform targetObjectTransform = null;
+
+        [SerializeField]
+        private float rotateSpeed = 300.0f;
+
+        void IMixedRealityTouchHandler.OnTouchUpdated(HandTrackingInputEventData eventData)
+        {
+            if (targetObjectTransform != null)
+            {
+                targetObjectTransform.Rotate(Vector3.up * (rotateSpeed * Time.deltaTime));
+            }
+        }
+    }
+}

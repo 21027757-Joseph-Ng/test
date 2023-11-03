@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5afeab43a4dc6cf5ffb267ea9c7f068fc70167d054c4eaf67a4249a7b90bb802
-size 522
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Physics
+{
+    /// <summary>
+    /// Attribute used to make an <see cref="int"/> field render a dropdown generated from the current layers defined in the Tag Manager.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Field)]
+    public sealed class PhysicsLayerAttribute : PropertyAttribute
+    {
+        public PhysicsLayerAttribute() { }
+    }
+}

@@ -1,3 +1,33 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:324920906f32e96f321b61ce6317a71da1ce79c85292821d98593ce510791be7
-size 1170
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Collections.Generic;
+using UnityEngine.XR;
+
+namespace Microsoft.MixedReality.OpenXR
+{
+    internal class MeshSubsystemController : SubsystemController
+    {
+        // Must be the same as meshings.id in UnitySubsystemsManifest.json
+        // and the same for RegisterLifecycleProvider in InputProvider.cpp
+        public const string Id = "OpenXR Mesh Extension";
+
+        private readonly NativeLibToken nativeLibToken;
+        private static List<XRMeshSubsystemDescriptor> s_MeshDescriptors = new List<XRMeshSubsystemDescriptor>();
+
+        public MeshSubsystemController(NativeLibToken token, IOpenXRContext context) : base(context)
+        {
+            nativeLibToken = token;
+        }
+
+        public override void OnSubsystemCreate(ISubsystemPlugin plugin)
+        {
+            plugin.CreateSubsystem<XRMeshSubsystemDescriptor, XRMeshSubsystem>(s_MeshDescriptors, Id);
+        }
+
+        public override void OnSubsystemDestroy(ISubsystemPlugin plugin)
+        {
+            plugin.DestroySubsystem<XRMeshSubsystem>();
+        }
+    }
+}

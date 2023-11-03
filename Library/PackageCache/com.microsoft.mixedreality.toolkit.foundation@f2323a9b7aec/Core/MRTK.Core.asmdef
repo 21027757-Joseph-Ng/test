@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:590dbd0a0e29b022b601ef0249e78bd9d97bb44c4c94eada4cc0c675a0f584c8
-size 820
+{
+    "name": "Microsoft.MixedReality.Toolkit",
+    "references": [
+        "Microsoft.MixedReality.Toolkit.Async",
+        "Microsoft.MixedReality.Toolkit.Editor.Utilities",
+        "Unity.XR.Management"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [
+        {
+            "name": "com.microsoft.windows.mixedreality.dotnetwinrt",
+            "expression": "",
+            "define": "DOTNETWINRT_PRESENT"
+        },
+        {
+            "name": "com.unity.xr.management",
+            "expression": "",
+            "define": "XR_MANAGEMENT_ENABLED"
+        }
+    ],
+    "noEngineReferences": false
+}

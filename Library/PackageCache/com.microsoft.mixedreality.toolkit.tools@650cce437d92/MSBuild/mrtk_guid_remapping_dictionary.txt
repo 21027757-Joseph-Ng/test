@@ -1,3 +1,1 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c8dfe1b58cfd333e2ca818a78d708863cf7d56e074e901436b96182982ab1dec
-size 139
+This file is intentionally left blank. It will be filled in during the build pipeline. It exists to maintain a stable meta file and GUID.

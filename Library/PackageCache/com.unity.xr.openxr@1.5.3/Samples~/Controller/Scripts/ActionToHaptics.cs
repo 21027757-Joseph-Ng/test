@@ -1,3 +1,31 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:b42243fc3e856f7c62f683d39904cb72dcd87a092d5ee3c61f602642a228e544
-size 932
+using UnityEngine.InputSystem;
+using UnityEngine.XR.OpenXR.Input;
+
+namespace UnityEngine.XR.OpenXR.Samples.ControllerSample
+{
+    public class ActionToHaptics : MonoBehaviour
+    {
+        public InputActionReference action;
+        public InputActionReference hapticAction;
+        public float _amplitude = 1.0f;
+        public float _duration = 0.1f;
+        public float _frequency = 0.0f;
+
+        private void Start()
+        {
+            if (action == null || hapticAction == null)
+                return;
+
+            action.action.Enable();
+            hapticAction.action.Enable();
+            action.action.performed += (ctx) =>
+            {
+                var control = action.action.activeControl;
+                if (null == control)
+                    return;
+
+                OpenXRInput.SendHapticImpulse(hapticAction.action, _amplitude, _frequency, _duration, control.device);
+            };
+        }
+    }
+}

@@ -1,3 +1,43 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:1a020e0aecd04e138ba848d4c3c952baea1d36035081f6f5d072cc27af96b5c2
-size 1598
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.﻿
+
+using Microsoft.MixedReality.Toolkit.Teleport;
+using UnityEditor;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Editor
+{
+    [MixedRealityServiceInspector(typeof(IMixedRealityTeleportSystem))]
+    public class TeleportSystemInspector : BaseMixedRealityServiceInspector
+    {
+        private static readonly Color enabledColor = GUI.backgroundColor;
+        private static readonly Color disabledColor = Color.Lerp(enabledColor, Color.clear, 0.5f);
+
+        public override void DrawInspectorGUI(object target)
+        {
+            IMixedRealityTeleportSystem teleport = (IMixedRealityTeleportSystem)target;
+
+            EditorGUILayout.LabelField("Event Listeners", EditorStyles.boldLabel);
+
+            if (!Application.isPlaying)
+            {
+                EditorGUILayout.HelpBox("Event listeners will be populated once you enter play mode.", MessageType.Info);
+                return;
+            }
+
+            if (teleport.EventListeners.Count == 0)
+            {
+                EditorGUILayout.LabelField("(None found)", EditorStyles.miniLabel);
+            }
+            else
+            {
+                EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+                foreach (GameObject listener in teleport.EventListeners)
+                {
+                    EditorGUILayout.ObjectField(listener.name, listener, typeof(GameObject), true);
+                }
+                EditorGUILayout.EndVertical();
+            }
+        }
+    }
+}

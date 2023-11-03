@@ -1,3 +1,17 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:6c32c3844065606ee95c74cf74401aa11f7606d776146132a2f68b010929038f
-size 550
+# About Subsytem Registration
+
+Provides internal API for subsystems to register themselves with the Subsystem Manager within Unity. This will allow the Subsystem Manager to keep track of and provide lifecycle management for the registered subsystem.
+
+# How to use this package
+This package is a dependency for any other packages that defines new types of subsystems.
+
+# Requirements
+
+This version of `com.unity.subsystemregistration` is compatible with the following versions of the Unity Editor:
+
+* 2018.3 and later (required)
+
+
+
+
+

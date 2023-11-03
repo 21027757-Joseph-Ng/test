@@ -1,3 +1,24 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:7f70ec34faaf9ef06fd849574429ce92418e3dc230efc0335afbc08db67970dc
-size 926
+#if UNITY_EDITOR
+using UnityEngine.InputSystem.LowLevel;
+
+namespace UnityEngine.InputSystem
+{
+    /// <summary>
+    /// Internal interface that allows monitoring the system for problems.
+    /// </summary>
+    /// <remarks>
+    /// This is primarily meant to make it easier to diagnose problems in the event stream.
+    ///
+    /// Note that while the diagnostics hook is only enabled in the editor, when using
+    /// the input debugger connected to a player it will also diagnose problems in the
+    /// event stream of the player.
+    /// </remarks>
+    internal interface IInputDiagnostics
+    {
+        void OnCannotFindDeviceForEvent(InputEventPtr eventPtr);
+        void OnEventTimestampOutdated(InputEventPtr eventPtr, InputDevice device);
+        void OnEventFormatMismatch(InputEventPtr eventPtr, InputDevice device);
+        void OnEventForDisabledDevice(InputEventPtr eventPtr, InputDevice device);
+    }
+}
+#endif

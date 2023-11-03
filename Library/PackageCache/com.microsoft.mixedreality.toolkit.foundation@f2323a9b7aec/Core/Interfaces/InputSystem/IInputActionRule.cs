@@ -1,3 +1,28 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:d765b0e5f8992083af0512e1db3945d20cc104dc11a1e55685612fb045776d65
-size 811
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+
+namespace Microsoft.MixedReality.Toolkit.Input
+{
+    /// <summary>
+    /// Interface for defining Input Action Rules
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public interface IInputActionRule<T>
+    {
+        /// <summary>
+        /// The Base Action that the rule will listen to.
+        /// </summary>
+        MixedRealityInputAction BaseAction { get; }
+
+        /// <summary>
+        /// The Action to raise if the criteria is met.
+        /// </summary>
+        MixedRealityInputAction RuleAction { get; }
+
+        /// <summary>
+        /// The criteria to check against for determining if the action should be raised.
+        /// </summary>
+        T Criteria { get; }
+    }
+}

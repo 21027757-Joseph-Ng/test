@@ -1,3 +1,29 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3c15be5f84e999e4c825e5dbe464f2bf6a29fa7fe77bb2bf5b38b0447e06af65
-size 822
+using UnityEngine;
+
+namespace Unity.XR.CoreUtils.Tests
+{
+    static class TestData
+    {
+        public static Vector2[] RandomVector2Array(int length, float range = 0.0001f)
+        {
+            var array = new Vector2[length];
+            for (var i = 0; i < array.Length; i++)
+            {
+                array[i] = new Vector2(Random.Range(-range, range), Random.Range(-range, range));
+            }
+
+            return array;
+        }
+        
+        public static Vector3[] RandomXZVector3Array(int length, float range = 0.0001f)
+        {
+            var array = new Vector3[length];
+            for (var i = 0; i < array.Length; i++)
+            {
+                array[i] = new Vector3(Random.Range(-range, range), 0f, Random.Range(-range, range));
+            }
+
+            return array;
+        }
+    }
+}

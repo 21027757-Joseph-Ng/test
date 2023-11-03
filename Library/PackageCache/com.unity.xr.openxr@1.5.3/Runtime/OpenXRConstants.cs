@@ -1,3 +1,25 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:473f1fa98b6bc06ee683428b326660e1b33c962b5ffa629f985b5209725744ac
-size 794
+﻿namespace UnityEngine.XR.OpenXR
+{
+    /// <summary>
+    /// Static constants
+    /// </summary>
+    public static class Constants
+    {
+        /// <summary>
+        /// Key used to store and retrieve custom configuration settings from EditorBuildSettings.
+        /// </summary>
+        public const string k_SettingsKey = "com.unity.xr.openxr.settings4";
+
+#if UNITY_EDITOR
+        /// <summary>
+        /// Root URL for the OpenXR documentation
+        /// </summary>
+        public const string k_DocumentationManualURL = "https://docs.unity3d.com/Packages/com.unity.xr.openxr@1.0/manual/";
+
+        /// <summary>
+        /// Main documentation URL for OpenXR
+        /// </summary>
+        public const string k_DocumentationURL = k_DocumentationManualURL + "index.html";
+#endif
+    }
+}

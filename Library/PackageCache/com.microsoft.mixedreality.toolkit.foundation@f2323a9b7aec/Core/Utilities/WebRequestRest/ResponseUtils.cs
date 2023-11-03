@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:63e191f7557cc66cf9cc47a0a1e047c3b2c909825589d9a94aea1c4babead1bc
-size 483
+﻿using System;
+using System.Threading.Tasks;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities
+{
+    public struct ResponseUtils
+    {
+        /// <summary>
+        /// Static Func for create convert Task
+        /// </summary>
+        public static Func<byte[], Task<string>> BytesToString = async (byteArray) => await Task.Run(() =>
+             byteArray != null ? System.Text.Encoding.Default.GetString(byteArray) : string.Empty).ConfigureAwait(false);
+    }
+}

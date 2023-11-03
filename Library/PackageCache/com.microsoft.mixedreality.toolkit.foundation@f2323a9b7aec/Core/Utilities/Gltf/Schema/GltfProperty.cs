@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5865c69f9de3fc4190e021c07d7d1ad8232d3df4e461b5a2eac38318e2bc979c
-size 739
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System.Collections.Generic;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    public class GltfProperty
+    {
+        /// <summary>
+        /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/extension.schema.json
+        /// </summary>
+        public readonly Dictionary<string, string> Extensions = new Dictionary<string, string>();
+
+        /// <summary>
+        /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/extras.schema.json
+        /// </summary>
+        public readonly Dictionary<string, string> Extras = new Dictionary<string, string>();
+    }
+}

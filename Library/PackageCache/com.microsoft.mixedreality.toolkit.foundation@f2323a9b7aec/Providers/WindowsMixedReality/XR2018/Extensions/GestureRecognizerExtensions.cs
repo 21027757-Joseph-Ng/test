@@ -1,3 +1,27 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:8af00eba922fcce0fbd78a505d41547e9dc74b8e432f8da87093012be5afc0ae
-size 763
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+namespace Microsoft.MixedReality.Toolkit.Windows.Input
+{
+#if UNITY_WSA
+    public static class GestureRecognizerExtensions
+    {
+        public static void UpdateAndResetGestures(this UnityEngine.XR.WSA.Input.GestureRecognizer recognizer, UnityEngine.XR.WSA.Input.GestureSettings gestureSettings)
+        {
+            bool reset = recognizer.IsCapturingGestures();
+
+            if (reset)
+            {
+                recognizer.CancelGestures();
+            }
+
+            recognizer.SetRecognizableGestures(gestureSettings);
+
+            if (reset)
+            {
+                recognizer.StartCapturingGestures();
+            }
+        }
+    }
+#endif
+}

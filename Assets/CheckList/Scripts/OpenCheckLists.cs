@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:5f20c2236bf758e8831ba801103fdb88920ca0dc9bffc3368304957b698e390c
-size 629
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.OpenXR.BasicSample
+
+{
+    public class OpenCheckLists : MonoBehaviour
+    {
+        /// <summary>
+        /// Opens the All Todo Lists
+        /// </summary>
+        public void OpenLists(GameObject checklistMenu)
+        {
+            checklistMenu.SetActive(true);
+        }
+
+        /// <summary>
+        /// Closes the All Todo Lists
+        /// </summary>
+        public void CloseLists(GameObject checklistMenu)
+        {
+            checklistMenu.SetActive(false);
+        }
+    }
+}

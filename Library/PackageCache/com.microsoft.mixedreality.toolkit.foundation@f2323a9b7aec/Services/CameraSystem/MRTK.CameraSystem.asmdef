@@ -1,3 +1,14 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:90936ccef28bc900747d7542bc450b2a554eadee803fb2f54cd34b2843129fb0
-size 395
+{
+    "name": "Microsoft.MixedReality.Toolkit.Services.CameraSystem",
+    "references": [
+        "Microsoft.MixedReality.Toolkit"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}

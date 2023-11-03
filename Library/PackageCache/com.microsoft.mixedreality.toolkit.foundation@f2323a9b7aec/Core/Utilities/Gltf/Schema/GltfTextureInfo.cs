@@ -1,3 +1,26 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:4262f7726e693022a628e6cea7582f3c25d0a0241190f321a0fbdb285165e775
-size 834
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using System;
+
+namespace Microsoft.MixedReality.Toolkit.Utilities.Gltf.Schema
+{
+    /// <summary>
+    /// https://github.com/KhronosGroup/glTF/blob/master/specification/2.0/schema/textureInfo.schema.json
+    /// </summary>
+    [Serializable]
+    public class GltfTextureInfo : GltfProperty
+    {
+        /// <summary>
+        /// The index of the texture.
+        /// </summary>
+        public int index = -1;
+
+        /// <summary>
+        /// This integer value is used to construct a string in the format
+        /// TEXCOORD_&lt;set index&gt; which is a reference to a key in
+        /// mesh.primitives.attributes (e.g. A value of 0 corresponds to TEXCOORD_0).
+        /// </summary>
+        public int textCoord = 0;
+    }
+}

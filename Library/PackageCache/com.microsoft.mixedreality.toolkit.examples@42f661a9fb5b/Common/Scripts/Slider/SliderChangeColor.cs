@@ -1,3 +1,42 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f193d7bad3e8e63e02e5b523899ced7da7a0ea554c65f78897102c62c8dc52f5
-size 1687
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using Microsoft.MixedReality.Toolkit.UI;
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.Examples.Demos
+{
+    [AddComponentMenu("Scripts/MRTK/Examples/SliderChangeColor")]
+    public class SliderChangeColor : MonoBehaviour
+    {
+        [SerializeField]
+        private Renderer TargetRenderer;
+
+        public void OnSliderUpdatedRed(SliderEventData eventData)
+        {
+            TargetRenderer = GetComponentInChildren<Renderer>();
+            if ((TargetRenderer != null) && (TargetRenderer.material != null))
+            {
+                TargetRenderer.material.color = new Color(eventData.NewValue, TargetRenderer.sharedMaterial.color.g, TargetRenderer.sharedMaterial.color.b);
+            }
+        }
+
+        public void OnSliderUpdatedGreen(SliderEventData eventData)
+        {
+            TargetRenderer = GetComponentInChildren<Renderer>();
+            if ((TargetRenderer != null) && (TargetRenderer.material != null))
+            {
+                TargetRenderer.material.color = new Color(TargetRenderer.sharedMaterial.color.r, eventData.NewValue, TargetRenderer.sharedMaterial.color.b);
+            }
+        }
+
+        public void OnSliderUpdateBlue(SliderEventData eventData)
+        {
+            TargetRenderer = GetComponentInChildren<Renderer>();
+            if ((TargetRenderer != null) && (TargetRenderer.material != null))
+            {
+                TargetRenderer.material.color = new Color(TargetRenderer.sharedMaterial.color.r, TargetRenderer.sharedMaterial.color.g, eventData.NewValue);
+            }
+        }
+    }
+}

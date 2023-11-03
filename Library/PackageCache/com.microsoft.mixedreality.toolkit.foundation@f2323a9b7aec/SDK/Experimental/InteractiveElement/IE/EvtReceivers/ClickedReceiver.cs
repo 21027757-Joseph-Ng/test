@@ -1,3 +1,30 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2e699a7bd380c66301f8ea2ed85506e81a426f8257f6f69f18ce8149598a40cb
-size 1027
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License
+
+using UnityEngine.Events;
+using UnityEngine.EventSystems;
+
+namespace Microsoft.MixedReality.Toolkit.Experimental.InteractiveElement
+{
+    /// <summary>
+    /// The internal event receiver for the event defined in the Clicked Interaction Event Configuration.
+    /// </summary>
+    public class ClickedReceiver : BaseEventReceiver
+    {
+        public ClickedReceiver(BaseInteractionEventConfiguration eventConfiguration) : base(eventConfiguration) { }
+
+        private ClickedEvents ClickedEventConfig => EventConfiguration as ClickedEvents;
+
+        private UnityEvent onClicked => ClickedEventConfig.OnClicked;
+        /// <inheritdoc />
+        public override void OnUpdate(StateManager stateManager, BaseEventData eventData)
+        {
+            bool clicked = stateManager.GetState(StateName).Value > 0;
+
+            if (clicked)
+            {
+                onClicked.Invoke();
+            }
+        }
+    }
+}

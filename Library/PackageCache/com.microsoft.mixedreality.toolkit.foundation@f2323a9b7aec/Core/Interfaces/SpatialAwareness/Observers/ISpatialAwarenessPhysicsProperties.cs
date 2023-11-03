@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:f817e04d7f6334308ac4083897ebe281f791e0eda3a854309646a392fae31e23
-size 728
+﻿// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT License.
+
+using UnityEngine;
+
+namespace Microsoft.MixedReality.Toolkit.SpatialAwareness
+{
+    /// <summary>
+    /// The interface for defining an <see cref="ISpatialAwarenessPhysicsProperties"/> which provides physical materials
+    /// </summary>
+    public interface ISpatialAwarenessPhysicsProperties
+    {
+        /// <summary>
+        /// Gets or sets the <see href="https://docs.unity3d.com/ScriptReference/PhysicMaterial.html">PhysicMaterial</see> to be used when displaying <see href="https://docs.unity3d.com/ScriptReference/Mesh.html">Mesh</see>es.
+        /// </summary>
+        PhysicMaterial PhysicsMaterial { get; set; }
+    }
+}
