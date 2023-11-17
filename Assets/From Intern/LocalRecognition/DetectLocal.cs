@@ -10,11 +10,12 @@ using Unity.Barracuda;
 using System.Collections;
 using UnityEngine.Rendering;
 using UnityEngine.Events;
+using TMPro;
 
 public class DetectLocal : MonoBehaviour
 {
-    const string INPUT_NAME = "data";
-    const string OUTPUT_NAME = "mobilenetv20_output_flatten0_reshape0";
+    public string INPUT_NAME;
+    public string OUTPUT_NAME;
     UnityAction<byte[]> callback;
     public RawImage rawImage;
     const int IMAGE_SIZE = 224;
@@ -22,8 +23,9 @@ public class DetectLocal : MonoBehaviour
     Vector2 scale = new Vector2(1, 1);
     string[] labels;
     public TextAsset labelAsset;
+    public GameObject text;
 
-    public string labelMappingFilePath = "Labels.json"; // Adjust the path as needed
+    public string labelMappingFilePath = "labels_map"; // Adjust the path as needed
     public NNModel squeezeNetModel; // Assign your SqueezeNet ONNX model in the Unity Inspector
 
     private List<string> _labels = new List<string>();
@@ -81,31 +83,31 @@ public class DetectLocal : MonoBehaviour
         //InitVideo(1280, 720, 30);
         //ToggleGes("true");
 
-        var model = ModelLoader.Load(squeezeNetModel);
-        worker = WorkerFactory.CreateWorker(WorkerFactory.Type.ComputePrecompiled, model);
-        LoadLabels();
-        //model = ModelLoader.Load(squeezeNetModel);
+        //var model = ModelLoader.Load(squeezeNetModel);
         //worker = WorkerFactory.CreateWorker(WorkerFactory.Type.ComputePrecompiled, model);
+        //LoadLabels();
+        model = ModelLoader.Load(squeezeNetModel);
+        worker = WorkerFactory.CreateWorker(WorkerFactory.Type.ComputePrecompiled, model);
 
-        //TextAsset labelMappingAsset = Resources.Load<TextAsset>(labelMappingFilePath);
+        TextAsset labelMappingAsset = Resources.Load<TextAsset>(labelMappingFilePath);
 
-        //using (var streamReader = new StringReader(labelMappingAsset.text))
-        //{
-        //    Debug.Log(3);
-        //    string line = "";
-        //    char[] charToTrim = { '\"', ' ' };
-        //    Debug.Log(4);
-        //    while (streamReader.Peek() >= 0)
-        //    {
-        //        line = streamReader.ReadLine();
-        //        line.Trim(charToTrim);
-        //        var indexAndLabel = line.Split(':');
-        //        if (indexAndLabel.Count() == 2)
-        //        {
-        //            _labels.Add(indexAndLabel[1]);
-        //        }
-        //    }
-        //}
+        using (var streamReader = new StringReader(labelMappingAsset.text))
+        {
+            Debug.Log(3);
+            string line = "";
+            char[] charToTrim = { '\"', ' ' };
+            Debug.Log(4);
+            while (streamReader.Peek() >= 0)
+            {
+                line = streamReader.ReadLine();
+                line.Trim(charToTrim);
+                var indexAndLabel = line.Split(':');
+                if (indexAndLabel.Count() == 2)
+                {
+                    _labels.Add(indexAndLabel[1]);
+                }
+            }
+        }
     }
 
     void OnDestroy()
@@ -156,98 +158,160 @@ public class DetectLocal : MonoBehaviour
         currentActivity.Call("startActivityForResult", intentObject, REQUEST_CODE_CAPTURE_PHOTO);
     }
 
-    void LoadLabels()
-    {
-        //get only items in quotes
-        var stringArray = labelAsset.text.Split('"').Where((item, index) => index % 2 != 0);
-        //get every other item
-        labels = stringArray.Where((x, i) => i % 2 != 0).ToArray();
-    }
+    //void LoadLabels()
+    //{
+    //    //get only items in quotes
+    //    var stringArray = labelAsset.text.Split('"').Where((item, index) => index % 2 != 0);
+    //    //get every other item
+    //    labels = stringArray.Where((x, i) => i % 2 != 0).ToArray();
+    //}
 
-    public void ScaleAndCropImage(byte[] imageBytes, int width, int height, int desiredSize, UnityAction<byte[]> callback)
-    {
-        string imagePath = "temporary_image.png"; // Adjust the file path and extension
-        File.WriteAllBytes(imagePath, imageBytes);
+    //public static byte[] ScaleAndCropImage(byte[] imageData, int originalWidth, int originalHeight, int desiredSize)
+    //{
+    //    Debug.Log(1);
+    //    Texture2D originalTexture = new Texture2D(originalWidth, originalHeight);
+    //    Debug.Log(2);
+    //    originalTexture.LoadImage(imageData); // Load the image data into a Texture2D.
 
-        Texture2D texture = new Texture2D(2, 2); // Create a new Texture2D
-        texture.LoadImage(imageBytes); // Load the image data into the texture
+    //    Debug.Log(3);
+    //    float aspectRatio = (float)originalWidth / originalHeight;
+    //    Debug.Log(4);
+    //    int newWidth, newHeight;
 
-        WebCamTexture webcamTexture = new WebCamTexture();
-        webcamTexture.deviceName = "desired_device_name"; // Set the desired camera device
-        webcamTexture.Play();
+    //    Debug.Log(5);
+    //    if (originalWidth > originalHeight)
+    //    {
+    //        Debug.Log(6);
+    //        newWidth = desiredSize;
+    //        Debug.Log(7);
+    //        newHeight = Mathf.RoundToInt(desiredSize / aspectRatio);
+    //    }
+    //    else
+    //    {
+    //        Debug.Log(8);
+    //        newWidth = Mathf.RoundToInt(desiredSize * aspectRatio);
+    //        Debug.Log(9);
+    //        newHeight = desiredSize;
+    //    }
 
+    //    Debug.Log(10);
+    //    Texture2D scaledTexture = ScaleTexture(originalTexture, newWidth, newHeight);
 
-        this.callback = callback;
+    //    // Now, you can save the scaled and cropped image as a byte array or in your desired format.
+    //    Debug.Log(11);
+    //    byte[] processedImageData = scaledTexture.EncodeToPNG();
+    //    Debug.Log(12);
+    //    return processedImageData;
+    //}
 
-        if (renderTexture == null)
-        {
-            renderTexture = new RenderTexture(desiredSize, desiredSize, 0, RenderTextureFormat.ARGB32);
-        }
+    //private static Texture2D ScaleTexture(Texture2D source, int newWidth, int newHeight)
+    //{
+    //    RenderTexture rt = RenderTexture.GetTemporary(newWidth, newHeight);
+    //    RenderTexture.active = rt;
 
-        Texture2D inputTexture = new Texture2D(width, height);
-        inputTexture.LoadImage(imageBytes);  // Load the image from the byte array.
+    //    Texture2D scaledTexture = new Texture2D(newWidth, newHeight);
+    //    Graphics.Blit(source, rt);
+    //    scaledTexture.ReadPixels(new Rect(0, 0, newWidth, newHeight), 0, 0);
+    //    scaledTexture.Apply();
 
-        scale.x = (float)webcamTexture.height / (float)webcamTexture.width;
-        offset.x = (1 - scale.x) / 2f;
-        Graphics.Blit(webcamTexture, renderTexture, scale, offset);
-        AsyncGPUReadback.Request(renderTexture, 0, TextureFormat.RGB24, OnCompleteReadback);
-    }
+    //    RenderTexture.active = null;
+    //    RenderTexture.ReleaseTemporary(rt);
 
-    void OnCompleteReadback(AsyncGPUReadbackRequest request)
-    {
+    //    return scaledTexture;
+    //}
 
-        callback.Invoke(request.GetData<byte>().ToArray());
-    }
+    //void RunModel(byte[] pixels)
+    //{
+    //    Texture2D tex = new Texture2D(1, 1);
+    //    tex.LoadImage(pixels); // Load image from byte array
+    //    Texture2D inputTex = LoadImage(tex.EncodeToPNG());
+    //    Texture2D resizedAndCroppedTex = ResizeAndCrop(inputTex);
+    //    byte[] byteArray = resizedAndCroppedTex.EncodeToPNG();
 
-    void RunModel(byte[] pixels)
-    {
-        StartCoroutine(RunModelRoutine(pixels));
-    }
+    //    Debug.Log(13);
+    //    StartCoroutine(RunModelRoutine(byteArray));
+    //}
 
-    IEnumerator RunModelRoutine(byte[] pixels)
-    {
+    //IEnumerator RunModelRoutine(byte[] pixels)
+    //{
+    //    Debug.Log(14);
+    //    Tensor tensor = TransformInput(pixels);
 
-        Tensor tensor = TransformInput(pixels);
+    //    Debug.Log(15);
+    //    var inputs = new Dictionary<string, Tensor> {
+    //        { INPUT_NAME, tensor }
+    //    };
 
-        var inputs = new Dictionary<string, Tensor> {
-            { INPUT_NAME, tensor }
-        };
+    //    Debug.Log(16);
+    //    worker.Execute(inputs);
+    //    Debug.Log(17);
+    //    Tensor outputTensor = worker.PeekOutput(OUTPUT_NAME);
 
-        worker.Execute(inputs);
-        Tensor outputTensor = worker.PeekOutput(OUTPUT_NAME);
+    //    // Get the top N predictions
+    //    Debug.Log(18);
+    //    int topN = 3;
+    //    Debug.Log(19);
+    //    List<int> topIndices = GetTopIndices(outputTensor, topN);
 
-        //get largest output
-        List<float> temp = outputTensor.ToReadOnlyArray().ToList();
-        float max = temp.Max();
-        int index = temp.IndexOf(max);
+    //    // Display the top N labels and their percentages
+    //    Debug.Log(20);
+    //    string resultText = "Top " + topN + " Predictions:\n";
+    //    Debug.Log(21);
+    //    for (int i = 0; i < topN; i++)
+    //    {
+    //        int index = topIndices[i];
+    //        float probability = outputTensor[index];
+    //        string label = labels[index];
+    //        resultText += $"{label}: {probability:P2}\n";
+    //    }
 
-        //set UI text
-        Debug.Log(labels[index]);
+    //    // Set UI text
+    //    Debug.Log(22);
+    //    text.GetComponent<TMP_Text>().text = resultText;
+    //    Debug.Log("new: " + resultText);
 
-        //dispose tensors
-        tensor.Dispose();
-        outputTensor.Dispose();
-        yield return null;
-    }
+    //    // Dispose tensors
+    //    tensor.Dispose();
+    //    Debug.Log(23);
+    //    outputTensor.Dispose();
+    //    Debug.Log(24);
+    //    yield return null;
+    //}
 
-    //transform from 0-255 to -1 to 1
-	Tensor TransformInput(byte[] pixels){
-		float[] transformedPixels = new float[pixels.Length];
+    //List<int> GetTopIndices(Tensor tensor, int topN)
+    //{
+    //    List<float> temp = tensor.ToReadOnlyArray().ToList();
+    //    List<int> topIndices = temp.Select((value, index) => new { Value = value, Index = index })
+    //        .OrderByDescending(item => item.Value)
+    //        .Take(topN)
+    //        .Select(item => item.Index)
+    //        .ToList();
+    //    return topIndices;
+    //}
 
-		for (int i = 0; i < pixels.Length; i++){
-			transformedPixels[i] = (pixels[i] - 127f) / 128f;
-		}
-		return new Tensor(1, IMAGE_SIZE, IMAGE_SIZE, 3, transformedPixels);
-	}
+    //Tensor TransformInput(byte[] pixels)
+    //{
+    //    Debug.Log(25);
+    //    float[] transformedPixels = new float[pixels.Length];
+    //    Debug.Log(26);
+    //    for (int i = 0; i < pixels.Length; i++)
+    //    {
+
+    //        transformedPixels[i] = (pixels[i] - 127f) / 128f;
+    //    }
+    //    Debug.Log(28);
+    //    return new Tensor(1, IMAGE_SIZE, IMAGE_SIZE, 3, transformedPixels, "test");
+    //}
 
     public async void DetectObjects(string photoData)
     {
         Debug.Log("detect local");
         byte[] photoBytes = System.Convert.FromBase64String(photoData);
 
-        ScaleAndCropImage(photoBytes, 2, 2, IMAGE_SIZE, RunModel);
-        //ComputeBuffer computeBuffer = PreprocessImage(photoBytes);
-        //Postprocess(computeBuffer, 3);
+        //RunModel(ScaleAndCropImage(photoBytes, 2, 2, IMAGE_SIZE));
+        //RunModel(photoBytes);
+        ComputeBuffer computeBuffer = PreprocessImage(photoBytes);
+        Postprocess(computeBuffer, 3);
     }
 
     public void onClickButton()
@@ -347,12 +411,14 @@ public class DetectLocal : MonoBehaviour
         // Sort the list by percentage in descending order
         sortedItems.Sort((a, b) => -((float)a["percentage"]).CompareTo((float)b["percentage"]));
 
+        string results = "";
         // Debug log the sorted items
         foreach (var item in sortedItems)
         {
             Debug.Log("Percentage: " + item["percentage"] + ", Item: " + item["item"]);
+            results += "Percentage: " + item["percentage"] + ", Item: " + item["item"];
         }
-
+        text.GetComponent<TMP_Text>().text = results;
         // Return the sorted items
         return sortedItems;
     }
