@@ -43,7 +43,7 @@ namespace Microsoft.MixedReality.OpenXR.BasicSample
             // string url = ApiKeyService.customVisionPredictionApi;
 
             //string url = "https://harpobj-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/658a002d-71d2-4bae-b812-cb39b9280f3d/detect/iterations/Iteration4/image";
-            string url = "https://harpobj-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/658a002d-71d2-4bae-b812-cb39b9280f3d/detect/iterations/Iteration25/image";
+            string url = "https://harpobj-prediction.cognitiveservices.azure.com/customvision/v3.0/Prediction/658a002d-71d2-4bae-b812-cb39b9280f3d/detect/iterations/Iteration29/image";
 
             HttpResponseMessage response;
 
